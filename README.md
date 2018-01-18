@@ -20,6 +20,7 @@ None
 ### Software Architecture
 The application is implemented following a Clean Swift approach:
 * [Raymond Law's Clean Swift web site](https://clean-swift.com "Clean Swift web site")
+
 Core data is used and no data is held off-device.  No external services are used.
 
 ### Accessibility
