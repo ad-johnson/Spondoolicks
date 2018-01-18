@@ -14,6 +14,17 @@
 		49255FB1200F9D1B000E40E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49255FAF200F9D1B000E40E9 /* LaunchScreen.storyboard */; };
 		49255FBC200F9D1B000E40E9 /* SpondoolicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FBB200F9D1B000E40E9 /* SpondoolicksTests.swift */; };
 		49255FC7200F9D1B000E40E9 /* SpondoolicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FC6200F9D1B000E40E9 /* SpondoolicksUITests.swift */; };
+		49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FDD2010E1C9000E40E9 /* HomePresenter.swift */; };
+		49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FDE2010E1C9000E40E9 /* HomeWorker.swift */; };
+		49255FE52010E1C9000E40E9 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FDF2010E1C9000E40E9 /* HomeRouter.swift */; };
+		49255FE62010E1C9000E40E9 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FE02010E1C9000E40E9 /* HomeModels.swift */; };
+		49255FE72010E1C9000E40E9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FE12010E1C9000E40E9 /* HomeViewController.swift */; };
+		49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FE22010E1C9000E40E9 /* HomeInteractor.swift */; };
+		49255FEB2010EB34000E40E9 /* UIFrameworkExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FEA2010EB34000E40E9 /* UIFrameworkExtensions.swift */; };
+		49255FF02010FCFB000E40E9 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49255FED2010FCFA000E40E9 /* OpenSans-Regular.ttf */; };
+		49255FF12010FCFB000E40E9 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49255FEE2010FCFA000E40E9 /* OpenSans-Bold.ttf */; };
+		49255FF22010FCFB000E40E9 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */; };
+		49255FF5201107FB000E40E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF4201107FB000E40E9 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +59,17 @@
 		49255FC6200F9D1B000E40E9 /* SpondoolicksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpondoolicksUITests.swift; sourceTree = "<group>"; };
 		49255FC8200F9D1B000E40E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49255FDC200F9F27000E40E9 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		49255FDD2010E1C9000E40E9 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		49255FDE2010E1C9000E40E9 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		49255FDF2010E1C9000E40E9 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		49255FE02010E1C9000E40E9 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		49255FE12010E1C9000E40E9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		49255FE22010E1C9000E40E9 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		49255FEA2010EB34000E40E9 /* UIFrameworkExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFrameworkExtensions.swift; sourceTree = "<group>"; };
+		49255FED2010FCFA000E40E9 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		49255FEE2010FCFA000E40E9 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		49255FF4201107FB000E40E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +172,7 @@
 		49255FD6200F9E23000E40E9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				49255FEC2010FC64000E40E9 /* Fonts */,
 				49255FAD200F9D1B000E40E9 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -166,6 +189,7 @@
 		49255FD8200F9E4E000E40E9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				49255FE92010E1D0000E40E9 /* Home */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -173,6 +197,8 @@
 		49255FD9200F9E73000E40E9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				49255FEA2010EB34000E40E9 /* UIFrameworkExtensions.swift */,
+				49255FF4201107FB000E40E9 /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -189,6 +215,29 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		49255FE92010E1D0000E40E9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				49255FDD2010E1C9000E40E9 /* HomePresenter.swift */,
+				49255FDE2010E1C9000E40E9 /* HomeWorker.swift */,
+				49255FDF2010E1C9000E40E9 /* HomeRouter.swift */,
+				49255FE02010E1C9000E40E9 /* HomeModels.swift */,
+				49255FE12010E1C9000E40E9 /* HomeViewController.swift */,
+				49255FE22010E1C9000E40E9 /* HomeInteractor.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		49255FEC2010FC64000E40E9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				49255FEE2010FCFA000E40E9 /* OpenSans-Bold.ttf */,
+				49255FED2010FCFA000E40E9 /* OpenSans-Regular.ttf */,
+				49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +349,9 @@
 			files = (
 				49255FB1200F9D1B000E40E9 /* LaunchScreen.storyboard in Resources */,
 				49255FAE200F9D1B000E40E9 /* Assets.xcassets in Resources */,
+				49255FF02010FCFB000E40E9 /* OpenSans-Regular.ttf in Resources */,
+				49255FF12010FCFB000E40E9 /* OpenSans-Bold.ttf in Resources */,
+				49255FF22010FCFB000E40E9 /* OpenSans-SemiBold.ttf in Resources */,
 				49255FAC200F9D1B000E40E9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,8 +377,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */,
+				49255FEB2010EB34000E40E9 /* UIFrameworkExtensions.swift in Sources */,
 				49255FA9200F9D1B000E40E9 /* ViewController.swift in Sources */,
+				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
+				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
+				49255FF5201107FB000E40E9 /* Constants.swift in Sources */,
 				49255FA7200F9D1B000E40E9 /* AppDelegate.swift in Sources */,
+				49255FE62010E1C9000E40E9 /* HomeModels.swift in Sources */,
+				49255FE72010E1C9000E40E9 /* HomeViewController.swift in Sources */,
+				49255FE52010E1C9000E40E9 /* HomeRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
