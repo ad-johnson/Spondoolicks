@@ -18,6 +18,7 @@ class OptionCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var optionIcon: UIImageView!
     @IBOutlet weak var optionName: UILabel!
+    @IBOutlet weak var optionLozenge: UIView!
     
     // MARK: - Configuration
     func configureForUsers() {
@@ -56,23 +57,23 @@ class OptionCell: UITableViewCell {
         
         regularConstraints = [
 
-            optionIcon.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: horizontalAnchorConstant),
-            optionIcon.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            optionIcon.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: verticalAnchorConstant),
-            optionIcon.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -verticalAnchorConstant),
+            optionIcon.leadingAnchor.constraint(equalTo: optionLozenge.leadingAnchor, constant: horizontalAnchorConstant),
+            optionIcon.centerYAnchor.constraint(equalTo: optionLozenge.centerYAnchor),
+            optionIcon.topAnchor.constraint(equalTo: optionLozenge.topAnchor, constant: verticalAnchorConstant),
+            optionIcon.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant),
 
             optionName.leadingAnchor.constraint(equalTo: optionIcon.trailingAnchor, constant: horizontalAnchorConstant),
-            optionName.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            optionName.centerYAnchor.constraint(equalTo: optionLozenge.centerYAnchor)
        ]
 
         largeTextConstraints = [
 
-            optionIcon.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            optionIcon.topAnchor.constraint(equalTo: contentView.topAnchor, constant: verticalAnchorConstant),
+            optionIcon.centerXAnchor.constraint(equalTo: optionLozenge.centerXAnchor),
+            optionIcon.topAnchor.constraint(equalTo: optionLozenge.topAnchor, constant: verticalAnchorConstant),
 
-            optionName.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            optionName.centerXAnchor.constraint(equalTo: optionLozenge.centerXAnchor),
             optionName.topAnchor.constraint(equalTo: optionIcon.bottomAnchor, constant: verticalAnchorConstant),
-            optionName.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -verticalAnchorConstant)
+            optionName.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant)
         ]
     }
     
