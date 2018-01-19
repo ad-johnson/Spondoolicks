@@ -19,6 +19,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     // MARK: - IBOutlets
     @IBOutlet weak var spondoolicksLabel: UILabel!
     @IBOutlet weak var introLabel: UILabel!
+    @IBOutlet weak var optionsTable: UITableView!
     
     // MARK: - Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -64,6 +65,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     
     // MARK: - View handling
     func setupView() {
+        optionsTable.delegate = self
+        optionsTable.dataSource = self
+
         if let font = UIFont(name: "OpenSans-SemiBold", size: 36) {
             if traitCollection.userInterfaceIdiom == .phone {
                 spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSizeForIPhone) // Any bigger on an iPhone and it runs off the screen edges.
@@ -88,3 +92,37 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         //nameTextField.text = viewModel.name
     }
 }
+
+// MARK: - Collection View
+extension HomeViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "OptionCell", for: indexPath) as? OptionCell {
+            if indexPath.row == 0 {
+                cell.configureForUsers()
+            }
+            
+            if indexPath.row == 1 {
+                cell.configureForSettings()
+            }
+            
+            return cell
+            
+        } else {
+            fatalError("TableView cell at row \(indexPath.row) is not an OptionCell")
+        }
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    
+}
+

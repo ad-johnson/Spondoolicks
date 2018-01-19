@@ -12,4 +12,9 @@ enum Global {
     struct FontInfo {
         static let maxPointSizeForIPhone: CGFloat = 58.0
     }
+    
+    struct AssetInfo {
+        static let profileIcon = "Profile icon"
+        static let settingsIcon = "Settings icon"
+    }
 }

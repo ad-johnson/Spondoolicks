@@ -25,6 +25,7 @@
 		49255FF12010FCFB000E40E9 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49255FEE2010FCFA000E40E9 /* OpenSans-Bold.ttf */; };
 		49255FF22010FCFB000E40E9 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */; };
 		49255FF5201107FB000E40E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF4201107FB000E40E9 /* Constants.swift */; };
+		49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF720111A9F000E40E9 /* OptionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		49255FEE2010FCFA000E40E9 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		49255FF4201107FB000E40E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		49255FF720111A9F000E40E9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 		49255FE92010E1D0000E40E9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				49255FF620111A6E000E40E9 /* Helpers */,
 				49255FDD2010E1C9000E40E9 /* HomePresenter.swift */,
 				49255FDE2010E1C9000E40E9 /* HomeWorker.swift */,
 				49255FDF2010E1C9000E40E9 /* HomeRouter.swift */,
@@ -238,6 +241,14 @@
 				49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		49255FF620111A6E000E40E9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				49255FF720111A9F000E40E9 /* OptionCell.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 				49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */,
 				49255FEB2010EB34000E40E9 /* UIFrameworkExtensions.swift in Sources */,
 				49255FA9200F9D1B000E40E9 /* ViewController.swift in Sources */,
+				49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */,
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
 				49255FF5201107FB000E40E9 /* Constants.swift in Sources */,
