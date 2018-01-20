@@ -21,7 +21,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spondoolicks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPZ-kJ-bfe">
-                                <rect key="frame" x="131.66666666666666" y="48" width="152" height="32"/>
+                                <rect key="frame" x="131.66666666666666" y="48" width="151.99999999999997" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="sp Green"/>
                                 <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56A-35-Uia" userLabel="Option Lozenge">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56A-35-Uia" userLabel="Option Lozenge" customClass="LozengeView" customModule="Spondoolicks" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="50" width="310" height="88"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile icon" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwE-9X-XsE" userLabel="Option Icon">
@@ -62,6 +62,20 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" name="sp Purple"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="24"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColour">
+                                                            <color key="value" name="sp Green"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColour">
+                                                            <color key="value" name="sp Purple"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -145,6 +159,9 @@
             <color red="0.097999997437000275" green="0.0" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sp Green">
+            <color red="0.54500001669999998" green="1" blue="0.23899999259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="sp Green">
             <color red="0.54500001668930054" green="1" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sp Grey">
@@ -155,6 +172,9 @@
         </namedColor>
         <namedColor name="sp Purple">
             <color red="0.50199997425079346" green="0.0" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="sp Purple">
+            <color red="0.50199997429999998" green="0.0" blue="0.57999998330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
