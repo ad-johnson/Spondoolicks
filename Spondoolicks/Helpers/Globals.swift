@@ -14,7 +14,7 @@ enum Global {
         // MARK: - Dynamic Type support
         // To support dynamic type and maximise font size that can be used
         // within the app based on the device and orientation.
-        static func basePointSize(traitCollection: UITraitCollection, adjustFor: UIFontTextStyle = .body) -> CGFloat {
+        static func basePointSize(traitCollection: UITraitCollection) -> CGFloat {
             var basePointSize: CGFloat = 36.0 // base working size
             
             if traitCollection.horizontalSizeClass == .compact {
@@ -22,18 +22,10 @@ enum Global {
                     basePointSize = 32 // For narrow screens
                 }
             }
-            var adjustAmount: CGFloat = 0.0
-            
-            switch adjustFor {
-            case .title2:
-                adjustAmount = -4.0
-            default:
-                break
-            }
-            return basePointSize + adjustAmount
+            return basePointSize
         }
         
-        static func maxPointSize(traitCollection: UITraitCollection, adjustFor: UIFontTextStyle = .body) -> CGFloat {
+        static func maxPointSize(traitCollection: UITraitCollection) -> CGFloat {
             var maxPointSize: CGFloat = 44.0 // base working size
 
             if traitCollection.horizontalSizeClass == .compact {
@@ -49,16 +41,7 @@ enum Global {
                     maxPointSize = 62.0 // larger screens
                 }
             }
-            
-            var adjustAmount: CGFloat = 0.0
-            
-            switch adjustFor {
-            case .title2:
-                adjustAmount = 0.0
-            default:
-                break
-            }
-            return maxPointSize + adjustAmount
+            return maxPointSize
         }
     }
     

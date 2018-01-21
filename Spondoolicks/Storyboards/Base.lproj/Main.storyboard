@@ -21,8 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spondoolicks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPZ-kJ-bfe">
-                                <rect key="frame" x="131" y="48" width="152" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spondoolicks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kPZ-kJ-bfe">
+                                <rect key="frame" x="131.33333333333331" y="48" width="151.33333333333331" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="sp Green"/>
                                 <nil key="highlightedColor"/>
@@ -48,7 +48,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56A-35-Uia" userLabel="Option Lozenge" customClass="LozengeView" customModule="Spondoolicks" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="50" width="330.33333333333331" height="88"/>
+                                                    <rect key="frame" x="0.0" y="50" width="331.33333333333331" height="88"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile icon" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwE-9X-XsE" userLabel="Option Icon">
                                                             <rect key="frame" x="8" y="18" width="56" height="56"/>
@@ -88,6 +88,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="sp Dark Purple"/>
                                         <connections>
+                                            <outlet property="cellSpacingStoryboardConstraint" destination="4md-Mu-JCc" id="ttq-6y-VIM"/>
                                             <outlet property="optionIcon" destination="CwE-9X-XsE" id="3FS-fm-td2"/>
                                             <outlet property="optionLozenge" destination="56A-35-Uia" id="zCg-r8-w8q"/>
                                             <outlet property="optionName" destination="LjS-q7-FmM" id="dup-7i-KRn"/>
@@ -111,13 +112,15 @@
                         <constraints>
                             <constraint firstItem="kPZ-kJ-bfe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="4Cs-My-9IS"/>
                             <constraint firstItem="ckK-b5-51W" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="5pX-05-Rs9"/>
+                            <constraint firstItem="kPZ-kJ-bfe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Edh-uH-2tw"/>
                             <constraint firstItem="ckK-b5-51W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nri-Pz-KMx"/>
                             <constraint firstItem="yqw-Zi-ctu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PVM-AJ-Tyi"/>
                             <constraint firstItem="yqw-Zi-ctu" firstAttribute="top" secondItem="kPZ-kJ-bfe" secondAttribute="bottom" constant="32" id="Yel-UR-OC7"/>
                             <constraint firstItem="yqw-Zi-ctu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="900" constant="16" id="iHm-8E-NJc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kPZ-kJ-bfe" secondAttribute="trailing" constant="8" id="rtB-nv-xZL"/>
                             <constraint firstItem="ckK-b5-51W" firstAttribute="top" secondItem="yqw-Zi-ctu" secondAttribute="bottom" constant="9" id="svG-Q7-bOs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ckK-b5-51W" secondAttribute="bottom" constant="24" id="vC4-Ju-UTc"/>
-                            <constraint firstItem="kPZ-kJ-bfe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vEG-Ym-X2C"/>
+                            <constraint firstItem="kPZ-kJ-bfe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" priority="900" id="vEG-Ym-X2C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yqw-Zi-ctu" secondAttribute="trailing" priority="900" constant="16" id="yRS-Ol-1Kl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

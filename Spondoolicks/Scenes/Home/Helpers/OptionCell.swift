@@ -14,11 +14,13 @@ class OptionCell: UITableViewCell {
     var largeTextConstraints: [NSLayoutConstraint] = []
     let verticalAnchorConstant: CGFloat = 24.0
     let horizontalAnchorConstant: CGFloat = 24.0
+    let cellSpacingShortConstant: CGFloat = -8.0
 
     // MARK: - IBOutlets
     @IBOutlet weak var optionIcon: UIImageView!
     @IBOutlet weak var optionName: UILabel!
     @IBOutlet weak var optionLozenge: UIView!
+    @IBOutlet weak var cellSpacingStoryboardConstraint: NSLayoutConstraint!
     
     // MARK: - Configuration
     func configureForUsers() {
@@ -53,6 +55,12 @@ class OptionCell: UITableViewCell {
     
     func setupLayoutConstraints() {
         
+        // The standard cell spacing constraint doesn't really work for short
+        // screens so should be adjusted
+        if UIScreen.main.bounds.height < 600 {
+            cellSpacingStoryboardConstraint.constant = cellSpacingShortConstant
+        }
+
         regularConstraints = [
 
             optionIcon.leadingAnchor.constraint(equalTo: optionLozenge.leadingAnchor, constant: horizontalAnchorConstant),
@@ -61,7 +69,7 @@ class OptionCell: UITableViewCell {
             optionIcon.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant),
 
             optionName.leadingAnchor.constraint(equalTo: optionIcon.trailingAnchor, constant: horizontalAnchorConstant),
-            optionName.centerYAnchor.constraint(equalTo: optionLozenge.centerYAnchor),
+            optionName.centerYAnchor.constraint(equalTo: optionLozenge.centerYAnchor)
        ]
 
         largeTextConstraints = [
@@ -71,7 +79,7 @@ class OptionCell: UITableViewCell {
 
             optionName.centerXAnchor.constraint(equalTo: optionLozenge.centerXAnchor),
             optionName.topAnchor.constraint(equalTo: optionIcon.bottomAnchor, constant: verticalAnchorConstant),
-            optionName.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant),
+            optionName.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant)
         ]
     }
     

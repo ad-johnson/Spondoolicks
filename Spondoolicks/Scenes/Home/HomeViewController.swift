@@ -70,7 +70,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
 
         if let font = UIFont(name: "OpenSans-SemiBold", size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
             if traitCollection.horizontalSizeClass == .compact {
-                spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection, adjustFor: .title2))
+                spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
             } else {
                 spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font)
             }
