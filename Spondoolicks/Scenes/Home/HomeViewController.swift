@@ -68,9 +68,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         optionsTable.delegate = self
         optionsTable.dataSource = self
 
-        if let font = UIFont(name: "OpenSans-SemiBold", size: 36) {
-            if traitCollection.userInterfaceIdiom == .phone {
-                spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSizeForIPhone) // Any bigger on an iPhone and it runs off the screen edges.
+        if let font = UIFont(name: "OpenSans-SemiBold", size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
+            if traitCollection.horizontalSizeClass == .compact {
+                spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection, adjustFor: .title2))
             } else {
                 spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font)
             }
@@ -80,6 +80,11 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         }
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        optionsTable.scrollToRow(at: indexPath, at: .top, animated: false)
+    }
+
     // MARK: - IBActions
     
     // MARK: - Use cases

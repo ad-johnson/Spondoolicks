@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -21,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spondoolicks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kPZ-kJ-bfe">
-                                <rect key="frame" x="131.66666666666666" y="48" width="151.99999999999997" height="32"/>
+                                <rect key="frame" x="131" y="48" width="152" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" name="sp Green"/>
                                 <nil key="highlightedColor"/>
@@ -32,29 +33,29 @@
                                 <color key="textColor" name="sp Grey"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ckK-b5-51W">
-                                <rect key="frame" x="52" y="141.66666666666666" width="310" height="506.33333333333337"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ckK-b5-51W">
+                                <rect key="frame" x="41.333333333333343" y="141.66666666666666" width="331.33333333333326" height="506.33333333333337"/>
                                 <color key="backgroundColor" name="sp Dark Purple"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="310" id="lAl-Tl-G37"/>
+                                    <constraint firstAttribute="width" constant="310" id="ydN-Fw-ew0"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="OptionCell" rowHeight="188" id="y4z-CF-OC5" customClass="OptionCell" customModule="Spondoolicks" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="310" height="188"/>
+                                        <rect key="frame" x="0.0" y="28" width="331.33333333333326" height="188"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="y4z-CF-OC5" id="sOM-jD-6wK">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="188"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="331.33333333333326" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56A-35-Uia" userLabel="Option Lozenge" customClass="LozengeView" customModule="Spondoolicks" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="50" width="310" height="88"/>
+                                                    <rect key="frame" x="0.0" y="50" width="330.33333333333331" height="88"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile icon" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwE-9X-XsE" userLabel="Option Icon">
                                                             <rect key="frame" x="8" y="18" width="56" height="56"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Users" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LjS-q7-FmM" userLabel="Option Name">
-                                                            <rect key="frame" x="85" y="34" width="45" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Users" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LjS-q7-FmM" userLabel="Option Name">
+                                                            <rect key="frame" x="85" y="33.999999999999972" width="45" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <color key="textColor" name="sp Grey"/>
@@ -94,11 +95,22 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ydN-Fw-ew0"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="ydN-Fw-ew0"/>
+                                    </mask>
+                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="sp Dark Purple"/>
                         <constraints>
                             <constraint firstItem="kPZ-kJ-bfe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="48" id="4Cs-My-9IS"/>
+                            <constraint firstItem="ckK-b5-51W" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="5pX-05-Rs9"/>
                             <constraint firstItem="ckK-b5-51W" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nri-Pz-KMx"/>
                             <constraint firstItem="yqw-Zi-ctu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PVM-AJ-Tyi"/>
                             <constraint firstItem="yqw-Zi-ctu" firstAttribute="top" secondItem="kPZ-kJ-bfe" secondAttribute="bottom" constant="32" id="Yel-UR-OC7"/>
@@ -109,6 +121,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yqw-Zi-ctu" secondAttribute="trailing" priority="900" constant="16" id="yRS-Ol-1Kl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="5pX-05-Rs9"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="hf2-gA-flA"/>
                     <connections>

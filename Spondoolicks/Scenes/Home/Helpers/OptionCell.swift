@@ -13,7 +13,7 @@ class OptionCell: UITableViewCell {
     var regularConstraints: [NSLayoutConstraint] = []
     var largeTextConstraints: [NSLayoutConstraint] = []
     let verticalAnchorConstant: CGFloat = 24.0
-    let horizontalAnchorConstant: CGFloat = 32.0
+    let horizontalAnchorConstant: CGFloat = 24.0
 
     // MARK: - IBOutlets
     @IBOutlet weak var optionIcon: UIImageView!
@@ -34,21 +34,19 @@ class OptionCell: UITableViewCell {
     }
     
     func configureLayout() {
-        configureOptionName()
+        configureOptionViews()
         if regularConstraints.count == 0 {
             setupLayoutConstraints()
             updateLayoutConstraints()
         }
     }
     
-    func configureOptionName() {
-        if let font = UIFont(name: "OpenSans-Bold", size: 36) {
-            if traitCollection.userInterfaceIdiom == .phone {
-                optionName.font = UIFontMetrics.default.scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSizeForIPhone) // Any bigger on an iPhone and it runs off the screen edges.
-            } else {
-                optionName.font = UIFontMetrics.default.scaledFont(for: font)
-            }
+    func configureOptionViews() {
+        
+        if let font = UIFont(name: "OpenSans-Bold", size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
+                optionName.font = UIFontMetrics.default.scaledFont(for: font,  maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
         }
+
         optionIcon.translatesAutoresizingMaskIntoConstraints = false
         optionName.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -63,7 +61,7 @@ class OptionCell: UITableViewCell {
             optionIcon.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant),
 
             optionName.leadingAnchor.constraint(equalTo: optionIcon.trailingAnchor, constant: horizontalAnchorConstant),
-            optionName.centerYAnchor.constraint(equalTo: optionLozenge.centerYAnchor)
+            optionName.centerYAnchor.constraint(equalTo: optionLozenge.centerYAnchor),
        ]
 
         largeTextConstraints = [
@@ -73,7 +71,7 @@ class OptionCell: UITableViewCell {
 
             optionName.centerXAnchor.constraint(equalTo: optionLozenge.centerXAnchor),
             optionName.topAnchor.constraint(equalTo: optionIcon.bottomAnchor, constant: verticalAnchorConstant),
-            optionName.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant)
+            optionName.bottomAnchor.constraint(equalTo: optionLozenge.bottomAnchor, constant: -verticalAnchorConstant),
         ]
     }
     
