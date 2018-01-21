@@ -12,7 +12,7 @@
 		49255FAC200F9D1B000E40E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49255FAA200F9D1B000E40E9 /* Main.storyboard */; };
 		49255FAE200F9D1B000E40E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49255FAD200F9D1B000E40E9 /* Assets.xcassets */; };
 		49255FB1200F9D1B000E40E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49255FAF200F9D1B000E40E9 /* LaunchScreen.storyboard */; };
-		49255FBC200F9D1B000E40E9 /* SpondoolicksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FBB200F9D1B000E40E9 /* SpondoolicksTests.swift */; };
+		49255FBC200F9D1B000E40E9 /* HomeControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FBB200F9D1B000E40E9 /* HomeControllerTests.swift */; };
 		49255FC7200F9D1B000E40E9 /* SpondoolicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FC6200F9D1B000E40E9 /* SpondoolicksUITests.swift */; };
 		49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FDD2010E1C9000E40E9 /* HomePresenter.swift */; };
 		49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FDE2010E1C9000E40E9 /* HomeWorker.swift */; };
@@ -55,7 +55,7 @@
 		49255FB0200F9D1B000E40E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		49255FB2200F9D1B000E40E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49255FB7200F9D1B000E40E9 /* SpondoolicksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpondoolicksTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		49255FBB200F9D1B000E40E9 /* SpondoolicksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpondoolicksTests.swift; sourceTree = "<group>"; };
+		49255FBB200F9D1B000E40E9 /* HomeControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerTests.swift; sourceTree = "<group>"; };
 		49255FBD200F9D1B000E40E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49255FC2200F9D1B000E40E9 /* SpondoolicksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpondoolicksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49255FC6200F9D1B000E40E9 /* SpondoolicksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpondoolicksUITests.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		49255FBA200F9D1B000E40E9 /* SpondoolicksTests */ = {
 			isa = PBXGroup;
 			children = (
-				49255FBB200F9D1B000E40E9 /* SpondoolicksTests.swift */,
+				49255FFD2014DC87000E40E9 /* HomeTests */,
 				49255FBD200F9D1B000E40E9 /* Info.plist */,
 			);
 			path = SpondoolicksTests;
@@ -252,6 +252,14 @@
 				49255FF720111A9F000E40E9 /* OptionCell.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		49255FFD2014DC87000E40E9 /* HomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				49255FBB200F9D1B000E40E9 /* HomeControllerTests.swift */,
+			);
+			path = HomeTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,7 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49255FBC200F9D1B000E40E9 /* SpondoolicksTests.swift in Sources */,
+				49255FBC200F9D1B000E40E9 /* HomeControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
