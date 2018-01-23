@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        configureNavigationButton()
         return true
     }
 
@@ -41,6 +41,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    func configureNavigationButton() {
+        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 20) {
+            UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes(
+                    [NSAttributedStringKey.font : font,
+                     NSAttributedStringKey.foregroundColor : UIColor(named: "sp Grey") ?? UIColor.lightGray
+                    ], for: .normal)
+        }
+    }
 }
 

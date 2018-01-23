@@ -7,7 +7,8 @@
 import UIKit
 
 @objc protocol HomeRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToShowUsers(segue: UIStoryboardSegue?)
+    func routeToShowSettings(segue: UIStoryboardSegue?)
 }
 
 protocol HomeDataPassing {
@@ -20,42 +21,49 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     var dataStore: HomeDataStore?
   
     // MARK: - Routing
-    func routeToShowUsers(segue: UIStoryboardSegue) {
-        //    if let segue = segue {
-        //        let destinationVC = segue.destination as! UsersViewController
-        //        var destinationDS = destinationVC.router!.dataStore!
-        //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-        //    } else {
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-        //        var destinationDS = destinationVC.router!.dataStore!
-        //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-        //        navigateToSomewhere(source: viewController!, destination: destinationVC)
-        //    }
+    func routeToShowUsers(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            let destinationVC = segue.destination as! ShowUsersViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToShowUsers(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: Global.Identifiers.MAIN_STORYBOARD, bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifiers.SHOW_USERS_VC) as! ShowUsersViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToShowUsers(source: dataStore!, destination: &destinationDS)
+            navigateToShowUsers(source: viewController!, destination: destinationVC)
+        }
     }
   
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //    if let segue = segue {
-    //        let destinationVC = segue.destination as! SomewhereViewController
-    //        var destinationDS = destinationVC.router!.dataStore!
-    //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    } else {
-    //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //        let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //        var destinationDS = destinationVC.router!.dataStore!
-    //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //        navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //    }
-    //}
-
+    func routeToShowSettings(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            let destinationVC = segue.destination as! SettingsViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToSettings(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: Global.Identifiers.MAIN_STORYBOARD, bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifiers.SETTINGS_VC) as! SettingsViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToSettings(source: dataStore!, destination: &destinationDS)
+            navigateToSettings(source: viewController!, destination: destinationVC)
+        }
+    }
+    
     // MARK: - Navigation
+    func navigateToShowUsers(source: HomeViewController, destination: ShowUsersViewController) {
+        source.show(destination, sender: nil)
+    }
   
-    //func navigateToSomewhere(source: HomeViewController, destination: SomewhereViewController) {
-    //    source.show(destination, sender: nil)
-    //}
-  
+    func navigateToSettings(source: HomeViewController, destination: SettingsViewController) {
+        source.show(destination, sender: nil)
+    }
+    
     // MARK: - Passing data
-    //func passDataToSomewhere(source: HomeDataStore, destination: inout SomewhereDataStore) {
-    //    destination.name = source.name
-    //}
+    func passDataToShowUsers(source: HomeDataStore, destination: inout ShowUsersDataStore) {
+        // Nothing to pass
+    }
+    
+    func passDataToSettings(source: HomeDataStore, destination: inout SettingsDataStore) {
+        // Nothing to pass
+    }
 }

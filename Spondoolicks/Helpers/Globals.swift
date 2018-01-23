@@ -10,12 +10,16 @@ import UIKit
 enum Global {
     
     struct Segue {
-        static let SHOW_USERS = "showUsers"
-        static let SHOW_SETTINGS = "showSettings"
+        static let SHOW_USERS = "ShowUsers"
+        static let SHOW_SETTINGS = "ShowSettings"
     }
     
     struct Identifiers {
+        static let MAIN_STORYBOARD = "Main"
         static let OPTION_CELL = "OptionCell"
+        static let HOME_VC = "HomeVC"
+        static let SHOW_USERS_VC = "ShowUsersVC"
+        static let SETTINGS_VC = "SettingsVC"
     }
     
     struct FontInfo {

@@ -89,4 +89,42 @@ class HomeControllerTests: XCTestCase {
         // Then
         XCTAssertEqual(rows, 2, "TableView does not have the right number of rows (\(rows))")
     }
+    
+    func testRouteToShowUsers() {
+        // given
+        let router = HomeRouterSpy()
+        sut.router = router
+        
+        // when
+        sut.usersSelected()
+        
+        // Then
+        XCTAssertTrue(router.routeToShowUsersCalled, "VC did not route to Show Users VC when Users selected")
+    }
+    
+    func testRouteToSettings() {
+        // given
+        let router = HomeRouterSpy()
+        sut.router = router
+        
+        // when
+        sut.settingsSelected()
+        
+        // Then
+        XCTAssertTrue(router.routeToShowSettingsCalled, "VC did not route to Settings VC when Settings selected")
+    }
+    
+    // MARK: - Test Doubles
+    class HomeRouterSpy: HomeRouter {
+        var routeToShowUsersCalled = false
+        var routeToShowSettingsCalled = false
+        
+        override func routeToShowUsers(segue: UIStoryboardSegue?) {
+            routeToShowUsersCalled = true
+        }
+        
+        override func routeToShowSettings(segue: UIStoryboardSegue?) {
+            routeToShowSettingsCalled = true
+        }
+    }
 }
