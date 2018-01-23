@@ -24,13 +24,13 @@ class OptionCell: UITableViewCell {
     
     // MARK: - Configuration
     func configureForUsers() {
-        optionIcon.image = UIImage(named: Global.AssetInfo.profileIcon)
+        optionIcon.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
         optionName.text = "Users"
         configureLayout()
     }
     
     func configureForSettings() {
-        optionIcon.image = UIImage(named: Global.AssetInfo.settingsIcon)
+        optionIcon.image = UIImage(named: Global.AssetInfo.SETTINGS_ICON)
         optionName.text = "Settings"
         configureLayout()
     }
@@ -45,7 +45,7 @@ class OptionCell: UITableViewCell {
     
     func configureOptionViews() {
         
-        if let font = UIFont(name: "OpenSans-Bold", size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
+        if let font = UIFont(name: Global.FontInfo.ATTENTION_FONT, size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
                 optionName.font = UIFontMetrics.default.scaledFont(for: font,  maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
         }
 

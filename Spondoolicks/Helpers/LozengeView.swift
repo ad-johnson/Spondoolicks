@@ -25,16 +25,30 @@ class LozengeView: UIView {
     }
     
     @IBInspectable
-    public var borderColour: UIColor = #colorLiteral(red: 0.5450000167, green: 1, blue: 0.2389999926, alpha: 1) {
+    public var borderColour: UIColor = UIColor.darkGray {
         didSet {
             layer.borderColor = borderColour.cgColor
         }
     }
     
     @IBInspectable
-    public var backgroundColour: UIColor = #colorLiteral(red: 0.5019999743, green: 0, blue: 0.5799999833, alpha: 1) {
+    public var backgroundColour: UIColor = UIColor.clear {
         didSet {
             layer.backgroundColor = backgroundColour.cgColor
+        }
+    }
+    
+    // Added this because IBDesignable does not include named colours in
+    // the colour picker and selecting one (through the previous options)
+    // results in errors in the Storyboard.
+    @IBInspectable
+    public var useDesignColours: Bool = false {
+        didSet {
+            if useDesignColours {
+                layer.backgroundColor = UIColor(named: "sp Purple")?.cgColor
+                layer.borderWidth = 2.0
+                layer.borderColor = UIColor(named: "sp Green")?.cgColor
+            }
         }
     }
 }

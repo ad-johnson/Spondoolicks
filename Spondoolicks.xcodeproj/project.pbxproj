@@ -7,8 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49206E0520173A9600B16CD8 /* ShowUsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206DFF20173A9600B16CD8 /* ShowUsersPresenter.swift */; };
+		49206E0620173A9600B16CD8 /* ShowUsersWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0020173A9600B16CD8 /* ShowUsersWorker.swift */; };
+		49206E0720173A9600B16CD8 /* ShowUsersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0120173A9600B16CD8 /* ShowUsersRouter.swift */; };
+		49206E0820173A9600B16CD8 /* ShowUsersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0220173A9600B16CD8 /* ShowUsersModels.swift */; };
+		49206E0920173A9600B16CD8 /* ShowUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0320173A9600B16CD8 /* ShowUsersViewController.swift */; };
+		49206E0A20173A9600B16CD8 /* ShowUsersInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0420173A9600B16CD8 /* ShowUsersInteractor.swift */; };
+		49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0C20173AC100B16CD8 /* SettingsPresenter.swift */; };
+		49206E1320173AC100B16CD8 /* SettingsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0D20173AC100B16CD8 /* SettingsWorker.swift */; };
+		49206E1420173AC100B16CD8 /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0E20173AC100B16CD8 /* SettingsRouter.swift */; };
+		49206E1520173AC100B16CD8 /* SettingsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E0F20173AC100B16CD8 /* SettingsModels.swift */; };
+		49206E1620173AC100B16CD8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E1020173AC100B16CD8 /* SettingsViewController.swift */; };
+		49206E1720173AC100B16CD8 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49206E1120173AC100B16CD8 /* SettingsInteractor.swift */; };
 		49255FA7200F9D1B000E40E9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FA6200F9D1B000E40E9 /* AppDelegate.swift */; };
-		49255FA9200F9D1B000E40E9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FA8200F9D1B000E40E9 /* ViewController.swift */; };
 		49255FAC200F9D1B000E40E9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49255FAA200F9D1B000E40E9 /* Main.storyboard */; };
 		49255FAE200F9D1B000E40E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49255FAD200F9D1B000E40E9 /* Assets.xcassets */; };
 		49255FB1200F9D1B000E40E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49255FAF200F9D1B000E40E9 /* LaunchScreen.storyboard */; };
@@ -47,9 +58,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49206DFF20173A9600B16CD8 /* ShowUsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersPresenter.swift; sourceTree = "<group>"; };
+		49206E0020173A9600B16CD8 /* ShowUsersWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersWorker.swift; sourceTree = "<group>"; };
+		49206E0120173A9600B16CD8 /* ShowUsersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersRouter.swift; sourceTree = "<group>"; };
+		49206E0220173A9600B16CD8 /* ShowUsersModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersModels.swift; sourceTree = "<group>"; };
+		49206E0320173A9600B16CD8 /* ShowUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersViewController.swift; sourceTree = "<group>"; };
+		49206E0420173A9600B16CD8 /* ShowUsersInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersInteractor.swift; sourceTree = "<group>"; };
+		49206E0C20173AC100B16CD8 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		49206E0D20173AC100B16CD8 /* SettingsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWorker.swift; sourceTree = "<group>"; };
+		49206E0E20173AC100B16CD8 /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		49206E0F20173AC100B16CD8 /* SettingsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModels.swift; sourceTree = "<group>"; };
+		49206E1020173AC100B16CD8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		49206E1120173AC100B16CD8 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		49255FA3200F9D1B000E40E9 /* Spondoolicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spondoolicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49255FA6200F9D1B000E40E9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		49255FA8200F9D1B000E40E9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		49255FAB200F9D1B000E40E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		49255FAD200F9D1B000E40E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		49255FB0200F9D1B000E40E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,6 +123,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49206E0B20173A9C00B16CD8 /* Show Users */ = {
+			isa = PBXGroup;
+			children = (
+				49206DFF20173A9600B16CD8 /* ShowUsersPresenter.swift */,
+				49206E0020173A9600B16CD8 /* ShowUsersWorker.swift */,
+				49206E0120173A9600B16CD8 /* ShowUsersRouter.swift */,
+				49206E0220173A9600B16CD8 /* ShowUsersModels.swift */,
+				49206E0320173A9600B16CD8 /* ShowUsersViewController.swift */,
+				49206E0420173A9600B16CD8 /* ShowUsersInteractor.swift */,
+			);
+			path = "Show Users";
+			sourceTree = "<group>";
+		};
+		49206E1820173AC600B16CD8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				49206E0C20173AC100B16CD8 /* SettingsPresenter.swift */,
+				49206E0D20173AC100B16CD8 /* SettingsWorker.swift */,
+				49206E0E20173AC100B16CD8 /* SettingsRouter.swift */,
+				49206E0F20173AC100B16CD8 /* SettingsModels.swift */,
+				49206E1020173AC100B16CD8 /* SettingsViewController.swift */,
+				49206E1120173AC100B16CD8 /* SettingsInteractor.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		49255F9A200F9D1B000E40E9 = {
 			isa = PBXGroup;
 			children = (
@@ -133,7 +181,6 @@
 				49255FD6200F9E23000E40E9 /* Resources */,
 				49255FD5200F9E06000E40E9 /* Storyboards */,
 				49255FD4200F9DF8000E40E9 /* Application */,
-				49255FA8200F9D1B000E40E9 /* ViewController.swift */,
 			);
 			path = Spondoolicks;
 			sourceTree = "<group>";
@@ -193,6 +240,8 @@
 		49255FD8200F9E4E000E40E9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				49206E1820173AC600B16CD8 /* Settings */,
+				49206E0B20173A9C00B16CD8 /* Show Users */,
 				49255FE92010E1D0000E40E9 /* Home */,
 			);
 			path = Scenes;
@@ -400,17 +449,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */,
+				49206E1520173AC100B16CD8 /* SettingsModels.swift in Sources */,
 				49255FEB2010EB34000E40E9 /* UIFrameworkExtensions.swift in Sources */,
-				49255FA9200F9D1B000E40E9 /* ViewController.swift in Sources */,
 				49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */,
+				49206E0A20173A9600B16CD8 /* ShowUsersInteractor.swift in Sources */,
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
+				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
 				49255FFB2013A083000E40E9 /* LozengeView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
+				49206E1320173AC100B16CD8 /* SettingsWorker.swift in Sources */,
+				49206E1420173AC100B16CD8 /* SettingsRouter.swift in Sources */,
+				49206E0720173A9600B16CD8 /* ShowUsersRouter.swift in Sources */,
 				49255FF5201107FB000E40E9 /* Globals.swift in Sources */,
+				49206E1620173AC100B16CD8 /* SettingsViewController.swift in Sources */,
 				49255FA7200F9D1B000E40E9 /* AppDelegate.swift in Sources */,
 				49255FE62010E1C9000E40E9 /* HomeModels.swift in Sources */,
+				49206E0920173A9600B16CD8 /* ShowUsersViewController.swift in Sources */,
 				49255FE72010E1C9000E40E9 /* HomeViewController.swift in Sources */,
+				49206E0620173A9600B16CD8 /* ShowUsersWorker.swift in Sources */,
+				49206E0520173A9600B16CD8 /* ShowUsersPresenter.swift in Sources */,
 				49255FE52010E1C9000E40E9 /* HomeRouter.swift in Sources */,
+				49206E1720173AC100B16CD8 /* SettingsInteractor.swift in Sources */,
+				49206E0820173A9600B16CD8 /* ShowUsersModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

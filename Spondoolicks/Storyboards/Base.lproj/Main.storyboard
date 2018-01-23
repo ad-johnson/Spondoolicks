@@ -62,20 +62,17 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="sp Purple"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="24"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColour">
-                                                            <color key="value" name="sp Green"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                                             <real key="value" value="2"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="backgroundColour">
-                                                            <color key="value" name="sp Purple"/>
+                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="useDesignColours" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
@@ -135,11 +132,61 @@
                         <outlet property="introLabel" destination="yqw-Zi-ctu" id="Le6-bs-nDI"/>
                         <outlet property="optionsTable" destination="ckK-b5-51W" id="i9T-PK-x04"/>
                         <outlet property="spondoolicksLabel" destination="kPZ-kJ-bfe" id="rWl-Ad-hFN"/>
+                        <segue destination="7Do-LE-jH6" kind="show" identifier="showUsers" id="lW2-oj-5Yw"/>
+                        <segue destination="N8L-XB-Cxe" kind="show" identifier="showSettings" id="9AJ-fA-Gfc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="455.07246376811599" y="117.39130434782609"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="c79-gD-Ylp">
+            <objects>
+                <viewController id="N8L-XB-Cxe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nGq-hx-HOs">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER1-Ql-8RS">
+                                <rect key="frame" x="186" y="326" width="64" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="iTf-AR-Utw"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NqS-WP-Vvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230" y="481"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="O4s-wn-KLb">
+            <objects>
+                <viewController id="7Do-LE-jH6" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="21j-Mm-lIe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F7-1o-7iC">
+                                <rect key="frame" x="186" y="326" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="idT-Z6-UJA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d23-ll-zEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1234" y="-226"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZwP-jl-Lm0">
@@ -175,26 +222,14 @@
         <namedColor name="sp Dark Purple">
             <color red="0.097999997437000275" green="0.0" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="sp Dark Purple">
-            <color red="0.097999997437000275" green="0.0" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="sp Green">
             <color red="0.54500001669999998" green="1" blue="0.23899999259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="sp Green">
-            <color red="0.54500001668930054" green="1" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sp Grey">
             <color red="0.9100000262260437" green="0.9100000262260437" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sp Purple">
             <color red="0.50199997425079346" green="0.0" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="sp Purple">
-            <color red="0.50199997425079346" green="0.0" blue="0.57999998331069946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="sp Purple">
-            <color red="0.50199997429999998" green="0.0" blue="0.57999998330000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

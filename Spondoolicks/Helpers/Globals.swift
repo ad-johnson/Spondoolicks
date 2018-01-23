@@ -9,7 +9,19 @@ import UIKit
 
 enum Global {
     
+    struct Segue {
+        static let SHOW_USERS = "showUsers"
+        static let SHOW_SETTINGS = "showSettings"
+    }
+    
+    struct Identifiers {
+        static let OPTION_CELL = "OptionCell"
+    }
+    
     struct FontInfo {
+        static let HEADING_FONT = "OpenSans-SemiBold"
+        static let ATTENTION_FONT = "OpenSans-Bold"
+        static let BODY_FONT = "OpenSans-Regular"
         
         // MARK: - Dynamic Type support
         // To support dynamic type and maximise font size that can be used
@@ -46,7 +58,7 @@ enum Global {
     }
     
     struct AssetInfo {
-        static let profileIcon = "Profile icon"
-        static let settingsIcon = "Settings icon"
+        static let PROFILE_ICON = "Profile icon"
+        static let SETTINGS_ICON = "Settings icon"
     }
 }

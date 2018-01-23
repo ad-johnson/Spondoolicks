@@ -68,14 +68,14 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         optionsTable.delegate = self
         optionsTable.dataSource = self
 
-        if let font = UIFont(name: "OpenSans-SemiBold", size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
+        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
             if traitCollection.horizontalSizeClass == .compact {
                 spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
             } else {
                 spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font)
             }
         }
-        if let font = UIFont(name: "OpenSans-SemiBold", size: 20) {
+        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 20) {
             introLabel.font = UIFontMetrics.default.scaledFont(for: font)
         }
     }
@@ -88,6 +88,15 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     // MARK: - IBActions
     
     // MARK: - Use cases
+    func usersSelected() {
+        performSegue(withIdentifier: Global.Segue.SHOW_USERS, sender: self)
+    }
+    
+    func settingsSelected() {
+        performSegue(withIdentifier: Global.Segue.SHOW_SETTINGS, sender: self)
+    }
+    
+    // TODO: - Re-factor these two methods out
     func doSomething() {
         let request = Home.Something.Request()
         interactor?.doSomething(request: request)
@@ -110,7 +119,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "OptionCell", for: indexPath) as? OptionCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Global.Identifiers.OPTION_CELL, for: indexPath) as? OptionCell {
             if indexPath.row == 0 {
                 cell.configureForUsers()
             }
@@ -122,12 +131,18 @@ extension HomeViewController: UITableViewDataSource {
             return cell
             
         } else {
-            fatalError("TableView cell at row \(indexPath.row) is not an OptionCell")
+            fatalError("TableView cell at row \(indexPath.row) is not an \(Global.Identifiers.OPTION_CELL)")
         }
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            usersSelected()
+        } else {
+            settingsSelected()
+        }
+    }
 }
 
