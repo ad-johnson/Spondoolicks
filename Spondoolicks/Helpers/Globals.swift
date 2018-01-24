@@ -14,12 +14,19 @@ enum Global {
         static let SHOW_SETTINGS = "ShowSettings"
     }
     
-    struct Identifiers {
-        static let MAIN_STORYBOARD = "Main"
-        static let OPTION_CELL = "OptionCell"
-        static let HOME_VC = "HomeVC"
-        static let SHOW_USERS_VC = "ShowUsersVC"
-        static let SETTINGS_VC = "SettingsVC"
+    struct Identifier {
+        struct Storyboard {
+            static let MAIN_STORYBOARD = "Main"
+        }
+        struct Cell {
+            static let OPTION_CELL = "OptionCell"
+            static let USER_CELL = "UserCell"
+        }
+        struct ViewController {
+            static let HOME_VC = "HomeVC"
+            static let SHOW_USERS_VC = "ShowUsersVC"
+            static let SETTINGS_VC = "SettingsVC"
+        }
     }
     
     struct FontInfo {

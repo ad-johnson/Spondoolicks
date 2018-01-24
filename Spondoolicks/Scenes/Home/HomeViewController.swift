@@ -119,7 +119,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Global.Identifiers.OPTION_CELL, for: indexPath) as? OptionCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Global.Identifier.Cell.OPTION_CELL, for: indexPath) as? OptionCell {
             if indexPath.row == 0 {
                 cell.configureForUsers()
             }
@@ -131,7 +131,7 @@ extension HomeViewController: UITableViewDataSource {
             return cell
             
         } else {
-            fatalError("TableView cell at row \(indexPath.row) is not an \(Global.Identifiers.OPTION_CELL)")
+            fatalError("Home TableView cell at row \(indexPath.row) is not an \(Global.Identifier.Cell.OPTION_CELL)")
         }
     }
 }

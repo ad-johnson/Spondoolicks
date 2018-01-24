@@ -27,8 +27,8 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
             var destinationDS = destinationVC.router!.dataStore!
             passDataToShowUsers(source: dataStore!, destination: &destinationDS)
         } else {
-            let storyboard = UIStoryboard(name: Global.Identifiers.MAIN_STORYBOARD, bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifiers.SHOW_USERS_VC) as! ShowUsersViewController
+            let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN_STORYBOARD, bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.SHOW_USERS_VC) as! ShowUsersViewController
             var destinationDS = destinationVC.router!.dataStore!
             passDataToShowUsers(source: dataStore!, destination: &destinationDS)
             navigateToShowUsers(source: viewController!, destination: destinationVC)
@@ -41,8 +41,8 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
             var destinationDS = destinationVC.router!.dataStore!
             passDataToSettings(source: dataStore!, destination: &destinationDS)
         } else {
-            let storyboard = UIStoryboard(name: Global.Identifiers.MAIN_STORYBOARD, bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifiers.SETTINGS_VC) as! SettingsViewController
+            let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN_STORYBOARD, bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.SETTINGS_VC) as! SettingsViewController
             var destinationDS = destinationVC.router!.dataStore!
             passDataToSettings(source: dataStore!, destination: &destinationDS)
             navigateToSettings(source: viewController!, destination: destinationVC)

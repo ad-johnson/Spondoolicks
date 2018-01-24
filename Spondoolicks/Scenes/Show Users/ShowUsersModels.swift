@@ -9,9 +9,19 @@ import UIKit
 
 enum ShowUsers {
     // MARK: - Use cases
-    enum Something {
+    enum FindUsers {
         struct Request { }
-        struct Response { }
-        struct ViewModel { }
+        
+        struct Response {
+            var users: [TempUser]
+        }
+        
+        struct ViewModel {
+            struct DisplayedUser {
+                var userName: String
+                var avatarImage: String
+            }
+            var displayedUsers: [DisplayedUser]
+        }
     }
 }

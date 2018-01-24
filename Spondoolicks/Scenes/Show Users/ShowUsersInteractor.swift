@@ -1,5 +1,5 @@
 //
-//  ShowUsersInteractor.swift
+//  Provides business logic for the Show Users Use Cases.
 //
 //  Created by Andrew Johnson on 23/01/2018.
 //  Copyright (c) 2018 Andrew Johnson. All rights reserved.
@@ -8,25 +8,26 @@
 import UIKit
 
 protocol ShowUsersBusinessLogic {
-    func doSomething(request: ShowUsers.Something.Request)
+    func findUsers(request: ShowUsers.FindUsers.Request)
 }
 
 protocol ShowUsersDataStore {
-    //var name: String { get set }
 }
 
 class ShowUsersInteractor: ShowUsersBusinessLogic, ShowUsersDataStore {
     // MARK: - Properties
     var presenter: ShowUsersPresentationLogic?
     var worker: ShowUsersWorker?
-    //var name: String = ""
   
     // MARK: - Use Cases
-    func doSomething(request: ShowUsers.Something.Request) {
+    func findUsers(request: ShowUsers.FindUsers.Request) {
         worker = ShowUsersWorker()
-        worker?.doSomeWork()
+        worker?.findUsers(users: usersFound)
+    }
     
-        let response = ShowUsers.Something.Response()
-        presenter?.presentSomething(response: response)
+    // MARK: - Use case callbacks
+    func usersFound(users: [TempUser]) {
+        let response = ShowUsers.FindUsers.Response(users: users)
+        presenter?.presentFoundUsers(response: response)
     }
 }

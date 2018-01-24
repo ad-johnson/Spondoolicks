@@ -1,5 +1,6 @@
 //
-//  ShowUsersViewController.swift
+//  Shows all current users registered with the app and allows new users to be
+//  created.
 //
 //  Created by Andrew Johnson on 23/01/2018.
 //  Copyright (c) 2018 Andrew Johnson. All rights reserved.
@@ -8,15 +9,18 @@
 import UIKit
 
 protocol ShowUsersDisplayLogic: class {
-    func displaySomething(viewModel: ShowUsers.Something.ViewModel)
+    func displayUsers(viewModel: ShowUsers.FindUsers.ViewModel)
 }
 
 class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     // MARK: - Properties
     var interactor: ShowUsersBusinessLogic?
     var router: (NSObjectProtocol & ShowUsersRoutingLogic & ShowUsersDataPassing)?
+    var displayedUsers: [ShowUsers.FindUsers.ViewModel.DisplayedUser] = []
     
     // MARK: - IBOutlets
+    @IBOutlet weak var introLabel: UILabel!
+    @IBOutlet weak var userTable: UITableView!
     
     // MARK: - Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -56,21 +60,59 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        setupView()
+        findUsers()
     }
     
     // MARK: - View handling
-    
+    func setupView() {
+        userTable.delegate = self
+        userTable.dataSource = self
+        
+        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 20) {
+            introLabel.font = UIFontMetrics.default.scaledFont(for: font)
+        }
+    }
+
     // MARK: - IBActions
-    //@IBOutlet weak var nameTextField: UITextField!
     
     // MARK: - Use cases
-    func doSomething() {
-        let request = ShowUsers.Something.Request()
-        interactor?.doSomething(request: request)
+    
+    func findUsers() {
+        let request = ShowUsers.FindUsers.Request()
+        interactor?.findUsers(request: request)
     }
     
-    func displaySomething(viewModel: ShowUsers.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayUsers(viewModel: ShowUsers.FindUsers.ViewModel) {
+        displayedUsers = viewModel.displayedUsers
+        userTable.reloadData()
     }
+}
+
+extension ShowUsersViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // do something here
+        print("selected \(indexPath.row)")
+    }
+}
+
+extension ShowUsersViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return displayedUsers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Global.Identifier.Cell.USER_CELL, for: indexPath) as? UserCell {
+            cell.configureCell(user: displayedUsers[indexPath.row])
+            return cell
+        } else {
+            fatalError("Show Users TableView cell at row \(indexPath.row) is not an \(Global.Identifier.Cell.USER_CELL)")
+        }
+    }
+    
+    
 }
