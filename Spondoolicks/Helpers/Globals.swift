@@ -16,7 +16,7 @@ enum Global {
     
     struct Identifier {
         struct Storyboard {
-            static let MAIN_STORYBOARD = "Main"
+            static let MAIN = "Main"
         }
         struct Cell {
             static let OPTION_CELL = "OptionCell"

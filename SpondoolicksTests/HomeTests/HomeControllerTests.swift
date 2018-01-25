@@ -18,8 +18,8 @@ class HomeControllerTests: XCTestCase {
         super.setUp()
         
         // Instantiate the View Controller for all tests
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        sut = storyboard.instantiateViewController(withIdentifier: "HomeVC")
+        let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN, bundle: nil)
+        sut = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.HOME_VC)
             as! HomeViewController
         let _ = sut.view
     }
@@ -28,7 +28,7 @@ class HomeControllerTests: XCTestCase {
         super.tearDown()
     }
     
-    // MARK: - Unit Tests
+    // MARK: - Unit tests
     func testVIPCycleEstablished() {
         // Given
         
@@ -40,13 +40,12 @@ class HomeControllerTests: XCTestCase {
         let datastore = router.dataStore
         
         // Then
-        XCTAssertNotNil(interactor, "VC did not setup a link to the Interactor")
-        XCTAssertNotNil(presenter, "VC did not setup a link between the Interactor and Presenter")
-        XCTAssertNotNil(vc, "VC did not setup a link between the Presenter and View Controller")
-        XCTAssertNotNil(router, "VC did not setup a link to the Router")
-        XCTAssertNotNil(datastore, "VC did not setup a link between the Router and Interactor")
-        
-        XCTAssertTrue(sut === vc, "VC did not complete the VIP cycle back to itself")
+        XCTAssertNotNil(interactor, "VC did not setup a link to the Interactor.")
+        XCTAssertNotNil(presenter, "VC did not setup a link between the Interactor and Presenter.")
+        XCTAssertNotNil(vc, "VC did not setup a link between the Presenter and View Controller.")
+        XCTAssertNotNil(router, "VC did not setup a link to the Router.")
+        XCTAssertNotNil(datastore, "VC did not setup a link between the Router and Interactor.")
+        XCTAssertTrue(sut === vc, "VC did not complete the VIP cycle back to itself.")
     }
     
     func testVCHasSpondoolicksLabelConnected() {
@@ -56,7 +55,7 @@ class HomeControllerTests: XCTestCase {
         let spondoolicks = sut.spondoolicksLabel
         
         // Then
-        XCTAssertNotNil(spondoolicks, "Home VC does not have the Spondoolicks label connected")
+        XCTAssertNotNil(spondoolicks, "Home VC does not have the Spondoolicks label connected.")
     }
     
     func testVCHasIntroductionLabelConnected() {
@@ -66,7 +65,7 @@ class HomeControllerTests: XCTestCase {
         let introduction = sut.introLabel
         
         // Then
-        XCTAssertNotNil(introduction, "Home VC does not have the Introduction label connected")
+        XCTAssertNotNil(introduction, "Home VC does not have the Introduction label connected.")
     }
 
     func testVCHasOptionsTableViewConnected() {
@@ -76,7 +75,7 @@ class HomeControllerTests: XCTestCase {
         let tableView = sut.optionsTable
         
         // Then
-        XCTAssertNotNil(tableView, "Home VC does not have a table view connected")
+        XCTAssertNotNil(tableView, "Home VC does not have a table view connected.")
     }
 
     func testTableViewHasTwoRows() {
@@ -87,7 +86,7 @@ class HomeControllerTests: XCTestCase {
         let rows = tableView.numberOfRows(inSection: 0)
         
         // Then
-        XCTAssertEqual(rows, 2, "TableView does not have the right number of rows (\(rows))")
+        XCTAssertEqual(rows, 2, "TableView does not have the right number of rows (\(rows).)")
     }
     
     func testRouteToShowUsers() {
@@ -99,7 +98,7 @@ class HomeControllerTests: XCTestCase {
         sut.usersSelected()
         
         // Then
-        XCTAssertTrue(router.routeToShowUsersCalled, "VC did not route to Show Users VC when Users selected")
+        XCTAssertTrue(router.routeToShowUsersCalled, "VC did not route to Show Users VC when Users selected.")
     }
     
     func testRouteToSettings() {
@@ -111,10 +110,10 @@ class HomeControllerTests: XCTestCase {
         sut.settingsSelected()
         
         // Then
-        XCTAssertTrue(router.routeToShowSettingsCalled, "VC did not route to Settings VC when Settings selected")
+        XCTAssertTrue(router.routeToShowSettingsCalled, "VC did not route to Settings VC when Settings selected.")
     }
     
-    // MARK: - Test Doubles
+    // MARK: - Test doubles
     class HomeRouterSpy: HomeRouter {
         var routeToShowUsersCalled = false
         var routeToShowSettingsCalled = false

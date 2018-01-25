@@ -17,12 +17,11 @@ protocol ShowUsersDataStore {
 class ShowUsersInteractor: ShowUsersBusinessLogic, ShowUsersDataStore {
     // MARK: - Properties
     var presenter: ShowUsersPresentationLogic?
-    var worker: ShowUsersWorker?
+    var worker: ShowUsersWorker = ShowUsersWorker()
   
     // MARK: - Use Cases
     func findUsers(request: ShowUsers.FindUsers.Request) {
-        worker = ShowUsersWorker()
-        worker?.findUsers(users: usersFound)
+        worker.findUsers(users: usersFound)
     }
     
     // MARK: - Use case callbacks

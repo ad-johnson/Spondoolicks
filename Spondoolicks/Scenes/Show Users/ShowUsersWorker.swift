@@ -17,11 +17,12 @@ class ShowUsersWorker {
     func findUsers(users: @escaping userCallback) {
         usersCallback = users
         DispatchQueue.main.async {
-            self.createTestUsers()
+            let tempUsers = self.createTestUsers()
+            self.usersCallback?(tempUsers)
         }
     }
     
-    func createTestUsers() {
+    func createTestUsers() -> [TempUser] {
         var tempUsers = [TempUser]()
         tempUsers.append(TempUser(userName: "Andrew", avatarImage: "0"))
         tempUsers.append(TempUser(userName: "David", avatarImage: "1"))
@@ -30,6 +31,6 @@ class ShowUsersWorker {
         tempUsers.append(TempUser(userName: "Rosalind", avatarImage: "4"))
         tempUsers.append(TempUser(userName: "Stan", avatarImage: "5"))
         tempUsers.append(TempUser(userName: "Ferdinando De BigName", avatarImage: "6"))
-        usersCallback?(tempUsers)
+        return tempUsers
     }
 }

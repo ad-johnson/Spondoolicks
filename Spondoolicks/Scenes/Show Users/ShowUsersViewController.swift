@@ -92,7 +92,10 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
 extension ShowUsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // do something here
-        print("selected \(indexPath.row)")
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }
 
@@ -113,6 +116,4 @@ extension ShowUsersViewController: UITableViewDataSource {
             fatalError("Show Users TableView cell at row \(indexPath.row) is not an \(Global.Identifier.Cell.USER_CELL)")
         }
     }
-    
-    
 }

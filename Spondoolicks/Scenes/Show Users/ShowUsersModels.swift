@@ -17,9 +17,14 @@ enum ShowUsers {
         }
         
         struct ViewModel {
-            struct DisplayedUser {
+            struct DisplayedUser: Equatable {
                 var userName: String
                 var avatarImage: String
+                
+                static func == (lhs: DisplayedUser, rhs: DisplayedUser) -> Bool {
+                    return  lhs.userName == rhs.userName &&
+                            lhs.avatarImage == rhs.avatarImage
+                }
             }
             var displayedUsers: [DisplayedUser]
         }

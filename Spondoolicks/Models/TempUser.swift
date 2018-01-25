@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct TempUser {
+struct TempUser: Equatable {
     var userName: String
     var avatarImage: String
+    
+    static func == (lhs: TempUser, rhs: TempUser) -> Bool {
+        return  lhs.userName == rhs.userName &&
+                lhs.avatarImage == rhs.avatarImage
+    }
 }
