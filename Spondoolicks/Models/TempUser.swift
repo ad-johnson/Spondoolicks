@@ -9,11 +9,13 @@
 import Foundation
 
 struct TempUser: Equatable {
+    var userId: Int
     var userName: String
     var avatarImage: String
     
     static func == (lhs: TempUser, rhs: TempUser) -> Bool {
-        return  lhs.userName == rhs.userName &&
+        return  lhs.userId == rhs.userId &&
+                lhs.userName == rhs.userName &&
                 lhs.avatarImage == rhs.avatarImage
     }
 }

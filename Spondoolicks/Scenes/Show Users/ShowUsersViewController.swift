@@ -10,6 +10,7 @@ import UIKit
 
 protocol ShowUsersDisplayLogic: class {
     func displayUsers(viewModel: ShowUsers.FindUsers.ViewModel)
+    func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel)
 }
 
 class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
@@ -17,6 +18,7 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     var interactor: ShowUsersBusinessLogic?
     var router: (NSObjectProtocol & ShowUsersRoutingLogic & ShowUsersDataPassing)?
     var displayedUsers: [ShowUsers.FindUsers.ViewModel.DisplayedUser] = []
+    var userBeingDeleted: IndexPath?
     
     // MARK: - IBOutlets
     @IBOutlet weak var introLabel: UILabel!
@@ -74,18 +76,64 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
         }
     }
 
+    func confirmDelete() {
+        if let userBeingDeleted = userBeingDeleted, let cellBeingDeleted = userTable.cellForRow(at: userBeingDeleted) {
+            let userName = displayedUsers[userBeingDeleted.row].userName
+            
+            let alert = UIAlertController(title: "Delete User", message: "Are you sure you want to permanently delete \(userName)?  There is no going back!", preferredStyle: .actionSheet)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: deleteUser)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
+                    self.userBeingDeleted = nil
+            })
+            
+            alert.addAction(deleteAction)
+            alert.addAction(cancelAction)
+            
+            // Support display in iPad
+            let popover = alert.popoverPresentationController
+            popover?.sourceView = cellBeingDeleted
+            popover?.sourceRect = cellBeingDeleted.bounds
+            popover?.permittedArrowDirections = UIPopoverArrowDirection.any
+            
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
     // MARK: - IBActions
     
-    // MARK: - Use cases
+    // MARK: - Use cases: requests
     
     func findUsers() {
         let request = ShowUsers.FindUsers.Request()
         interactor?.findUsers(request: request)
     }
     
+    func deleteUser(alertAction: UIAlertAction?) {
+        if let userBeingDeleted = userBeingDeleted {
+            let userId = displayedUsers[userBeingDeleted.row].userId
+            interactor?.deleteUser(request: ShowUsers.DeleteUser.Request(userId: userId))
+        }
+    }
+    
+    // MARK: - Use cases: responses
     func displayUsers(viewModel: ShowUsers.FindUsers.ViewModel) {
         displayedUsers = viewModel.displayedUsers
         userTable.reloadData()
+    }
+    
+    func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
+        if let _ = viewModel.error {
+            // TODO: - Create alert
+        } else {
+            if let indexPath = userBeingDeleted {
+                userTable.beginUpdates()
+                displayedUsers.remove(at: indexPath.row)
+                userTable.deleteRows(at: [indexPath], with: .automatic)
+                userBeingDeleted = nil
+                userTable.endUpdates()
+            }
+        }
     }
 }
 
@@ -96,6 +144,13 @@ extension ShowUsersViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            userBeingDeleted = indexPath
+            confirmDelete()
+        }
     }
 }
 

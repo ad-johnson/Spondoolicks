@@ -9,6 +9,7 @@ import UIKit
 
 protocol ShowUsersPresentationLogic {
     func presentFoundUsers(response: ShowUsers.FindUsers.Response)
+    func presentDeleteUserResult(response: ShowUsers.DeleteUser.Response)
 }
 
 class ShowUsersPresenter: ShowUsersPresentationLogic {
@@ -20,11 +21,16 @@ class ShowUsersPresenter: ShowUsersPresentationLogic {
         var displayedUsers = [ShowUsers.FindUsers.ViewModel.DisplayedUser]()
         if !response.users.isEmpty {
             for user in response.users {
-                displayedUsers.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: user.userName, avatarImage: user.avatarImage))
+                displayedUsers.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: user.userId, userName: user.userName, avatarImage: user.avatarImage))
             }
             
             let viewModel = ShowUsers.FindUsers.ViewModel(displayedUsers: displayedUsers)
             viewController?.displayUsers(viewModel: viewModel)
         }
+    }
+    
+    func presentDeleteUserResult(response: ShowUsers.DeleteUser.Response) {
+        let viewModel = ShowUsers.DeleteUser.ViewModel(error: response.error)
+        viewController?.userDeleted(viewModel: viewModel)
     }
 }

@@ -25,28 +25,47 @@ class ShowUsersWorkerTests: XCTestCase {
         super.tearDown()
     }
 
-    func testWorkerCallsInteractorWithFindUserResults() {
+    func testWorkerCallsInteractorWithFindUsersResults() {
         // Given
         let interactor = ShowUsersInteractorSpy()
         let expectation = XCTestExpectation(description: "Wait on callback")
         interactor.expectation = expectation
         
         // When
-        sut.findUsers(users: interactor.usersFound)
+        sut.findUsers(callback: interactor.usersFound)
         let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
         
         // Then
-        XCTAssertTrue(interactor.usersFoundCalled, "Show Users Worker did not call the Interactor with Find User results.")
+        XCTAssertTrue(interactor.usersFoundCalled, "Show Users Worker did not call the Interactor with Find Users results.")
+    }
+    
+    func testCallsInteractorWithDeleteUserResult() {
+        // Given
+        let interactor = ShowUsersInteractorSpy()
+        let expectation = XCTestExpectation(description: "Wait on callback")
+        interactor.expectation = expectation
+        
+        // When
+        sut.deleteUser(userId: 0, callback: interactor.userDeleted)
+        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        
+        // Then
+        XCTAssertTrue(interactor.userDeletedCalled, "Show Users Worker did not call the Interactor with Delete User results.")
     }
     
     // MARK: - Test doubles
     class ShowUsersInteractorSpy: ShowUsersInteractor {
         var usersFoundCalled = false
+        var userDeletedCalled = false
         var expectation: XCTestExpectation?
         
         override func usersFound(users: [TempUser]) {
             usersFoundCalled = true
             expectation?.fulfill()
+        }
+        
+        override func userDeleted(newUsers: [TempUser], error: Error?) {
+            userDeletedCalled = true
         }
     }
 }

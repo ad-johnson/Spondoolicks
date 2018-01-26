@@ -121,25 +121,96 @@ class ShowUsersControllerTests: XCTestCase {
         XCTAssertTrue(testUsers == sut.displayedUsers, "Find Users functionality did not return the correct data.")
     }
     
+    func testVCCallsInteractorToDeleteUser() {
+        // Given
+        let interactor = ShowUsersInteractorSpy()
+        let user = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 0, userName: "Andrew", avatarImage: "0")
+        sut.displayedUsers.append(user)
+        sut.interactor = interactor
+        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        
+        // When
+        sut.deleteUser(alertAction: nil)
+        
+        // Then
+        XCTAssertTrue(interactor.deleteUserCalled, "Show Users VC did not call Interactor to Delete User.")
+    }
+    
+    func testDeleteUserRemovesRowFromTableView() {
+        // Given
+        var expectation = XCTestExpectation(description: "Wait for FindUsers completion")
+        let vc = ShowUsersViewControllerMock()
+        let interactor = sut.interactor as! ShowUsersInteractor
+        let presenter = interactor.presenter as! ShowUsersPresenter
+        presenter.viewController = vc
+        vc.sut = sut
+        
+        // When
+        sut.findUsers()
+        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        
+        let rowCount = sut.userTable.numberOfRows(inSection: 0)
+        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        expectation = XCTestExpectation(description: "Wait for DeleteUser completion")
+        vc.expectation = expectation
+        sut.deleteUser(alertAction: nil)
+        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        let newNumberofRows = sut.userTable.numberOfRows(inSection: 0)
+        
+        // Then
+        XCTAssertTrue(newNumberofRows == rowCount - 1, "Show Users VC did not remove a deleted user from the Table View.")
+    }
+    
+    func testDeleteUserRemovesUserFromLocallyStoredUsers() {
+        // Given
+        var expectation = XCTestExpectation(description: "Wait for FindUsers completion")
+        let vc = ShowUsersViewControllerMock()
+        let interactor = sut.interactor as! ShowUsersInteractor
+        let presenter = interactor.presenter as! ShowUsersPresenter
+        presenter.viewController = vc
+        vc.sut = sut
+        
+        // When
+        sut.findUsers()
+        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        
+        let userCount = sut.displayedUsers.count
+        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        expectation = XCTestExpectation(description: "Wait for DeleteUser completion")
+        vc.expectation = expectation
+        sut.deleteUser(alertAction: nil)
+        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        let newNumberofUsers = sut.displayedUsers.count
+        
+        // Then
+        XCTAssertTrue(newNumberofUsers == userCount - 1, "Show Users VC did not remove a deleted user from the locally held store of users.")
+
+    }
+    
     // MARK: - Helper methods
     func generateTestUsers() -> [ShowUsers.FindUsers.ViewModel.DisplayedUser] {
         var testData = [ShowUsers.FindUsers.ViewModel.DisplayedUser]()
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Andrew", avatarImage: "0"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "David", avatarImage: "1"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Katherine", avatarImage: "2"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Richard", avatarImage: "3"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Rosalind", avatarImage: "4"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Stan", avatarImage: "5"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Ferdinando De BigName", avatarImage: "6"))
+        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0"))
+        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 2, userName: "David", avatarImage: "1"))
+        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 3, userName: "Katherine", avatarImage: "2"))
+        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 4, userName: "Richard", avatarImage: "3"))
+        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 5, userName: "Rosalind", avatarImage: "4"))
+        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 6, userName: "Stan", avatarImage: "5"))
+        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 7, userName: "Ferdinando De BigName", avatarImage: "6"))
         return testData
     }
     
     // MARK: - Test doubles
     class ShowUsersInteractorSpy: ShowUsersInteractor {
         var findUsersCalled = false
+        var deleteUserCalled = false
         
         override func findUsers(request: ShowUsers.FindUsers.Request) {
             findUsersCalled = true
+        }
+        
+        override func deleteUser(request: ShowUsers.DeleteUser.Request) {
+            deleteUserCalled = true
         }
     }
     
@@ -149,6 +220,11 @@ class ShowUsersControllerTests: XCTestCase {
         
         override func displayUsers(viewModel: ShowUsers.FindUsers.ViewModel) {
             sut?.displayUsers(viewModel: viewModel)
+            expectation?.fulfill()
+        }
+        
+        override func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
+            sut?.userDeleted(viewModel: viewModel)
             expectation?.fulfill()
         }
     }
