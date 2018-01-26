@@ -71,5 +71,6 @@ enum Global {
     struct AssetInfo {
         static let PROFILE_ICON = "Profile icon"
         static let SETTINGS_ICON = "Settings icon"
+        static let AVATAR_CREDIT = "Avatars made by Freepik from www.flaticon.com"
     }
 }
