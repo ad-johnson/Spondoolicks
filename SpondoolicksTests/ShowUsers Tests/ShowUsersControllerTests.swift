@@ -184,7 +184,36 @@ class ShowUsersControllerTests: XCTestCase {
         
         // Then
         XCTAssertTrue(newNumberofUsers == userCount - 1, "Show Users VC did not remove a deleted user from the locally held store of users.")
-
+    }
+    
+    func testErrorHandledWhenIncorrectUserDeleted() {
+        // Given
+        let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0")
+        let sutFake = ShowUsersViewControllerFake()
+        sutFake.displayedUsers = [testData]
+        sutFake.userBeingDeleted = IndexPath(row: 0, section: 0)
+        
+        // When
+        // userDeleted is inherited and thus the 'real' code is executed
+        sutFake.userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel(error: ShowUsersWorker.UserError.userNotFound))
+        
+        // Then
+        XCTAssertTrue(sutFake.displayErrorCalled, "Show Users VC did not display the Delete User error.")
+    }
+    
+    func testNoLocalUsersRemovedWhenDeleteUserErrorReceived() {
+        // Given
+        // Given
+        let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0")
+        sut.displayedUsers = [testData]
+        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        
+        // When
+        // userDeleted is inherited and thus the 'real' code is executed
+        sut.userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel(error: ShowUsersWorker.UserError.userNotFound))
+        
+        // Then
+        XCTAssertTrue(sut.displayedUsers.count == 1, "Show Users VC deleted a user from local store when Delete User error received.")
     }
     
     // MARK: - Helper methods
@@ -226,6 +255,14 @@ class ShowUsersControllerTests: XCTestCase {
         override func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
             sut?.userDeleted(viewModel: viewModel)
             expectation?.fulfill()
+        }
+    }
+    
+    class ShowUsersViewControllerFake: ShowUsersViewController {
+        var displayErrorCalled = false
+
+        override func displayError(_ message: String) {
+            displayErrorCalled = true
         }
     }
 }

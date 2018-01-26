@@ -97,6 +97,21 @@ class ShowUsersInteractorTests: XCTestCase {
         XCTAssertTrue(sut.users! == updatedTestData, "Show Users Interactor did not remove the deleted user from its local store.")
     }
     
+    func testInteractorPassesErrorToPresenterForDeleteUser() {
+        // Given
+        let presenter = ShowUsersPresenterFake()
+        let expectation = XCTestExpectation(description: "Wait for Delete User callback.")
+        presenter.expectation = expectation
+        sut.presenter = presenter
+        
+        // When
+        sut.deleteUser(request: ShowUsers.DeleteUser.Request(userId: 10))
+        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        
+        // Then
+        XCTAssertNotNil(presenter.result.error, "Show Users Interactor did not pass an error to the Presenter when incorrect user deleted.")
+    }
+    
     // MARK: - Test doubles
     class ShowUsersWorkerSpy: ShowUsersWorker {
         var findUsersCalled = false
@@ -121,6 +136,16 @@ class ShowUsersInteractorTests: XCTestCase {
         
         override func presentDeleteUserResult(response: ShowUsers.DeleteUser.Response) {
             presentDeleteUserCalled = true
+        }
+    }
+    
+    class ShowUsersPresenterFake: ShowUsersPresenter {
+        var result = ShowUsers.DeleteUser.Response(error: nil)
+        var expectation: XCTestExpectation?
+        
+        override func presentDeleteUserResult(response: ShowUsers.DeleteUser.Response) {
+            result = response
+            expectation?.fulfill()
         }
     }
 }

@@ -52,6 +52,19 @@ class ShowUsersPresenterTest: XCTestCase {
 
     }
     
+    func testPresenterPassesDeleteUserErrorToVC() {
+        // Given
+        let response = ShowUsers.DeleteUser.Response(error: ShowUsersWorker.UserError.userNotFound)
+        let vc = ShowUsersViewControllerFake()
+        sut.viewController = vc
+        
+        // When
+        sut.presentDeleteUserResult(response: response)
+        
+        // Then
+        XCTAssertNotNil(vc.viewModel?.error, "Show Users Presenter did not pass Delete User error to VC.")
+    }
+    
     // MARK: - Test doubles
     class ShowUsersViewControllerSpy: ShowUsersViewController {
         var displayUsersCalled = false
@@ -64,5 +77,15 @@ class ShowUsersPresenterTest: XCTestCase {
         override func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
             userDeletedCalled = true
         }
+    }
+    
+    class ShowUsersViewControllerFake: ShowUsersViewController {
+        var viewModel: ShowUsers.DeleteUser.ViewModel?
+        
+        override func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
+            self.viewModel = viewModel
+        }
+
+        
     }
 }

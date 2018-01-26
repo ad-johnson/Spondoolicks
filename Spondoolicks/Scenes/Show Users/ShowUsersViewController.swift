@@ -100,6 +100,15 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
         }
     }
     
+    func displayError(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - IBActions
     
     // MARK: - Use cases: requests
@@ -123,10 +132,11 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     }
     
     func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
-        if let _ = viewModel.error {
-            // TODO: - Create alert
-        } else {
-            if let indexPath = userBeingDeleted {
+        if let indexPath = userBeingDeleted {
+            if let _ = viewModel.error {
+                let name = displayedUsers[indexPath.row].userName
+                displayError("Could not delete user \(name).  Something went wrong.")
+            } else {
                 userTable.beginUpdates()
                 displayedUsers.remove(at: indexPath.row)
                 userTable.deleteRows(at: [indexPath], with: .automatic)
