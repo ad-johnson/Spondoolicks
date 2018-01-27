@@ -44,6 +44,15 @@
 		49B5690E2018C9C0004FE0E4 /* TempUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5690D2018C9C0004FE0E4 /* TempUser.swift */; };
 		49B569112018EFF1004FE0E4 /* ShowUsersControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B569102018EFF1004FE0E4 /* ShowUsersControllerTests.swift */; };
 		49B569132019027C004FE0E4 /* ShowUsersInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B569122019027C004FE0E4 /* ShowUsersInteractorTests.swift */; };
+		49D1F792201CABCD0066F626 /* MaintainUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F78C201CABCD0066F626 /* MaintainUserPresenter.swift */; };
+		49D1F793201CABCD0066F626 /* MaintainUserWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F78D201CABCD0066F626 /* MaintainUserWorker.swift */; };
+		49D1F794201CABCD0066F626 /* MaintainUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F78E201CABCD0066F626 /* MaintainUserRouter.swift */; };
+		49D1F795201CABCD0066F626 /* MaintainUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F78F201CABCD0066F626 /* MaintainUserModels.swift */; };
+		49D1F796201CABCD0066F626 /* MaintainUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F790201CABCD0066F626 /* MaintainUserViewController.swift */; };
+		49D1F797201CABCD0066F626 /* MaintainUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F791201CABCD0066F626 /* MaintainUserInteractor.swift */; };
+		49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79A201CAC1E0066F626 /* AvatarCell.swift */; };
+		49D1F79F201CAE3D0066F626 /* spBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */; };
+		49D1F7A1201CD9C80066F626 /* spBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A0201CD9C80066F626 /* spBorderedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +117,15 @@
 		49B5690D2018C9C0004FE0E4 /* TempUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUser.swift; sourceTree = "<group>"; };
 		49B569102018EFF1004FE0E4 /* ShowUsersControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersControllerTests.swift; sourceTree = "<group>"; };
 		49B569122019027C004FE0E4 /* ShowUsersInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersInteractorTests.swift; sourceTree = "<group>"; };
+		49D1F78C201CABCD0066F626 /* MaintainUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserPresenter.swift; sourceTree = "<group>"; };
+		49D1F78D201CABCD0066F626 /* MaintainUserWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserWorker.swift; sourceTree = "<group>"; };
+		49D1F78E201CABCD0066F626 /* MaintainUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserRouter.swift; sourceTree = "<group>"; };
+		49D1F78F201CABCD0066F626 /* MaintainUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserModels.swift; sourceTree = "<group>"; };
+		49D1F790201CABCD0066F626 /* MaintainUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserViewController.swift; sourceTree = "<group>"; };
+		49D1F791201CABCD0066F626 /* MaintainUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserInteractor.swift; sourceTree = "<group>"; };
+		49D1F79A201CAC1E0066F626 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spBorderedTextField.swift; sourceTree = "<group>"; };
+		49D1F7A0201CD9C80066F626 /* spBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spBorderedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +280,7 @@
 		49255FD8200F9E4E000E40E9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				49D1F798201CABD20066F626 /* Maintain User */,
 				49206E1820173AC600B16CD8 /* Settings */,
 				49206E0B20173A9C00B16CD8 /* Show Users */,
 				49255FE92010E1D0000E40E9 /* Home */,
@@ -343,6 +362,30 @@
 				495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */,
 			);
 			path = "ShowUsers Tests";
+			sourceTree = "<group>";
+		};
+		49D1F798201CABD20066F626 /* Maintain User */ = {
+			isa = PBXGroup;
+			children = (
+				49D1F799201CABFA0066F626 /* Helpers */,
+				49D1F78C201CABCD0066F626 /* MaintainUserPresenter.swift */,
+				49D1F78D201CABCD0066F626 /* MaintainUserWorker.swift */,
+				49D1F78E201CABCD0066F626 /* MaintainUserRouter.swift */,
+				49D1F78F201CABCD0066F626 /* MaintainUserModels.swift */,
+				49D1F790201CABCD0066F626 /* MaintainUserViewController.swift */,
+				49D1F791201CABCD0066F626 /* MaintainUserInteractor.swift */,
+			);
+			path = "Maintain User";
+			sourceTree = "<group>";
+		};
+		49D1F799201CABFA0066F626 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				49D1F79A201CAC1E0066F626 /* AvatarCell.swift */,
+				49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */,
+				49D1F7A0201CD9C80066F626 /* spBorderedView.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -486,24 +529,33 @@
 				49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */,
 				49206E1520173AC100B16CD8 /* SettingsModels.swift in Sources */,
 				49255FEB2010EB34000E40E9 /* UIFrameworkExtensions.swift in Sources */,
+				49D1F795201CABCD0066F626 /* MaintainUserModels.swift in Sources */,
 				49B5690E2018C9C0004FE0E4 /* TempUser.swift in Sources */,
 				49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */,
 				49206E0A20173A9600B16CD8 /* ShowUsersInteractor.swift in Sources */,
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
 				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
+				49D1F7A1201CD9C80066F626 /* spBorderedView.swift in Sources */,
+				49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */,
 				49255FFB2013A083000E40E9 /* LozengeView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
+				49D1F797201CABCD0066F626 /* MaintainUserInteractor.swift in Sources */,
 				49206E1320173AC100B16CD8 /* SettingsWorker.swift in Sources */,
 				49206E1420173AC100B16CD8 /* SettingsRouter.swift in Sources */,
+				49D1F793201CABCD0066F626 /* MaintainUserWorker.swift in Sources */,
 				49206E0720173A9600B16CD8 /* ShowUsersRouter.swift in Sources */,
 				49255FF5201107FB000E40E9 /* Globals.swift in Sources */,
 				49206E1620173AC100B16CD8 /* SettingsViewController.swift in Sources */,
 				49255FA7200F9D1B000E40E9 /* AppDelegate.swift in Sources */,
 				49255FE62010E1C9000E40E9 /* HomeModels.swift in Sources */,
+				49D1F792201CABCD0066F626 /* MaintainUserPresenter.swift in Sources */,
+				49D1F794201CABCD0066F626 /* MaintainUserRouter.swift in Sources */,
 				49206E0920173A9600B16CD8 /* ShowUsersViewController.swift in Sources */,
 				49255FE72010E1C9000E40E9 /* HomeViewController.swift in Sources */,
 				49206E0620173A9600B16CD8 /* ShowUsersWorker.swift in Sources */,
 				49206E0520173A9600B16CD8 /* ShowUsersPresenter.swift in Sources */,
+				49D1F79F201CAE3D0066F626 /* spBorderedTextField.swift in Sources */,
+				49D1F796201CABCD0066F626 /* MaintainUserViewController.swift in Sources */,
 				49255FE52010E1C9000E40E9 /* HomeRouter.swift in Sources */,
 				49206E1720173AC100B16CD8 /* SettingsInteractor.swift in Sources */,
 				49206E0820173A9600B16CD8 /* ShowUsersModels.swift in Sources */,

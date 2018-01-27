@@ -110,6 +110,9 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     }
     
     // MARK: - IBActions
+    @IBAction func addUser(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: Global.Segue.MAINTAIN_USER, sender: self)
+    }
     
     // MARK: - Use cases: requests
     

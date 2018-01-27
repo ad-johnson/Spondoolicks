@@ -12,6 +12,7 @@ enum Global {
     struct Segue {
         static let SHOW_USERS = "ShowUsers"
         static let SHOW_SETTINGS = "ShowSettings"
+        static let MAINTAIN_USER = "ShowMaintainUser"
     }
     
     struct Identifier {

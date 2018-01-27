@@ -245,17 +245,124 @@
                     <navigationItem key="navigationItem" title="Users" id="sJD-yc-WWB">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xit-WL-LwL">
                             <color key="tintColor" name="sp Grey"/>
+                            <connections>
+                                <action selector="addUser:" destination="7Do-LE-jH6" id="2XS-kx-4LQ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="introLabel" destination="KSn-rT-fk1" id="SMi-c0-0mW"/>
                         <outlet property="userTable" destination="DcR-qD-iId" id="MAt-xV-u1B"/>
+                        <segue destination="UX2-FQ-48n" kind="show" identifier="ShowMaintainUser" id="8VL-uw-feN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d23-ll-zEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1233.3333333333335" y="-226.63043478260872"/>
+        </scene>
+        <!--Maintain User-->
+        <scene sceneID="7Ke-uf-qx5">
+            <objects>
+                <viewController storyboardIdentifier="MaintainUserVC" title="Maintain User" id="UX2-FQ-48n" customClass="MaintainUserViewController" customModule="Spondoolicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1yR-Ha-2zo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Km-CH-CuR" customClass="spBorderedView" customModule="Spondoolicks" customModuleProvider="target">
+                                <rect key="frame" x="181.66666666666666" y="24" width="51" height="66"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl-0" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3n-Tb-KLj" userLabel="Chosen Avatar">
+                                        <rect key="frame" x="5" y="5" width="41" height="56"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="k3n-Tb-KLj" firstAttribute="leading" secondItem="7Km-CH-CuR" secondAttribute="leading" constant="5" id="9jL-hz-pLI"/>
+                                    <constraint firstItem="k3n-Tb-KLj" firstAttribute="top" secondItem="7Km-CH-CuR" secondAttribute="top" constant="5" id="9sf-j8-m9C"/>
+                                    <constraint firstAttribute="bottom" secondItem="k3n-Tb-KLj" secondAttribute="bottom" constant="5" id="bv3-bu-UyE"/>
+                                    <constraint firstAttribute="trailing" secondItem="k3n-Tb-KLj" secondAttribute="trailing" constant="5" id="n5d-JY-I9J"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My name is" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-Zb-FYI" userLabel="Username" customClass="spBorderedTextField" customModule="Spondoolicks" customModuleProvider="target">
+                                <rect key="frame" x="35.666666666666657" y="114" width="343" height="32"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="343" id="NYE-D9-esa"/>
+                                </constraints>
+                                <color key="textColor" name="sp Grey"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES" textContentType="name"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-Db-zeV" userLabel="Seperator">
+                                <rect key="frame" x="16" y="170" width="382" height="2"/>
+                                <color key="backgroundColor" name="sp Green"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="HXr-Hk-HLR"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XrC-Hc-1zk">
+                                <rect key="frame" x="16" y="196" width="382" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eiI-Ex-Dxh">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AvatarCell" id="tnB-Dg-RND" customClass="AvatarCell" customModule="Spondoolicks" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boy-0" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7W-pw-ukf" userLabel="Avatar">
+                                                    <rect key="frame" x="2" y="2" width="46" height="46"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="P7W-pw-ukf" firstAttribute="top" secondItem="tnB-Dg-RND" secondAttribute="top" constant="2" id="9Ah-yx-G46"/>
+                                            <constraint firstAttribute="bottom" secondItem="P7W-pw-ukf" secondAttribute="bottom" constant="2" id="EPk-IL-RxW"/>
+                                            <constraint firstItem="P7W-pw-ukf" firstAttribute="leading" secondItem="tnB-Dg-RND" secondAttribute="leading" constant="2" id="PQ1-BN-kI8"/>
+                                            <constraint firstAttribute="trailing" secondItem="P7W-pw-ukf" secondAttribute="trailing" constant="2" id="hQQ-zO-Y4Q"/>
+                                        </constraints>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" name="sp Dark Purple"/>
+                        <constraints>
+                            <constraint firstItem="DXp-1X-HzP" firstAttribute="trailing" secondItem="YHY-Db-zeV" secondAttribute="trailing" constant="16" id="1gR-7z-3KP"/>
+                            <constraint firstItem="XrC-Hc-1zk" firstAttribute="leading" secondItem="DXp-1X-HzP" secondAttribute="leading" constant="16" id="EC0-kq-x7x"/>
+                            <constraint firstItem="DXp-1X-HzP" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lLl-Zb-FYI" secondAttribute="trailing" constant="16" id="KoY-fH-IpP"/>
+                            <constraint firstItem="YHY-Db-zeV" firstAttribute="leading" secondItem="DXp-1X-HzP" secondAttribute="leading" constant="16" id="QtG-QR-dpo"/>
+                            <constraint firstItem="XrC-Hc-1zk" firstAttribute="top" secondItem="YHY-Db-zeV" secondAttribute="bottom" constant="24" id="TbJ-PZ-NOd"/>
+                            <constraint firstItem="lLl-Zb-FYI" firstAttribute="centerX" secondItem="1yR-Ha-2zo" secondAttribute="centerX" id="WYn-58-3OI"/>
+                            <constraint firstItem="YHY-Db-zeV" firstAttribute="top" secondItem="lLl-Zb-FYI" secondAttribute="bottom" constant="24" id="Wld-SZ-EnL"/>
+                            <constraint firstItem="DXp-1X-HzP" firstAttribute="trailing" secondItem="XrC-Hc-1zk" secondAttribute="trailing" constant="16" id="eEx-2f-0bu"/>
+                            <constraint firstItem="DXp-1X-HzP" firstAttribute="bottom" secondItem="XrC-Hc-1zk" secondAttribute="bottom" constant="16" id="gbY-u6-hO0"/>
+                            <constraint firstItem="7Km-CH-CuR" firstAttribute="top" secondItem="DXp-1X-HzP" secondAttribute="top" constant="24" id="gko-Yb-1c1"/>
+                            <constraint firstItem="lLl-Zb-FYI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DXp-1X-HzP" secondAttribute="leading" constant="16" id="hXm-Yg-IvH"/>
+                            <constraint firstItem="lLl-Zb-FYI" firstAttribute="top" secondItem="7Km-CH-CuR" secondAttribute="bottom" constant="24" id="ke8-lI-Uzt"/>
+                            <constraint firstItem="7Km-CH-CuR" firstAttribute="centerX" secondItem="1yR-Ha-2zo" secondAttribute="centerX" id="kx0-x4-T4R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DXp-1X-HzP"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add User" id="BrV-Ky-LYs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="h56-1T-paM">
+                            <color key="tintColor" name="sp Grey"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="userName" destination="lLl-Zb-FYI" id="uun-zN-WnT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Icu-oS-OkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1934.7826086956522" y="-227.44565217391306"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZwP-jl-Lm0">
@@ -289,11 +396,13 @@
     <resources>
         <image name="NavigationBorder" width="375" height="1"/>
         <image name="Profile icon" width="56" height="56"/>
+        <image name="boy-0" width="38" height="56"/>
+        <image name="girl-0" width="41" height="56"/>
         <namedColor name="sp Dark Purple">
             <color red="0.097999997437000275" green="0.0" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sp Green">
-            <color red="0.54500001669999998" green="1" blue="0.23899999259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.54500001668930054" green="1" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sp Grey">
             <color red="0.9100000262260437" green="0.9100000262260437" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -25,7 +25,7 @@ class UserCell: UITableViewCell {
     // MARK: - Configuration
     func configureCell(user: ShowUsers.FindUsers.ViewModel.DisplayedUser) {
         userName.text = user.userName
-        userAvatar.image = UIImage(named: "girl")
+        userAvatar.image = UIImage(named: "girl-0")
 
         configureUserViews()
         if regularConstraints.count == 0 {
