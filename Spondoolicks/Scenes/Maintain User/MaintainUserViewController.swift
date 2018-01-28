@@ -18,6 +18,8 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     
     // MARK: - IBOutlets
     @IBOutlet weak var userName: spBorderedTextField!
+    @IBOutlet weak var avatarCollection: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     // MARK: - Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -63,14 +65,25 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     // MARK: - View handling
     func setupView() {
         userName.delegate = self
+        avatarCollection.delegate = self
+        avatarCollection.dataSource = self
         
+        // Setup cells for automatic sizing to support image re-sizing set by
+        // the user.
+        flowLayout.estimatedItemSize = CGSize(width: 56, height: 56)
+        flowLayout.itemSize = UICollectionViewFlowLayoutAutomaticSize
+ 
         if let colour = UIColor(named: "sp Grey") {
-//            let semi = colour.withAlphaComponent(0.5)
             userName.attributedPlaceholder = NSAttributedString(string: "My name is", attributes: [NSAttributedStringKey.foregroundColor: colour.withAlphaComponent(0.5) ])
         } else {
             userName.attributedPlaceholder = NSAttributedString(string: "My name is", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray.withAlphaComponent(0.5) ])
         }
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        flowLayout.invalidateLayout()
+    }
+
     
     // MARK: - IBActions
     //@IBOutlet weak var nameTextField: UITextField!
@@ -84,4 +97,62 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     func displaySomething(viewModel: MaintainUser.Something.ViewModel) {
         //nameTextField.text = viewModel.name
     }
+}
+
+extension MaintainUserViewController: UICollectionViewDelegate {
+}
+
+extension MaintainUserViewController: UICollectionViewDataSource {
+    // Use sections to hold girl/boy Avatar images seperately
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Global.Identifier.Cell.AVATAR_HEADER, for: indexPath) as! AvatarHeaderView
+            headerView.configureHeader(section: indexPath.section)
+            return headerView
+        default:
+        fatalError("Maintain User CollectionView header at section \(indexPath.section) is not an Header Kind: \(kind)")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return Global.AssetInfo.NUMBER_OF_AVATARS[section]
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Global.Identifier.Cell.AVATAR_CELL, for: indexPath) as? AvatarCell {
+            cell.configureCell(indexPath: indexPath)
+            return cell
+        } else {
+            fatalError("Maintain User CollectionView cell at row \(indexPath.row) is not an \(Global.Identifier.Cell.AVATAR_CELL)")
+        }
+    }
+}
+
+extension MaintainUserViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+        // Use a dummy label to calculate the height.  It isn't fixed because of
+        // Dynamic Type and there is no 'automatic dynamic heading sizing' as there
+        // is for cells.
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: collectionView.frame.width, height: CGFloat.greatestFiniteMagnitude))
+        label.numberOfLines = 1
+        if let font = UIFont(name: Global.FontInfo.BODY_FONT, size: 20) {
+            label.font = UIFontMetrics.default.scaledFont(for: font)
+        }
+
+        label.text = Global.Identifier.Names.AVATAR_HEADING_NAMES[section]
+        label.sizeToFit()
+        
+        // Set some extra pixels to account for an 8 pixel spacing at the top and bottom
+        // as constraints are set on the Storyboard.
+        return CGSize(width: collectionView.frame.width, height: label.frame.height + 16)
+    }
+
 }

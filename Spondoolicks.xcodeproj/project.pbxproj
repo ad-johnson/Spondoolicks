@@ -53,6 +53,7 @@
 		49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79A201CAC1E0066F626 /* AvatarCell.swift */; };
 		49D1F79F201CAE3D0066F626 /* spBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */; };
 		49D1F7A1201CD9C80066F626 /* spBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A0201CD9C80066F626 /* spBorderedView.swift */; };
+		49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		49D1F79A201CAC1E0066F626 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spBorderedTextField.swift; sourceTree = "<group>"; };
 		49D1F7A0201CD9C80066F626 /* spBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spBorderedView.swift; sourceTree = "<group>"; };
+		49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +386,7 @@
 				49D1F79A201CAC1E0066F626 /* AvatarCell.swift */,
 				49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */,
 				49D1F7A0201CD9C80066F626 /* spBorderedView.swift */,
+				49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
 				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
 				49D1F7A1201CD9C80066F626 /* spBorderedView.swift in Sources */,
+				49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */,
 				49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */,
 				49255FFB2013A083000E40E9 /* LozengeView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,

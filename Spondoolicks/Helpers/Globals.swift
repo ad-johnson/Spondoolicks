@@ -22,11 +22,16 @@ enum Global {
         struct Cell {
             static let OPTION_CELL = "OptionCell"
             static let USER_CELL = "UserCell"
+            static let AVATAR_CELL = "AvatarCell"
+            static let AVATAR_HEADER = "AvatarHeader"
         }
         struct ViewController {
             static let HOME_VC = "HomeVC"
             static let SHOW_USERS_VC = "ShowUsersVC"
             static let SETTINGS_VC = "SettingsVC"
+        }
+        struct Names {
+            static let AVATAR_HEADING_NAMES = ["Girls", "Boys"]
         }
     }
     
@@ -73,5 +78,6 @@ enum Global {
         static let PROFILE_ICON = "Profile icon"
         static let SETTINGS_ICON = "Settings icon"
         static let AVATAR_CREDIT = "Avatars made by Freepik from www.flaticon.com"
+        static let NUMBER_OF_AVATARS = [27, 23] // Avatar images: Girls, Boys
     }
 }
