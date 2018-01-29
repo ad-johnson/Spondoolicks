@@ -298,7 +298,7 @@
                                     <constraint firstAttribute="height" constant="2" id="HXr-Hk-HLR"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XrC-Hc-1zk">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XrC-Hc-1zk">
                                 <rect key="frame" x="16" y="196" width="382" height="416"/>
                                 <color key="backgroundColor" name="sp Dark Purple"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="8" id="eiI-Ex-Dxh">
@@ -376,13 +376,17 @@
                         <viewLayoutGuide key="safeArea" id="DXp-1X-HzP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add User" id="BrV-Ky-LYs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="h56-1T-paM">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="h56-1T-paM">
                             <color key="tintColor" name="sp Grey"/>
+                            <connections>
+                                <action selector="saveTapped:" destination="UX2-FQ-48n" id="j3u-1L-bIn"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="avatarCollection" destination="XrC-Hc-1zk" id="Zsh-ZR-Ivc"/>
                         <outlet property="flowLayout" destination="eiI-Ex-Dxh" id="ioc-CF-c2g"/>
+                        <outlet property="saveButton" destination="h56-1T-paM" id="EgD-sH-hWd"/>
                         <outlet property="userAvatar" destination="k3n-Tb-KLj" id="ZYf-qj-YkA"/>
                         <outlet property="userName" destination="lLl-Zb-FYI" id="uun-zN-WnT"/>
                     </connections>

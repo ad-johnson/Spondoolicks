@@ -81,5 +81,12 @@ enum Global {
         static let AVATAR_CREDIT = "Avatars made by Freepik from www.flaticon.com"
         static let AVATAR_IMAGE_NAME = ["girl-", "boy-"]
         static let NUMBER_OF_AVATARS = [27, 23] // Avatar images: Girls, Boys
+        
+        static func getAvatarName(indexPath: IndexPath) -> String {
+            return getAvatarName(section: indexPath.section, row: indexPath.row)
+        }
+        static func getAvatarName(section: Int, row: Int) -> String {
+            return "\(AVATAR_IMAGE_NAME[section])\(row)"
+        }
     }
 }

@@ -170,11 +170,13 @@ extension ShowUsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Change", handler: { (action, view, handler) in
             self.userBeingActioned = indexPath
+            self.userTable.setEditing(false, animated: true)
             self.editUser()
         })
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, view, handler) in
             self.userBeingActioned = indexPath
+            self.userTable.setEditing(false, animated: true)
             self.confirmDelete()
         })
         

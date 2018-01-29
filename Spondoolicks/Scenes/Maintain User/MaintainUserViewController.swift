@@ -16,8 +16,11 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     var interactor: MaintainUserBusinessLogic?
     var router: (NSObjectProtocol & MaintainUserRoutingLogic & MaintainUserDataPassing)?
     var isAddingUser = true
-    
+    var selectedAvatar: String?
+    var tap: UITapGestureRecognizer!
+
     // MARK: - IBOutlets
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var userName: spBorderedTextField!
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var avatarCollection: UICollectionView!
@@ -81,15 +84,48 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
             userName.attributedPlaceholder = NSAttributedString(string: "My name is", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray.withAlphaComponent(0.5) ])
         }
         
+        tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.isEnabled = false
+        view.addGestureRecognizer(tap)
+
         getUser()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // when view is tapped, hide the keyboard
+        tap.isEnabled = true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        tap.isEnabled = false
+        handleSaveButtonState()
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func handleSaveButtonState() {
+        if let userName = userName.text, let _ = selectedAvatar, !userName.isEmpty {
+            saveButton.isEnabled = true
+        } else {
+            saveButton.isEnabled = false
+        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         flowLayout.invalidateLayout()
     }
 
-    
     // MARK: - IBActions
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        
+    }
     
     // MARK: - Use cases
     func getUser() {
@@ -97,11 +133,21 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
         interactor?.getUser(request: request)
     }
     
-    // MARK: - Use case resonses
+    func addUser() {
+        
+    }
+    
+    func changeUser() {
+        
+    }
+    
+    // MARK: - Use case responses
     func displayUser(viewModel: MaintainUser.GetUser.ViewModel?) {
         if let user = viewModel?.displayedUser {
+            isAddingUser = false
             self.navigationItem.title = "Change User"
             userName.text = user.userName
+            selectedAvatar = user.avatarImage
             if let image = UIImage(named: user.avatarImage) {
                 userAvatar.image = image
             } else {
@@ -116,6 +162,15 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
 }
 
 extension MaintainUserViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let imageName = Global.AssetInfo.getAvatarName(indexPath: indexPath)
+        if let image = UIImage(named: imageName) {
+            selectedAvatar = imageName
+            userAvatar.image = image
+        }
+        handleSaveButtonState()
+    }
+    
 }
 
 extension MaintainUserViewController: UICollectionViewDataSource {

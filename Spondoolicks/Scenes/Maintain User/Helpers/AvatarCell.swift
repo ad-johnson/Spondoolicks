@@ -18,11 +18,7 @@ class AvatarCell: UICollectionViewCell {
     }
     
     func configureCell(indexPath: IndexPath) {
-        let section = indexPath.section
-        let row = indexPath.row
-        
-        let imageName = "\(Global.AssetInfo.AVATAR_IMAGE_NAME[section])\(row)"
-        
+        let imageName = Global.AssetInfo.getAvatarName(indexPath: indexPath)
         if let image = UIImage(named: imageName) {
             avatarImage.image = image
         } else {
