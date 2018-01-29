@@ -45,4 +45,13 @@ enum ShowUsers {
             var error: Error?
         }
     }
+    
+    enum EditUser {
+        struct Request {
+            var userId: Int
+        }
+        
+        struct Response { }
+        struct ViewModel { }
+    }
 }

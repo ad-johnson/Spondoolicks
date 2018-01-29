@@ -25,7 +25,11 @@ class UserCell: UITableViewCell {
     // MARK: - Configuration
     func configureCell(user: ShowUsers.FindUsers.ViewModel.DisplayedUser) {
         userName.text = user.userName
-        userAvatar.image = UIImage(named: "girl-0")
+        if let image = UIImage(named: user.avatarImage) {
+            userAvatar.image = image
+        } else {
+            userAvatar.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
+        }
 
         configureUserViews()
         if regularConstraints.count == 0 {

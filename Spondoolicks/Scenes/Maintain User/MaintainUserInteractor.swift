@@ -8,25 +8,22 @@
 import UIKit
 
 protocol MaintainUserBusinessLogic {
-    func doSomething(request: MaintainUser.Something.Request)
+    func getUser(request: MaintainUser.GetUser.Request)
 }
 
 protocol MaintainUserDataStore {
-    //var name: String { get set }
+    var userBeingMaintained: TempUser? { get set }
 }
 
 class MaintainUserInteractor: MaintainUserBusinessLogic, MaintainUserDataStore {
     // MARK: - Properties
     var presenter: MaintainUserPresentationLogic?
     var worker: MaintainUserWorker?
-    //var name: String = ""
+    var userBeingMaintained: TempUser?
   
     // MARK: - Use Cases
-    func doSomething(request: MaintainUser.Something.Request) {
-        worker = MaintainUserWorker()
-        worker?.doSomeWork()
-    
-        let response = MaintainUser.Something.Response()
-        presenter?.presentSomething(response: response)
+    func getUser(request: MaintainUser.GetUser.Request) {
+        let response = MaintainUser.GetUser.Response(user: userBeingMaintained)
+        presenter?.presentUser(response: response)
     }
 }

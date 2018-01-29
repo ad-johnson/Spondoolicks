@@ -29,6 +29,7 @@ enum Global {
             static let HOME_VC = "HomeVC"
             static let SHOW_USERS_VC = "ShowUsersVC"
             static let SETTINGS_VC = "SettingsVC"
+            static let MAINTAIN_USER = "MaintainUserVC"
         }
         struct Names {
             static let AVATAR_HEADING_NAMES = ["Girls", "Boys"]
@@ -78,6 +79,7 @@ enum Global {
         static let PROFILE_ICON = "Profile icon"
         static let SETTINGS_ICON = "Settings icon"
         static let AVATAR_CREDIT = "Avatars made by Freepik from www.flaticon.com"
+        static let AVATAR_IMAGE_NAME = ["girl-", "boy-"]
         static let NUMBER_OF_AVATARS = [27, 23] // Avatar images: Girls, Boys
     }
 }

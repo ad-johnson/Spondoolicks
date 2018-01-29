@@ -8,16 +8,18 @@
 import UIKit
 
 protocol MaintainUserDisplayLogic: class {
-    func displaySomething(viewModel: MaintainUser.Something.ViewModel)
+    func displayUser(viewModel: MaintainUser.GetUser.ViewModel?)
 }
 
 class MaintainUserViewController: UIViewController, UITextFieldDelegate, MaintainUserDisplayLogic {
     // MARK: - Properties
     var interactor: MaintainUserBusinessLogic?
     var router: (NSObjectProtocol & MaintainUserRoutingLogic & MaintainUserDataPassing)?
+    var isAddingUser = true
     
     // MARK: - IBOutlets
     @IBOutlet weak var userName: spBorderedTextField!
+    @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var avatarCollection: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
@@ -78,6 +80,8 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
         } else {
             userName.attributedPlaceholder = NSAttributedString(string: "My name is", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray.withAlphaComponent(0.5) ])
         }
+        
+        getUser()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -86,16 +90,28 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
 
     
     // MARK: - IBActions
-    //@IBOutlet weak var nameTextField: UITextField!
     
     // MARK: - Use cases
-    func doSomething() {
-        let request = MaintainUser.Something.Request()
-        interactor?.doSomething(request: request)
+    func getUser() {
+        let request = MaintainUser.GetUser.Request()
+        interactor?.getUser(request: request)
     }
     
-    func displaySomething(viewModel: MaintainUser.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    // MARK: - Use case resonses
+    func displayUser(viewModel: MaintainUser.GetUser.ViewModel?) {
+        if let user = viewModel?.displayedUser {
+            self.navigationItem.title = "Change User"
+            userName.text = user.userName
+            if let image = UIImage(named: user.avatarImage) {
+                userAvatar.image = image
+            } else {
+                userAvatar.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
+            }
+        } else {
+            self.navigationItem.title = "Add User"
+            userName.text = ""
+            userAvatar.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
+        }
     }
 }
 

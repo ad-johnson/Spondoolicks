@@ -12,10 +12,11 @@ class AvatarHeaderView: UICollectionReusableView {
     @IBOutlet weak var sectionName: UILabel!
     
     // MARK: - Functions
-    override func awakeFromNib() {        
+    override func awakeFromNib() {
         if let font = UIFont(name: Global.FontInfo.BODY_FONT, size: 20) {
             sectionName.font = UIFontMetrics.default.scaledFont(for: font)
         }
+        self.layer.cornerRadius = 5.0
     }
     
     func configureHeader(section: Int) {

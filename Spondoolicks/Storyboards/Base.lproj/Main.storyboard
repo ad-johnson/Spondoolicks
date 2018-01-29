@@ -383,6 +383,7 @@
                     <connections>
                         <outlet property="avatarCollection" destination="XrC-Hc-1zk" id="Zsh-ZR-Ivc"/>
                         <outlet property="flowLayout" destination="eiI-Ex-Dxh" id="ioc-CF-c2g"/>
+                        <outlet property="userAvatar" destination="k3n-Tb-KLj" id="ZYf-qj-YkA"/>
                         <outlet property="userName" destination="lLl-Zb-FYI" id="uun-zN-WnT"/>
                     </connections>
                 </viewController>

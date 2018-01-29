@@ -18,7 +18,7 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     var interactor: ShowUsersBusinessLogic?
     var router: (NSObjectProtocol & ShowUsersRoutingLogic & ShowUsersDataPassing)?
     var displayedUsers: [ShowUsers.FindUsers.ViewModel.DisplayedUser] = []
-    var userBeingDeleted: IndexPath?
+    var userBeingActioned: IndexPath?
     
     // MARK: - IBOutlets
     @IBOutlet weak var introLabel: UILabel!
@@ -77,14 +77,14 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     }
 
     func confirmDelete() {
-        if let userBeingDeleted = userBeingDeleted, let cellBeingDeleted = userTable.cellForRow(at: userBeingDeleted) {
+        if let userBeingDeleted = userBeingActioned, let cellBeingDeleted = userTable.cellForRow(at: userBeingDeleted) {
             let userName = displayedUsers[userBeingDeleted.row].userName
             
             let alert = UIAlertController(title: "Delete User", message: "Are you sure you want to permanently delete \(userName)?  There is no going back!", preferredStyle: .actionSheet)
             
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: deleteUser)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
-                    self.userBeingDeleted = nil
+                    self.userBeingActioned = nil
             })
             
             alert.addAction(deleteAction)
@@ -111,7 +111,7 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     
     // MARK: - IBActions
     @IBAction func addUser(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: Global.Segue.MAINTAIN_USER, sender: self)
+        addUser()
     }
     
     // MARK: - Use cases: requests
@@ -122,10 +122,18 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     }
     
     func deleteUser(alertAction: UIAlertAction?) {
-        if let userBeingDeleted = userBeingDeleted {
-            let userId = displayedUsers[userBeingDeleted.row].userId
+        if let userBeingActioned = userBeingActioned {
+            let userId = displayedUsers[userBeingActioned.row].userId
             interactor?.deleteUser(request: ShowUsers.DeleteUser.Request(userId: userId))
         }
+    }
+    
+    func addUser() {
+        performSegue(withIdentifier: Global.Segue.MAINTAIN_USER, sender: self)
+    }
+    
+    func editUser() {
+        performSegue(withIdentifier: Global.Segue.MAINTAIN_USER, sender: self)
     }
     
     // MARK: - Use cases: responses
@@ -135,7 +143,7 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     }
     
     func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
-        if let indexPath = userBeingDeleted {
+        if let indexPath = userBeingActioned {
             if let _ = viewModel.error {
                 let name = displayedUsers[indexPath.row].userName
                 displayError("Could not delete user \(name).  Something went wrong.")
@@ -143,7 +151,7 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
                 userTable.beginUpdates()
                 displayedUsers.remove(at: indexPath.row)
                 userTable.deleteRows(at: [indexPath], with: .automatic)
-                userBeingDeleted = nil
+                userBeingActioned = nil
                 userTable.endUpdates()
             }
         }
@@ -159,11 +167,22 @@ extension ShowUsersViewController: UITableViewDelegate {
         return true
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            userBeingDeleted = indexPath
-            confirmDelete()
-        }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(style: .normal, title: "Change", handler: { (action, view, handler) in
+            self.userBeingActioned = indexPath
+            self.editUser()
+        })
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, view, handler) in
+            self.userBeingActioned = indexPath
+            self.confirmDelete()
+        })
+        
+        editAction.backgroundColor = UIColor(named: "sp Purple")
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
+        configuration.performsFirstActionWithFullSwipe = false
+        return configuration
     }
 }
 

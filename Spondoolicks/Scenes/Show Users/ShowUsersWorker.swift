@@ -52,13 +52,13 @@ class ShowUsersWorker {
     // MARK: - Helper functions
     func createTestUsers() -> [TempUser] {
         var tempUsers = [TempUser]()
-        tempUsers.append(TempUser(userId: 1, userName: "Andrew", avatarImage: "0"))
-        tempUsers.append(TempUser(userId: 2, userName: "David", avatarImage: "1"))
-        tempUsers.append(TempUser(userId: 3, userName: "Katherine", avatarImage: "2"))
-        tempUsers.append(TempUser(userId: 4, userName: "Richard", avatarImage: "3"))
-        tempUsers.append(TempUser(userId: 5, userName: "Rosalind", avatarImage: "4"))
-        tempUsers.append(TempUser(userId: 6, userName: "Stan", avatarImage: "5"))
-        tempUsers.append(TempUser(userId: 7, userName: "Ferdinando De BigName", avatarImage: "6"))
+        tempUsers.append(TempUser(userId: 1, userName: "Andrew", avatarImage: "boy-0"))
+        tempUsers.append(TempUser(userId: 2, userName: "David", avatarImage: "boy-1"))
+        tempUsers.append(TempUser(userId: 3, userName: "Katherine", avatarImage: "girl-2"))
+        tempUsers.append(TempUser(userId: 4, userName: "Richard", avatarImage: "boy-3"))
+        tempUsers.append(TempUser(userId: 5, userName: "Rosalind", avatarImage: "girl-4"))
+        tempUsers.append(TempUser(userId: 6, userName: "Stan", avatarImage: "boy-5"))
+        tempUsers.append(TempUser(userId: 7, userName: "Ferdinando De BigName", avatarImage: "boy-6"))
         return tempUsers
     }
 }

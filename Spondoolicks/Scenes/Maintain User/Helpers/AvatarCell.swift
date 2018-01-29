@@ -20,16 +20,13 @@ class AvatarCell: UICollectionViewCell {
     func configureCell(indexPath: IndexPath) {
         let section = indexPath.section
         let row = indexPath.row
-        var imageName = Global.AssetInfo.PROFILE_ICON
         
-        if section == 0 {
-            imageName = "girl-\(row)"
-        } else {
-            imageName = "boy-\(row)"
-        }
+        let imageName = "\(Global.AssetInfo.AVATAR_IMAGE_NAME[section])\(row)"
         
         if let image = UIImage(named: imageName) {
             avatarImage.image = image
+        } else {
+            avatarImage.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
         }
     }
 }

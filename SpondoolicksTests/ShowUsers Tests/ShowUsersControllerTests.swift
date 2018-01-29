@@ -127,7 +127,7 @@ class ShowUsersControllerTests: XCTestCase {
         let user = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 0, userName: "Andrew", avatarImage: "0")
         sut.displayedUsers.append(user)
         sut.interactor = interactor
-        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        sut.userBeingActioned = IndexPath(row: 0, section: 0)
         
         // When
         sut.deleteUser(alertAction: nil)
@@ -150,7 +150,7 @@ class ShowUsersControllerTests: XCTestCase {
         let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
         
         let rowCount = sut.userTable.numberOfRows(inSection: 0)
-        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        sut.userBeingActioned = IndexPath(row: 0, section: 0)
         expectation = XCTestExpectation(description: "Wait for DeleteUser completion")
         vc.expectation = expectation
         sut.deleteUser(alertAction: nil)
@@ -175,7 +175,7 @@ class ShowUsersControllerTests: XCTestCase {
         let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
         
         let userCount = sut.displayedUsers.count
-        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        sut.userBeingActioned = IndexPath(row: 0, section: 0)
         expectation = XCTestExpectation(description: "Wait for DeleteUser completion")
         vc.expectation = expectation
         sut.deleteUser(alertAction: nil)
@@ -191,7 +191,7 @@ class ShowUsersControllerTests: XCTestCase {
         let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0")
         let sutFake = ShowUsersViewControllerFake()
         sutFake.displayedUsers = [testData]
-        sutFake.userBeingDeleted = IndexPath(row: 0, section: 0)
+        sutFake.userBeingActioned = IndexPath(row: 0, section: 0)
         
         // When
         // userDeleted is inherited and thus the 'real' code is executed
@@ -206,7 +206,7 @@ class ShowUsersControllerTests: XCTestCase {
         // Given
         let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0")
         sut.displayedUsers = [testData]
-        sut.userBeingDeleted = IndexPath(row: 0, section: 0)
+        sut.userBeingActioned = IndexPath(row: 0, section: 0)
         
         // When
         // userDeleted is inherited and thus the 'real' code is executed
