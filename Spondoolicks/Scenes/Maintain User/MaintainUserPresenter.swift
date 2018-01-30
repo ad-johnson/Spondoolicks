@@ -9,6 +9,7 @@ import UIKit
 
 protocol MaintainUserPresentationLogic {
     func presentUser(response: MaintainUser.GetUser.Response)
+    func presentUpdateUserResult(response: MaintainUser.UpdateUser.Response)
 }
 
 class MaintainUserPresenter: MaintainUserPresentationLogic {
@@ -24,5 +25,10 @@ class MaintainUserPresenter: MaintainUserPresentationLogic {
         } else { // Adding a user
             viewController?.displayUser(viewModel: nil)
         }
+    }
+    
+    func presentUpdateUserResult(response: MaintainUser.UpdateUser.Response) {
+        let viewModel = MaintainUser.UpdateUser.ViewModel(error: response.error)
+        viewController?.userUpdated(viewModel: viewModel)
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 protocol MaintainUserDisplayLogic: class {
     func displayUser(viewModel: MaintainUser.GetUser.ViewModel?)
+    func userUpdated(viewModel: MaintainUser.UpdateUser.ViewModel)
 }
 
 class MaintainUserViewController: UIViewController, UITextFieldDelegate, MaintainUserDisplayLogic {
@@ -97,11 +98,14 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // when view is tapped, hide the keyboard
+        // Only enable the tap to hide keyboard when editing user name
+        // otherwise it will not be possible to select an avatar
         tap.isEnabled = true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        // Only enable the tap to hide keyboard when editing user name
+        // otherwise it will not be possible to select an avatar
         tap.isEnabled = false
         handleSaveButtonState()
     }
@@ -121,10 +125,20 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         flowLayout.invalidateLayout()
     }
+    
+    func displayError(_ message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+
 
     // MARK: - IBActions
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
-        
+        updateUser()
     }
     
     // MARK: - Use cases
@@ -133,12 +147,15 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
         interactor?.getUser(request: request)
     }
     
-    func addUser() {
-        
-    }
-    
-    func changeUser() {
-        
+    func updateUser() {
+        if let userName = userName.text, let avatarImage = selectedAvatar {
+            let request = MaintainUser.UpdateUser.Request(userName: userName, avatarImage: avatarImage)
+            if isAddingUser {
+                interactor?.addUser(request: request)
+            } else {
+                interactor?.changeUser(request: request)
+            }
+        }
     }
     
     // MARK: - Use case responses
@@ -157,6 +174,15 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
             self.navigationItem.title = "Add User"
             userName.text = ""
             userAvatar.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
+        }
+    }
+    
+    func userUpdated(viewModel: MaintainUser.UpdateUser.ViewModel) {
+        if let _ = viewModel.error {
+            let action = isAddingUser ? "add" : "change"
+            displayError("Could not \(action) the user details.  Something went wrong.")
+        } else {
+            router?.routeToShowUsers(segue: nil)
         }
     }
 }

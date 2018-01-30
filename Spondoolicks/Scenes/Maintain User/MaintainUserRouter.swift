@@ -7,7 +7,7 @@
 import UIKit
 
 @objc protocol MaintainUserRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToShowUsers(segue: UIStoryboardSegue?)
 }
 
 protocol MaintainUserDataPassing {
@@ -20,29 +20,27 @@ class MaintainUserRouter: NSObject, MaintainUserRoutingLogic, MaintainUserDataPa
     var dataStore: MaintainUserDataStore?
   
     // MARK: - Routing
-  
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //    if let segue = segue {
-    //        let destinationVC = segue.destination as! SomewhereViewController
-    //        var destinationDS = destinationVC.router!.dataStore!
-    //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    } else {
-    //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //        let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //        var destinationDS = destinationVC.router!.dataStore!
-    //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //        navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //    }
-    //}
+    func routeToShowUsers(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            let destinationVC = segue.destination as! ShowUsersViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToShowUsers(source: dataStore!, destination: &destinationDS)
+        } else {
+            let index = viewController!.navigationController!.viewControllers.count - 2
+            let destinationVC = viewController?.navigationController?.viewControllers[index] as! ShowUsersViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToShowUsers(source: dataStore!, destination: &destinationDS)
+            navigateToShowUsers(source: viewController!, destination: destinationVC)
+        }
+    }
 
     // MARK: - Navigation
-  
-    //func navigateToSomewhere(source: MaintainUserViewController, destination: SomewhereViewController) {
-    //    source.show(destination, sender: nil)
-    //}
+    func navigateToShowUsers(source: MaintainUserViewController, destination: ShowUsersViewController) {
+        source.navigationController?.popViewController(animated: true)
+    }
   
     // MARK: - Passing data
-    //func passDataToSomewhere(source: MaintainUserDataStore, destination: inout SomewhereDataStore) {
-    //    destination.name = source.name
-    //}
+    func passDataToShowUsers(source: MaintainUserDataStore, destination: inout ShowUsersDataStore) {
+        // No data to pass
+    }
 }

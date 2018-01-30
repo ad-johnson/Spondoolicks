@@ -1,5 +1,6 @@
 //
-//  MaintainUserWorker.swift
+//  Interacts with persistent storage to handle data requests for Maintain User
+//  use cases.
 //
 //  Created by Andrew Johnson on 27/01/2018.
 //  Copyright (c) 2018 Andrew Johnson. All rights reserved.
@@ -8,6 +9,21 @@
 import UIKit
 
 class MaintainUserWorker {
-    func doSomeWork() {
+    // Properties
+    typealias MaintainUserCallback = (Error?) -> ()
+    
+    // MARK: - Functions
+    func addUser(user: TempUser, callback: @escaping MaintainUserCallback) {
+        DispatchQueue.main.async {
+            TempUser.users.append(user)
+            callback(nil)
+        }
+    }
+    
+    func changeUser(user: TempUser, callback: @escaping MaintainUserCallback) {
+        DispatchQueue.main.async {
+            TempUser.users[user.userId] = user
+            callback(nil)
+        }
     }
 }

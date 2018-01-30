@@ -10,11 +10,11 @@ import Foundation
 
 class ShowUsersWorker {
     // MARK: - Properties
-    typealias userCallback = ([TempUser]) -> ()
-    typealias errorCallback = ([TempUser], Error?) -> ()
+    typealias UserCallback = ([TempUser]) -> ()
+    typealias ErrorCallback = ([TempUser], Error?) -> ()
     
-    lazy var tempUsers: [TempUser] = { createTestUsers() }()
-    var usersCallback: userCallback?
+//    static var tempUsers: [TempUser] = { createTestUsers() }()
+    var usersCallback: UserCallback?
     
     enum UserError: Error {
         case userNotFound
@@ -24,41 +24,41 @@ class ShowUsersWorker {
     // All functions are placeholders for outline functionality prior to
     // implementing Core Data services.  These will be re-factored to use that
     // service when ready.
-    func findUsers(callback: @escaping userCallback) {
+    func findUsers(callback: @escaping UserCallback) {
         usersCallback = callback
         DispatchQueue.main.async {
-            self.usersCallback?(self.tempUsers)
+            self.usersCallback?(TempUser.users)
         }
     }
     
-    func deleteUser(userId: Int, callback: @escaping errorCallback) {
+    func deleteUser(userId: Int, callback: @escaping ErrorCallback) {
         DispatchQueue.main.async {
             var found = false
-            for index in 0..<self.tempUsers.count {
-                if self.tempUsers[index].userId == userId {
-                    self.tempUsers.remove(at: index)
+            for index in 0..<TempUser.users.count {
+                if TempUser.users[index].userId == userId {
+                    TempUser.users.remove(at: index)
                     found = true
                     break
                 }
             }
             if found {
-                callback(self.tempUsers, nil)
+                callback(TempUser.users, nil)
             } else {
-                callback(self.tempUsers, UserError.userNotFound)
+                callback(TempUser.users, UserError.userNotFound)
             }
         }
     }
     
     // MARK: - Helper functions
-    func createTestUsers() -> [TempUser] {
-        var tempUsers = [TempUser]()
-        tempUsers.append(TempUser(userId: 1, userName: "Andrew", avatarImage: "boy-0"))
-        tempUsers.append(TempUser(userId: 2, userName: "David", avatarImage: "boy-1"))
-        tempUsers.append(TempUser(userId: 3, userName: "Katherine", avatarImage: "girl-2"))
-        tempUsers.append(TempUser(userId: 4, userName: "Richard", avatarImage: "boy-3"))
-        tempUsers.append(TempUser(userId: 5, userName: "Rosalind", avatarImage: "girl-4"))
-        tempUsers.append(TempUser(userId: 6, userName: "Stan", avatarImage: "boy-5"))
-        tempUsers.append(TempUser(userId: 7, userName: "Ferdinando De BigName", avatarImage: "boy-6"))
-        return tempUsers
-    }
+//    func createTestUsers() -> [TempUser] {
+//        var tempUsers = [TempUser]()
+//        tempUsers.append(TempUser(userId: 1, userName: "Andrew", avatarImage: "boy-0"))
+//        tempUsers.append(TempUser(userId: 2, userName: "David", avatarImage: "boy-1"))
+//        tempUsers.append(TempUser(userId: 3, userName: "Katherine", avatarImage: "girl-2"))
+//        tempUsers.append(TempUser(userId: 4, userName: "Richard", avatarImage: "boy-3"))
+//        tempUsers.append(TempUser(userId: 5, userName: "Rosalind", avatarImage: "girl-4"))
+//        tempUsers.append(TempUser(userId: 6, userName: "Stan", avatarImage: "boy-5"))
+//        tempUsers.append(TempUser(userId: 7, userName: "Ferdinando De BigName", avatarImage: "boy-6"))
+//        return tempUsers
+//    }
 }

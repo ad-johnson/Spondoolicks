@@ -31,4 +31,18 @@ enum MaintainUser {
             var displayedUser: DisplayedUser
         }
     }
+    
+    enum UpdateUser {
+        struct Request {
+            var userName: String
+            var avatarImage: String
+        }
+        
+        struct Response {
+            var error: Error?
+        }
+        struct ViewModel {
+            var error: Error?
+        }
+    }
 }
