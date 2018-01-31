@@ -9,6 +9,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -243,15 +244,24 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Users" id="sJD-yc-WWB">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xit-WL-LwL">
-                            <color key="tintColor" name="sp Grey"/>
-                            <connections>
-                                <action selector="addUser:" destination="7Do-LE-jH6" id="2XS-kx-4LQ"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Xit-WL-LwL">
+                                <color key="tintColor" name="sp Grey"/>
+                                <connections>
+                                    <action selector="addUserTapped:" destination="7Do-LE-jH6" id="LUS-Qn-E0h"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Help Icon" id="4U1-Pk-3re">
+                                <connections>
+                                    <action selector="helpTapped:" destination="7Do-LE-jH6" id="5ZX-HZ-fk6"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="Xit-WL-LwL" id="hPh-Dx-gzz"/>
+                        <outlet property="helpButton" destination="4U1-Pk-3re" id="Vk6-fV-xLC"/>
                         <outlet property="introLabel" destination="KSn-rT-fk1" id="SMi-c0-0mW"/>
                         <outlet property="userTable" destination="DcR-qD-iId" id="MAt-xV-u1B"/>
                         <segue destination="UX2-FQ-48n" kind="show" identifier="ShowMaintainUser" id="8VL-uw-feN"/>
@@ -376,16 +386,24 @@
                         <viewLayoutGuide key="safeArea" id="DXp-1X-HzP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add User" id="BrV-Ky-LYs">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="h56-1T-paM">
-                            <color key="tintColor" name="sp Grey"/>
-                            <connections>
-                                <action selector="saveTapped:" destination="UX2-FQ-48n" id="j3u-1L-bIn"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" systemItem="save" id="h56-1T-paM">
+                                <color key="tintColor" name="sp Grey"/>
+                                <connections>
+                                    <action selector="saveTapped:" destination="UX2-FQ-48n" id="j3u-1L-bIn"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="Help Icon" id="w2G-S4-TKk">
+                                <connections>
+                                    <action selector="helpTapped:" destination="UX2-FQ-48n" id="B2z-9J-xpW"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="avatarCollection" destination="XrC-Hc-1zk" id="Zsh-ZR-Ivc"/>
                         <outlet property="flowLayout" destination="eiI-Ex-Dxh" id="ioc-CF-c2g"/>
+                        <outlet property="helpButton" destination="w2G-S4-TKk" id="Sle-dw-W0U"/>
                         <outlet property="saveButton" destination="h56-1T-paM" id="EgD-sH-hWd"/>
                         <outlet property="userAvatar" destination="k3n-Tb-KLj" id="ZYf-qj-YkA"/>
                         <outlet property="userName" destination="lLl-Zb-FYI" id="uun-zN-WnT"/>
@@ -425,6 +443,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Help Icon" width="16" height="16"/>
         <image name="NavigationBorder" width="375" height="1"/>
         <image name="Profile icon" width="56" height="56"/>
         <image name="boy-0" width="38" height="56"/>

@@ -22,6 +22,7 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
 
     // MARK: - IBOutlets
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var helpButton: UIBarButtonItem!
     @IBOutlet weak var userName: spBorderedTextField!
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var avatarCollection: UICollectionView!
@@ -141,6 +142,10 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
         updateUser()
     }
     
+    @IBAction func helpTapped(_ sender: UIBarButtonItem) {
+        showHelpPanel()
+    }
+    
     // MARK: - Use cases
     func getUser() {
         let request = MaintainUser.GetUser.Request()
@@ -252,4 +257,66 @@ extension MaintainUserViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: collectionView.frame.width, height: label.frame.height + 16)
     }
 
+}
+
+extension MaintainUserViewController: HelpPanelDataSource {
+    enum Subtitle: String {
+        case Overview
+        case AddUser = "Add User"
+        case ChangeUser = "Change User"
+        case Avatars
+        case Buttons
+    }
+    
+    func helpPanelTitle() -> String {
+        return isAddingUser ? Subtitle.AddUser.rawValue : Subtitle.ChangeUser.rawValue
+    }
+    
+    func subtitles() -> [String] {
+        let option = isAddingUser ? Subtitle.AddUser.rawValue : Subtitle.ChangeUser.rawValue
+        return [Subtitle.Overview.rawValue,
+                option,
+                Subtitle.Avatars.rawValue,
+                Subtitle.Buttons.rawValue]
+    }
+    
+    func helpSectionEntries() -> [String : [String]] {
+        var option: String!
+        var entry: [String]!
+        
+        if isAddingUser {
+            option = Subtitle.AddUser.rawValue
+            entry = ["This will let you add a new user with their own accounts.",
+            "You will need to provide a name and an image to represent them.",
+            "Press the save button to add the user."]
+        } else {
+            option = Subtitle.ChangeUser.rawValue
+            entry = ["This will allow you to change the name or image of an existing user.",
+            "Enter a new name and select a new image to represent them.",
+            "You don't have to change both items if you don't want to.",
+            "Press save to change the user details."]
+        }
+        
+        return [
+            Subtitle.Overview.rawValue :    ["This screen will allow you to add or change the user.",
+            "You can tell what you are doing by looking at the title.",
+            "If you change your mind, you can just press the Users button at the top without pressing the save button.  Any changes you have made and not saved will be forgotten."
+            ],
+            option : entry,
+            Subtitle.Avatars.rawValue :     ["Each user can have a picture to represent them in the app.",
+            "You can have the same picture as someone else if you want.",
+            "Just select the one you want and you will see it in the slot at the top of the screen above your name."
+            ],
+            Subtitle.Buttons.rawValue :     ["Save - Press save to remember any name or image changes you have made.  The save button only works when you have made a change and you have a name and an image.",
+            "Users - Press users to return back to the list of users.  If you haven't saved any changes then they will be forgotten."
+            ]
+        ]
+    }
+    
+    func showHelpPanel() {
+        let helpPanel = HelpPanelViewController()
+        helpPanel.modalPresentationStyle = .custom
+        helpPanel.dataSource = self
+        present(helpPanel, animated: true, completion: nil)
+    }
 }

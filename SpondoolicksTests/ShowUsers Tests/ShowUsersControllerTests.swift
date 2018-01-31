@@ -48,6 +48,46 @@ class ShowUsersControllerTests: XCTestCase {
         XCTAssertTrue(sut === vc, "VC did not complete the VIP cycle back to itself.")
     }
 
+    func testVCHasAddButtonConnected() {
+        // Given
+        
+        // When
+        
+        // Then
+        XCTAssertNotNil(sut.addButton, "Show Users VC does not have a connected Add button.")
+    }
+    
+    func testSaveButtonHasTheCorrectAction() {
+        // Given
+        let button = sut.addButton
+        let action = button?.action
+        
+        // When
+        
+        // Then
+        XCTAssertTrue(action?.description == "addUserTapped:", "Show Users VC has not connected the Add button to the right action.")
+    }
+    
+    func testVCHasHelpButtonConnected() {
+        // Given
+        
+        // When
+        
+        // Then
+        XCTAssertNotNil(sut.helpButton, "Show Users VC does not have a connected help button.")
+    }
+    
+    func testHelpButtonHasTheCorrectAction() {
+        // Given
+        let button = sut.helpButton
+        let action = button?.action
+        
+        // When
+        
+        // Then
+        XCTAssertTrue(action?.description == "helpTapped:", "Show Users VC has not connected the Help button to the right action.")
+    }
+
     func testVCHasAnIntroLabelConnected() {
         // Given
         

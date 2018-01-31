@@ -21,6 +21,8 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     var userBeingActioned: IndexPath?
     
     // MARK: - IBOutlets
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var helpButton: UIBarButtonItem!
     @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var userTable: UITableView!
     
@@ -114,10 +116,14 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     }
     
     // MARK: - IBActions
-    @IBAction func addUser(_ sender: UIBarButtonItem) {
+    @IBAction func addUserTapped(_ sender: UIBarButtonItem) {
         addUser()
     }
     
+    @IBAction func helpTapped(_ sender: UIBarButtonItem) {
+        showHelpPanel()
+    }
+
     // MARK: - Use cases: requests
     
     func findUsers() {
@@ -208,5 +214,57 @@ extension ShowUsersViewController: UITableViewDataSource {
         } else {
             fatalError("Show Users TableView cell at row \(indexPath.row) is not an \(Global.Identifier.Cell.USER_CELL)")
         }
+    }
+}
+
+
+extension ShowUsersViewController: HelpPanelDataSource {
+    enum Subtitle: String {
+        case Overview
+        case AddUser = "Add User"
+        case ChangeUser = "Change User"
+        case DeleteUser = "Delete User"
+        case Buttons
+    }
+    
+    func helpPanelTitle() -> String {
+        return "Show Users"
+    }
+    
+    func subtitles() -> [String] {
+        return [Subtitle.Overview.rawValue,
+                Subtitle.AddUser.rawValue,
+                Subtitle.ChangeUser.rawValue,
+                Subtitle.DeleteUser.rawValue,
+                Subtitle.Buttons.rawValue]
+    }
+    
+    func helpSectionEntries() -> [String : [String]] {
+        
+        return [
+            Subtitle.Overview.rawValue :    ["This screen shows you all the users who can use the app.",
+                                             "From here you can select a user, change their details, add a new user, or delete a user."
+                                            ],
+            Subtitle.AddUser.rawValue :     ["To add a new user, tap on the + button at the top."
+                                            ],
+            Subtitle.ChangeUser.rawValue :  ["To change a user, swipe to the left on the user name and tap on the Change button that appears."
+                                            ],
+            Subtitle.DeleteUser.rawValue :  ["To delete a user, swipe to the left on the user name and tap on the Delete button that appears.",
+                                             "A new panel will appear to ask you to confirm the delete.",
+                                             "WARNING: if you confirm the delete, all that user's data will be removed and cannot be recovered."
+                                            ],
+            Subtitle.Buttons.rawValue :     ["+ - Press the + button to Add a new User.",
+                                             "Home - Press Home to go back to the App start screen, from where you can access the App Settings.",
+                                             "Change - Press Change to change the User's details.  This button will appear if you swipe left on a user.",
+                                             "Delete - Press Delete to delete the User's details.  This button will appear if you swipe left on a user."
+            ]
+        ]
+    }
+    
+    func showHelpPanel() {
+        let helpPanel = HelpPanelViewController()
+        helpPanel.modalPresentationStyle = .custom
+        helpPanel.dataSource = self
+        present(helpPanel, animated: true, completion: nil)
     }
 }

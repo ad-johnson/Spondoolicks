@@ -24,6 +24,8 @@ enum Global {
             static let USER_CELL = "UserCell"
             static let AVATAR_CELL = "AvatarCell"
             static let AVATAR_HEADER = "AvatarHeader"
+            static let HELP_ENTRY_CELL = "HelpEntryCell"
+            static let HELP_PANEL_HEADER_CELL = "HelpPanelHeaderCell"
         }
         struct ViewController {
             static let HOME_VC = "HomeVC"
