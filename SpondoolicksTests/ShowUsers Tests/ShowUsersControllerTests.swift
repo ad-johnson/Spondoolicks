@@ -106,13 +106,8 @@ class ShowUsersControllerTests: XCTestCase {
     func testFindUsersReturnsExpectedResults() {
         // Given
         let testUsers = generateTestUsers()
-        let expectation = XCTestExpectation(description: "Wait for FindUsers completion")
-        let vc = ShowUsersViewControllerMock()
-        let interactor = sut.interactor as! ShowUsersInteractor
-        let presenter = interactor.presenter as! ShowUsersPresenter
-        presenter.viewController = vc
-        vc.sut = sut
-        
+        let vc = ShowUsersViewControllerInterceptor()
+        let expectation = setupFindUsersTest(interceptor: vc)
         // When
         sut.findUsers()
         let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
@@ -136,15 +131,12 @@ class ShowUsersControllerTests: XCTestCase {
         XCTAssertTrue(interactor.deleteUserCalled, "Show Users VC did not call Interactor to Delete User.")
     }
     
+    // MARK: - Integration tests
     func testDeleteUserRemovesRowFromTableView() {
         // Given
-        var expectation = XCTestExpectation(description: "Wait for FindUsers completion")
-        let vc = ShowUsersViewControllerMock()
-        let interactor = sut.interactor as! ShowUsersInteractor
-        let presenter = interactor.presenter as! ShowUsersPresenter
-        presenter.viewController = vc
-        vc.sut = sut
-        
+        let vc = ShowUsersViewControllerInterceptor()
+        var expectation = setupFindUsersTest(interceptor: vc)
+
         // When
         sut.findUsers()
         let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
@@ -163,12 +155,8 @@ class ShowUsersControllerTests: XCTestCase {
     
     func testDeleteUserRemovesUserFromLocallyStoredUsers() {
         // Given
-        var expectation = XCTestExpectation(description: "Wait for FindUsers completion")
-        let vc = ShowUsersViewControllerMock()
-        let interactor = sut.interactor as! ShowUsersInteractor
-        let presenter = interactor.presenter as! ShowUsersPresenter
-        presenter.viewController = vc
-        vc.sut = sut
+        let vc = ShowUsersViewControllerInterceptor()
+        var expectation = setupFindUsersTest(interceptor: vc)
         
         // When
         sut.findUsers()
@@ -195,7 +183,7 @@ class ShowUsersControllerTests: XCTestCase {
         
         // When
         // userDeleted is inherited and thus the 'real' code is executed
-        sutFake.userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel(error: ShowUsersWorker.UserError.userNotFound))
+        sutFake.userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel(error: Global.Errors.UserMaintenanceError.userNotFound))
         
         // Then
         XCTAssertTrue(sutFake.displayErrorCalled, "Show Users VC did not display the Delete User error.")
@@ -203,14 +191,13 @@ class ShowUsersControllerTests: XCTestCase {
     
     func testNoLocalUsersRemovedWhenDeleteUserErrorReceived() {
         // Given
-        // Given
         let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0")
         sut.displayedUsers = [testData]
         sut.userBeingActioned = IndexPath(row: 0, section: 0)
         
         // When
         // userDeleted is inherited and thus the 'real' code is executed
-        sut.userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel(error: ShowUsersWorker.UserError.userNotFound))
+        sut.userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel(error: Global.Errors.UserMaintenanceError.userNotFound))
         
         // Then
         XCTAssertTrue(sut.displayedUsers.count == 1, "Show Users VC deleted a user from local store when Delete User error received.")
@@ -219,16 +206,24 @@ class ShowUsersControllerTests: XCTestCase {
     // MARK: - Helper methods
     func generateTestUsers() -> [ShowUsers.FindUsers.ViewModel.DisplayedUser] {
         var testData = [ShowUsers.FindUsers.ViewModel.DisplayedUser]()
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 2, userName: "David", avatarImage: "1"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 3, userName: "Katherine", avatarImage: "2"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 4, userName: "Richard", avatarImage: "3"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 5, userName: "Rosalind", avatarImage: "4"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 6, userName: "Stan", avatarImage: "5"))
-        testData.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 7, userName: "Ferdinando De BigName", avatarImage: "6"))
+        let testUsers = TempUser.users
+        for user in testUsers {
+            let displayedUser = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: user.userId, userName: user.userName, avatarImage: user.avatarImage)
+            testData.append(displayedUser)
+        }
         return testData
     }
     
+    func setupFindUsersTest(interceptor: ShowUsersViewControllerInterceptor) -> XCTestExpectation {
+        let expectation = XCTestExpectation(description: "Wait for FindUsers completion")
+        let interactor = sut.interactor as! ShowUsersInteractor
+        let presenter = interactor.presenter as! ShowUsersPresenter
+        presenter.viewController = interceptor
+        interceptor.expectation = expectation
+        interceptor.sut = sut
+        return expectation
+    }
+
     // MARK: - Test doubles
     class ShowUsersInteractorSpy: ShowUsersInteractor {
         var findUsersCalled = false
@@ -243,7 +238,7 @@ class ShowUsersControllerTests: XCTestCase {
         }
     }
     
-    class ShowUsersViewControllerMock: ShowUsersViewController {
+    class ShowUsersViewControllerInterceptor: ShowUsersViewController {
         var expectation: XCTestExpectation?
         var sut: ShowUsersViewController?
         

@@ -25,6 +25,7 @@ class ShowUsersWorkerTests: XCTestCase {
         super.tearDown()
     }
 
+    // MARK: - Unit tests
     func testWorkerCallsInteractorWithFindUsersResults() {
         // Given
         let interactor = ShowUsersInteractorSpy()

@@ -28,7 +28,7 @@ class ShowUsersRouter: NSObject, ShowUsersRoutingLogic, ShowUsersDataPassing {
             passDataToMaintainUser(source: dataStore!, destination: &destinationDS)
         } else {
             let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN, bundle: nil)
-            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.MAINTAIN_USER) as! MaintainUserViewController
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.MAINTAIN_USER_VC) as! MaintainUserViewController
             var destinationDS = destinationVC.router!.dataStore!
             passDataToMaintainUser(source: dataStore!, destination: &destinationDS)
             navigateToMaintainUser(source: viewController!, destination: destinationVC)

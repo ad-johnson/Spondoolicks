@@ -25,6 +25,7 @@ class ShowUsersPresenterTest: XCTestCase {
         super.tearDown()
     }
 
+    // MARK: - Unit tests
     func testPresenterCallsVCWithFindUsersResults() {
         // Given
         let vc = ShowUsersViewControllerSpy()
@@ -54,7 +55,7 @@ class ShowUsersPresenterTest: XCTestCase {
     
     func testPresenterPassesDeleteUserErrorToVC() {
         // Given
-        let response = ShowUsers.DeleteUser.Response(error: ShowUsersWorker.UserError.userNotFound)
+        let response = ShowUsers.DeleteUser.Response(error: Global.Errors.UserMaintenanceError.userNotFound)
         let vc = ShowUsersViewControllerFake()
         sut.viewController = vc
         

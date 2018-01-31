@@ -11,7 +11,7 @@ import UIKit
 class MaintainUserWorker {
     // Properties
     typealias MaintainUserCallback = (Error?) -> ()
-    
+
     // MARK: - Functions
     func addUser(user: TempUser, callback: @escaping MaintainUserCallback) {
         DispatchQueue.main.async {
@@ -22,8 +22,12 @@ class MaintainUserWorker {
     
     func changeUser(user: TempUser, callback: @escaping MaintainUserCallback) {
         DispatchQueue.main.async {
-            TempUser.users[user.userId] = user
-            callback(nil)
+            if user.userId < TempUser.users.count {
+                TempUser.users[user.userId] = user
+                callback(nil)
+            } else {
+                callback(Global.Errors.UserMaintenanceError.userNotFound)
+            }
         }
     }
 }

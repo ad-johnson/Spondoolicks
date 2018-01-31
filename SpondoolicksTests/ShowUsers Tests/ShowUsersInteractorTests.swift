@@ -85,8 +85,8 @@ class ShowUsersInteractorTests: XCTestCase {
     
     func testDeleteUserRemovesUserFromLocalStore() {
         // Given
-        let testData = ShowUsersWorker().createTestUsers()
-        var updatedTestData = ShowUsersWorker().createTestUsers()
+        let testData = TempUser.users
+        var updatedTestData = TempUser.users
         updatedTestData.remove(at: 0)
         sut.users = testData
         
@@ -117,11 +117,11 @@ class ShowUsersInteractorTests: XCTestCase {
         var findUsersCalled = false
         var deleteUserCalled = true
         
-        override func findUsers(callback: @escaping ShowUsersWorker.userCallback) {
+        override func findUsers(callback: @escaping ShowUsersWorker.UserCallback) {
             findUsersCalled = true
         }
         
-        override func deleteUser(userId: Int, callback: @escaping ShowUsersWorker.errorCallback) {
+        override func deleteUser(userId: Int, callback: @escaping ShowUsersWorker.ErrorCallback) {
             deleteUserCalled = true
         }
     }

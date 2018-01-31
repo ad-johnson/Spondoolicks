@@ -29,7 +29,7 @@ enum Global {
             static let HOME_VC = "HomeVC"
             static let SHOW_USERS_VC = "ShowUsersVC"
             static let SETTINGS_VC = "SettingsVC"
-            static let MAINTAIN_USER = "MaintainUserVC"
+            static let MAINTAIN_USER_VC = "MaintainUserVC"
         }
         struct Names {
             static let AVATAR_HEADING_NAMES = ["Girls", "Boys"]
@@ -87,6 +87,12 @@ enum Global {
         }
         static func getAvatarName(section: Int, row: Int) -> String {
             return "\(AVATAR_IMAGE_NAME[section])\(row)"
+        }
+    }
+    
+    enum Errors {
+        enum UserMaintenanceError: Error {
+            case userNotFound
         }
     }
 }
