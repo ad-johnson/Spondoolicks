@@ -28,15 +28,8 @@ class ShowUsersWorker {
     
     func deleteUser(userId: Int, callback: @escaping ErrorCallback) {
         DispatchQueue.main.async {
-            var found = false
-            for index in 0..<TempUser.users.count {
-                if TempUser.users[index].userId == userId {
-                    TempUser.users.remove(at: index)
-                    found = true
-                    break
-                }
-            }
-            if found {
+            if let index = TempUser.users.index(where: { $0.userId == userId }) {
+                TempUser.users.remove(at: index)
                 callback(TempUser.users, nil)
             } else {
                 callback(TempUser.users, Global.Errors.UserMaintenanceError.userNotFound)
@@ -44,3 +37,4 @@ class ShowUsersWorker {
         }
     }
 }
+

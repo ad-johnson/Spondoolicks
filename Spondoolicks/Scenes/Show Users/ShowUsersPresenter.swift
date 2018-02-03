@@ -18,11 +18,8 @@ class ShowUsersPresenter: ShowUsersPresentationLogic {
   
     // MARK: - Use cases
     func presentFoundUsers(response: ShowUsers.FindUsers.Response) {
-        var displayedUsers = [ShowUsers.FindUsers.ViewModel.DisplayedUser]()
         if !response.users.isEmpty {
-            for user in response.users {
-                displayedUsers.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: user.userId, userName: user.userName, avatarImage: user.avatarImage))
-            }
+            let displayedUsers = response.users.map { ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: $0.userId, userName: $0.userName, avatarImage: $0.avatarImage)}
             
             let viewModel = ShowUsers.FindUsers.ViewModel(displayedUsers: displayedUsers)
             viewController?.displayUsers(viewModel: viewModel)

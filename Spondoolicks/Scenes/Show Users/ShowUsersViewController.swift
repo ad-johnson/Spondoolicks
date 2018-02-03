@@ -19,6 +19,8 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     var router: (NSObjectProtocol & ShowUsersRoutingLogic & ShowUsersDataPassing)?
     var displayedUsers: [ShowUsers.FindUsers.ViewModel.DisplayedUser] = []
     var userBeingActioned: IndexPath?
+    typealias Handler = (Bool) -> ()
+    var deletionSuccess: Handler?
     
     // MARK: - IBOutlets
     @IBOutlet weak var addButton: UIBarButtonItem!
@@ -91,6 +93,9 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: deleteUser)
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
                     self.userBeingActioned = nil
+                    if let deletionSuccess = self.deletionSuccess {
+                        deletionSuccess(false)  // Remove row actions
+                    }
             })
             
             alert.addAction(deleteAction)
@@ -155,9 +160,15 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     func userDeleted(viewModel: ShowUsers.DeleteUser.ViewModel) {
         if let indexPath = userBeingActioned {
             if let _ = viewModel.error {
+                if let deletionSuccess = deletionSuccess {
+                    deletionSuccess(false) // Remove row actions
+                }
                 let name = displayedUsers[indexPath.row].userName
                 displayError("Could not delete user \(name).  Something went wrong.")
             } else {
+                if let deletionSuccess = deletionSuccess {
+                    deletionSuccess(true) // Remove row actions
+                }
                 userTable.beginUpdates()
                 displayedUsers.remove(at: indexPath.row)
                 userTable.deleteRows(at: [indexPath], with: .automatic)
@@ -180,13 +191,13 @@ extension ShowUsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Change", handler: { (action, view, handler) in
             self.userBeingActioned = indexPath
-            self.userTable.setEditing(false, animated: true)
+            handler(true)
             self.editUser()
         })
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete", handler: { (action, view, handler) in
             self.userBeingActioned = indexPath
-            self.userTable.setEditing(false, animated: true)
+            self.deletionSuccess = handler  // store this so we can remove row actions
             self.confirmDelete()
         })
         

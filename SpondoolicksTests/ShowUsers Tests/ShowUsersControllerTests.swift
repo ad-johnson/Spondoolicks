@@ -245,13 +245,7 @@ class ShowUsersControllerTests: XCTestCase {
     
     // MARK: - Helper methods
     func generateTestUsers() -> [ShowUsers.FindUsers.ViewModel.DisplayedUser] {
-        var testData = [ShowUsers.FindUsers.ViewModel.DisplayedUser]()
-        let testUsers = TempUser.users
-        for user in testUsers {
-            let displayedUser = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: user.userId, userName: user.userName, avatarImage: user.avatarImage)
-            testData.append(displayedUser)
-        }
-        return testData
+        return TempUser.users.map { ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: $0.userId, userName: $0.userName, avatarImage: $0.avatarImage) }
     }
     
     func setupFindUsersTest(interceptor: ShowUsersViewControllerInterceptor) -> XCTestExpectation {
