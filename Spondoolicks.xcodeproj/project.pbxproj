@@ -47,6 +47,7 @@
 		493803032022282500A4DC3C /* HelpPanelHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493803012022282500A4DC3C /* HelpPanelHeaderCell.xib */; };
 		49380305202230A400A4DC3C /* HelpPanelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49380304202230A400A4DC3C /* HelpPanelDataSource.swift */; };
 		493803082022512600A4DC3C /* HelpPanelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493803072022512600A4DC3C /* HelpPanelControllerTests.swift */; };
+		493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */; };
 		495A9580201A36BA007347A8 /* ShowUsersWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */; };
 		495A9582201A3D61007347A8 /* ShowUsersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */; };
 		49831C6320208FB600C82970 /* MaintainUserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */; };
@@ -133,6 +134,7 @@
 		493803012022282500A4DC3C /* HelpPanelHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelHeaderCell.xib; sourceTree = "<group>"; };
 		49380304202230A400A4DC3C /* HelpPanelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelDataSource.swift; sourceTree = "<group>"; };
 		493803072022512600A4DC3C /* HelpPanelControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelControllerTests.swift; sourceTree = "<group>"; };
+		493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelLauncherHelper.swift; sourceTree = "<group>"; };
 		495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersWorkerTests.swift; sourceTree = "<group>"; };
 		495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersPresenterTest.swift; sourceTree = "<group>"; };
 		49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserControllerTests.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				493803002022282500A4DC3C /* HelpPanelHeaderCell.swift */,
 				493803012022282500A4DC3C /* HelpPanelHeaderCell.xib */,
 				49380304202230A400A4DC3C /* HelpPanelDataSource.swift */,
+				493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */,
 			);
 			path = "Help Panel";
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				49206E0620173A9600B16CD8 /* ShowUsersWorker.swift in Sources */,
 				49206E0520173A9600B16CD8 /* ShowUsersPresenter.swift in Sources */,
 				49D1F79F201CAE3D0066F626 /* spBorderedTextField.swift in Sources */,
+				493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */,
 				49D1F796201CABCD0066F626 /* MaintainUserViewController.swift in Sources */,
 				49255FE52010E1C9000E40E9 /* HomeRouter.swift in Sources */,
 				49206E1720173AC100B16CD8 /* SettingsInteractor.swift in Sources */,

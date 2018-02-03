@@ -229,7 +229,7 @@ extension ShowUsersViewController: UITableViewDataSource {
 }
 
 
-extension ShowUsersViewController: HelpPanelDataSource {
+extension ShowUsersViewController: HelpPanelDataSource, HelpPanelLauncherHelper {
     enum Subtitle: String {
         case Overview
         case AddUser = "Add User"
@@ -270,12 +270,5 @@ extension ShowUsersViewController: HelpPanelDataSource {
                                              "Delete - Press Delete to delete the User's details.  This button will appear if you swipe left on a user."
             ]
         ]
-    }
-    
-    func showHelpPanel() {
-        let helpPanel = HelpPanelViewController()
-        helpPanel.modalPresentationStyle = .custom
-        helpPanel.dataSource = self
-        present(helpPanel, animated: true, completion: nil)
     }
 }

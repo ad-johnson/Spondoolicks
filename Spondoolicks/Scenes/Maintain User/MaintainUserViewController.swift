@@ -259,7 +259,7 @@ extension MaintainUserViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-extension MaintainUserViewController: HelpPanelDataSource {
+extension MaintainUserViewController: HelpPanelDataSource, HelpPanelLauncherHelper {
     enum Subtitle: String {
         case Overview
         case AddUser = "Add User"
@@ -311,12 +311,5 @@ extension MaintainUserViewController: HelpPanelDataSource {
             "Users - Press users to return back to the list of users.  If you haven't saved any changes then they will be forgotten."
             ]
         ]
-    }
-    
-    func showHelpPanel() {
-        let helpPanel = HelpPanelViewController()
-        helpPanel.modalPresentationStyle = .custom
-        helpPanel.dataSource = self
-        present(helpPanel, animated: true, completion: nil)
     }
 }
