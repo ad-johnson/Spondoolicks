@@ -8,7 +8,7 @@
 import UIKit
 @IBDesignable
 
-class spBorderedView: UIView {
+class spBorderedView: UIView, SPView {
 
     override func awakeFromNib() {
         setViewProperties()
@@ -17,20 +17,5 @@ class spBorderedView: UIView {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         setViewProperties()
-    }
-    
-    func setViewProperties() {
-        layer.cornerRadius = 5.0
-        layer.masksToBounds = true
-        layer.borderWidth = 2.0
-        // Xcode9 storyboard bug: it doesn't respect named colours from the
-        // Asset catalogue (ok at runtime though).  For Storyboard purposes
-        // using RED colour so the view is visible.
-        if let colour = UIColor(named: "sp Green") {
-            layer.borderColor = colour.cgColor
-        } else {
-            layer.borderColor = UIColor.red.cgColor
-        }
-        layer.backgroundColor = UIColor.clear.cgColor
-    }
+    }    
 }

@@ -8,7 +8,7 @@
 import UIKit
 @IBDesignable
 
-class spBorderedTextField: UITextField {
+class spBorderedTextField: UITextField, SPView {
     
     override func awakeFromNib() {
         setViewProperties()
@@ -19,20 +19,7 @@ class spBorderedTextField: UITextField {
         setViewProperties()
    }
     
-    func setViewProperties() {
-        layer.cornerRadius = 5.0
-        layer.masksToBounds = true
-        layer.borderWidth = 1.0
-        // Xcode9 storyboard bug: it doesn't respect named colours from the
-        // Asset catalogue (ok at runtime though).  For Storyboard purposes
-        // using RED colour so the view is visible.
-        if let colour = UIColor(named: "sp Green") {
-            layer.borderColor = colour.cgColor
-        } else {
-            layer.borderColor = UIColor.red.cgColor
-        }
-        layer.backgroundColor = UIColor.clear.cgColor
-        
+    func setUniqueViewProperties() {
         // Increase the text indent slightly
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
         self.leftView = paddingView
@@ -42,5 +29,4 @@ class spBorderedTextField: UITextField {
             self.font = UIFontMetrics.default.scaledFont(for: font)
         }
     }
-    
 }

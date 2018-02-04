@@ -48,6 +48,7 @@
 		49380305202230A400A4DC3C /* HelpPanelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49380304202230A400A4DC3C /* HelpPanelDataSource.swift */; };
 		493803082022512600A4DC3C /* HelpPanelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493803072022512600A4DC3C /* HelpPanelControllerTests.swift */; };
 		493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */; };
+		493F381D2027437A009B00F8 /* SPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381C2027437A009B00F8 /* SPView.swift */; };
 		495A9580201A36BA007347A8 /* ShowUsersWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */; };
 		495A9582201A3D61007347A8 /* ShowUsersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */; };
 		49831C6320208FB600C82970 /* MaintainUserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */; };
@@ -135,6 +136,7 @@
 		49380304202230A400A4DC3C /* HelpPanelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelDataSource.swift; sourceTree = "<group>"; };
 		493803072022512600A4DC3C /* HelpPanelControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelControllerTests.swift; sourceTree = "<group>"; };
 		493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelLauncherHelper.swift; sourceTree = "<group>"; };
+		493F381C2027437A009B00F8 /* SPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPView.swift; sourceTree = "<group>"; };
 		495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersWorkerTests.swift; sourceTree = "<group>"; };
 		495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersPresenterTest.swift; sourceTree = "<group>"; };
 		49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserControllerTests.swift; sourceTree = "<group>"; };
@@ -324,7 +326,7 @@
 				493802F72021F88E00A4DC3C /* Help Panel */,
 				49255FEA2010EB34000E40E9 /* UIFrameworkExtensions.swift */,
 				49255FF4201107FB000E40E9 /* Globals.swift */,
-				49255FFA2013A083000E40E9 /* LozengeView.swift */,
+				493F381C2027437A009B00F8 /* SPView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -371,6 +373,7 @@
 		49255FF620111A6E000E40E9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				49255FFA2013A083000E40E9 /* LozengeView.swift */,
 				49255FF720111A9F000E40E9 /* OptionCell.swift */,
 			);
 			path = Helpers;
@@ -602,6 +605,7 @@
 				49D1F795201CABCD0066F626 /* MaintainUserModels.swift in Sources */,
 				49B5690E2018C9C0004FE0E4 /* TempUser.swift in Sources */,
 				49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */,
+				493F381D2027437A009B00F8 /* SPView.swift in Sources */,
 				49206E0A20173A9600B16CD8 /* ShowUsersInteractor.swift in Sources */,
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
 				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
