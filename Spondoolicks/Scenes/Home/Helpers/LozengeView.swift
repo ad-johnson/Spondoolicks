@@ -8,47 +8,30 @@
 import UIKit
 
 @IBDesignable
-class LozengeView: UIView {
+class LozengeView: UIView, SPView {
+    
+    override func awakeFromNib() {
+        setViewProperties()
+    }
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setViewProperties()
+    }
 
-    @IBInspectable var cornerRadius: CGFloat = 24.0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-            layer.masksToBounds = cornerRadius > 0
-        }
+    func getCornerRadius() -> CGFloat {
+        return 24.0
     }
     
-    @IBInspectable
-    public var borderWidth: CGFloat = 2.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
+    func getBorderWidth() -> CGFloat {
+        return 2.0
     }
     
-    @IBInspectable
-    public var borderColour: UIColor = UIColor.darkGray {
-        didSet {
-            layer.borderColor = borderColour.cgColor
-        }
-    }
-    
-    @IBInspectable
-    public var backgroundColour: UIColor = UIColor.clear {
-        didSet {
-            layer.backgroundColor = backgroundColour.cgColor
-        }
-    }
-    
-    // Added this because IBDesignable does not include named colours in
-    // the colour picker and selecting one (through the previous options)
-    // results in errors in the Storyboard.
-    @IBInspectable
-    public var useDesignColours: Bool = false {
-        didSet {
-            if useDesignColours {
-                layer.backgroundColor = UIColor(named: "sp Purple")?.cgColor
-                layer.borderWidth = 2.0
-                layer.borderColor = UIColor(named: "sp Green")?.cgColor
-            }
+    func getBackgroundColour() -> CGColor {
+        if let colour = UIColor(named: "sp Purple") {
+            return colour.cgColor
+        } else {
+            return UIColor.purple.cgColor
         }
     }
 }
