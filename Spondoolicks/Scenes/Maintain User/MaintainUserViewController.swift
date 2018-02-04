@@ -170,15 +170,11 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
             self.navigationItem.title = "Change User"
             userName.text = user.userName
             selectedAvatar = user.avatarImage
-            if let image = UIImage(named: user.avatarImage) {
-                userAvatar.image = image
-            } else {
-                userAvatar.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
-            }
+            userAvatar.image = Global.AssetInfo.getAvatar(named: user.avatarImage)
         } else {
             self.navigationItem.title = "Add User"
             userName.text = ""
-            userAvatar.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
+            userAvatar.image = Global.AssetInfo.getDefaultAvatarImage()
         }
     }
     
@@ -194,14 +190,10 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
 
 extension MaintainUserViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let imageName = Global.AssetInfo.getAvatarName(indexPath: indexPath)
-        if let image = UIImage(named: imageName) {
-            selectedAvatar = imageName
-            userAvatar.image = image
-        }
+        userAvatar.image = Global.AssetInfo.getAvatar(indexPath: indexPath)
+        selectedAvatar = Global.AssetInfo.getAvatarName(indexPath: indexPath)
         handleSaveButtonState()
     }
-    
 }
 
 extension MaintainUserViewController: UICollectionViewDataSource {

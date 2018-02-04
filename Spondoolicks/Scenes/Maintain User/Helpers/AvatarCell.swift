@@ -18,11 +18,6 @@ class AvatarCell: UICollectionViewCell {
     }
     
     func configureCell(indexPath: IndexPath) {
-        let imageName = Global.AssetInfo.getAvatarName(indexPath: indexPath)
-        if let image = UIImage(named: imageName) {
-            avatarImage.image = image
-        } else {
-            avatarImage.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
-        }
+        avatarImage.image = Global.AssetInfo.getAvatar(indexPath: indexPath)
     }
 }

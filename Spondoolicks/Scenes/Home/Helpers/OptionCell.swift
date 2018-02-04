@@ -24,7 +24,7 @@ class OptionCell: UITableViewCell {
     
     // MARK: - Configuration
     func configureForUsers() {
-        optionIcon.image = UIImage(named: Global.AssetInfo.PROFILE_ICON)
+        optionIcon.image = Global.AssetInfo.getDefaultAvatarImage()
         optionName.text = "Users"
         configureLayout()
     }

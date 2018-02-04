@@ -84,11 +84,31 @@ enum Global {
         static let AVATAR_IMAGE_NAME = ["girl-", "boy-"]
         static let NUMBER_OF_AVATARS = [27, 23] // Avatar images: Girls, Boys
         
+        // MARK: - Avatar helper methods
         static func getAvatarName(indexPath: IndexPath) -> String {
             return getAvatarName(section: indexPath.section, row: indexPath.row)
         }
+        
         static func getAvatarName(section: Int, row: Int) -> String {
             return "\(AVATAR_IMAGE_NAME[section])\(row)"
+        }
+        
+        static func getDefaultAvatarImage() -> UIImage {
+            // Force unwrap as this is a development time issue if not available.
+            return UIImage(named: Global.AssetInfo.PROFILE_ICON)!
+        }
+        
+        static func getAvatar(indexPath: IndexPath) -> UIImage {
+            let avatarName = getAvatarName(indexPath: indexPath)
+            return getAvatar(named: avatarName)
+        }
+        
+        static func getAvatar(named: String) -> UIImage {
+            if let image = UIImage(named: named) {
+                return image
+            } else {
+                return getDefaultAvatarImage()
+            }
         }
     }
     
