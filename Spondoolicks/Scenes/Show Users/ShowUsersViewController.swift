@@ -72,6 +72,7 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         findUsers()
+        userBeingActioned = nil
     }
     
     // MARK: - View handling
