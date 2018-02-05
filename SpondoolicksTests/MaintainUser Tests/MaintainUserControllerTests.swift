@@ -134,7 +134,7 @@ class MaintainUserControllerTests: XCTestCase {
         sut.interactor = interactor
         
         // When
-        sut.getUser()
+        sut.viewDidLoad()
         
         // Then
         XCTAssertTrue(interactor.getUserCalled, "Maintain User VC did not call getUser on interactor.")
@@ -216,7 +216,7 @@ class MaintainUserControllerTests: XCTestCase {
         setUserOnInteractor()
 
         // When
-        sut.getUser()
+        sut.viewDidLoad()
         let title = sut.navigationItem.title
 
         // Then
@@ -228,7 +228,7 @@ class MaintainUserControllerTests: XCTestCase {
         setUserOnInteractor()
         
         // When
-        sut.getUser()
+        sut.viewDidLoad()
         let userName = sut.userName.text!
         
         // Then
@@ -240,7 +240,7 @@ class MaintainUserControllerTests: XCTestCase {
         setUserOnInteractor()
         
         // When
-        sut.getUser()
+        sut.viewDidLoad()
         let avatarName = sut.selectedAvatar
         
         // Then
@@ -253,7 +253,7 @@ class MaintainUserControllerTests: XCTestCase {
         let indexPath = IndexPath(row: 0, section: 0)
         
         // When
-        sut.getUser()
+        sut.viewDidLoad()
         sut.collectionView(sut.avatarCollection, didSelectItemAt: indexPath)
         
         // Then
@@ -267,7 +267,7 @@ class MaintainUserControllerTests: XCTestCase {
         sut.saveButton.isEnabled = false
         
         // When
-        sut.handleSaveButtonState()
+        sut.textFieldDidEndEditing(sut.userName)
         
         // Then
         XCTAssertTrue(sut.saveButton.isEnabled, "Maintain User VC did not enable the save button when user name and avatar image set.")
@@ -278,7 +278,7 @@ class MaintainUserControllerTests: XCTestCase {
         let interactor = setupUserUpdateSpyTest(adding: true)
 
         // When
-        sut.updateUser()
+        sut.saveTapped(UIBarButtonItem())
         
         // Then
         XCTAssertTrue(interactor.addUserCalled, "Maintain User VC did not call interactor to Add a user.")
@@ -289,8 +289,8 @@ class MaintainUserControllerTests: XCTestCase {
         let interactor = setupUserUpdateSpyTest(adding: false)
 
         // When
-        sut.updateUser()
-        
+        sut.saveTapped(UIBarButtonItem())
+
         // Then
         XCTAssertTrue(interactor.changeUserCalled, "Maintain User VC did not call interactor to Change a user.")
 
@@ -301,8 +301,8 @@ class MaintainUserControllerTests: XCTestCase {
         let interactor = setupUserUpdateMockTest(adding: true)
 
         // When
-        sut.updateUser()
-        
+        sut.saveTapped(UIBarButtonItem())
+
         // Then
         XCTAssertTrue(interactor.updateWasValid(), "Maintain Interactor VC did not pass the right user data to the Interactor when Adding user.")
     }
@@ -312,15 +312,15 @@ class MaintainUserControllerTests: XCTestCase {
         let interactor = setupUserUpdateMockTest(adding: false)
 
         // When
-        sut.updateUser()
-        
+        sut.saveTapped(UIBarButtonItem())
+
         // Then
         XCTAssertTrue(interactor.updateWasValid(), "Maintain Interactor VC did not pass the right user data to the Interactor when Changing a user.")
     }
     
     func testVCHandlesUpdateError() {
         // Given
-        let sutFake = MaintainUserViewControllerFake()
+        let sutFake = MaintainUserViewControllerSpy()
         
         // When
         // userUpdated is inherited and thus the 'real' code is executed
@@ -458,7 +458,7 @@ class MaintainUserControllerTests: XCTestCase {
     }
     
     
-    class MaintainUserViewControllerFake: MaintainUserViewController {
+    class MaintainUserViewControllerSpy: MaintainUserViewController {
         var displayErrorCalled = false
         
         override func displayError(_ message: String) {

@@ -70,7 +70,7 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     }
     
     // MARK: - View handling
-    func setupView() {
+    private func setupView() {
         userName.delegate = self
         avatarCollection.delegate = self
         avatarCollection.dataSource = self
@@ -111,11 +111,11 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
         handleSaveButtonState()
     }
     
-    @objc func dismissKeyboard() {
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
     
-    func handleSaveButtonState() {
+    private func handleSaveButtonState() {
         if let userName = userName.text, let _ = selectedAvatar, !userName.isEmpty {
             saveButton.isEnabled = true
         } else {
@@ -136,7 +136,6 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
         present(alert, animated: true, completion: nil)
     }
 
-
     // MARK: - IBActions
     @IBAction func saveTapped(_ sender: UIBarButtonItem) {
         updateUser()
@@ -147,12 +146,12 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     }
     
     // MARK: - Use cases
-    func getUser() {
+    private func getUser() {
         let request = MaintainUser.GetUser.Request()
         interactor?.getUser(request: request)
     }
     
-    func updateUser() {
+    private func updateUser() {
         if let userName = userName.text, let avatarImage = selectedAvatar {
             let request = MaintainUser.UpdateUser.Request(userName: userName, avatarImage: avatarImage)
             if isAddingUser {

@@ -67,6 +67,7 @@ class ShowUsersWorkerTests: XCTestCase {
         
         override func userDeleted(newUsers: [TempUser], error: Error?) {
             userDeletedCalled = true
+            expectation?.fulfill()
         }
     }
 }

@@ -49,7 +49,8 @@ class HelpPanelViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @objc func closePanel() {
+    
+    @objc private func closePanel() {
         dismiss(animated: true, completion: nil)
     }
 }
