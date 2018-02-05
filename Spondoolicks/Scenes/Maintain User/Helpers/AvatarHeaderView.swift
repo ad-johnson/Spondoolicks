@@ -13,9 +13,7 @@ class AvatarHeaderView: UICollectionReusableView {
     
     // MARK: - Functions
     override func awakeFromNib() {
-        if let font = UIFont(name: Global.FontInfo.BODY_FONT, size: 20) {
-            sectionName.font = UIFontMetrics.default.scaledFont(for: font)
-        }
+        sectionName.font = FontHelper.getFontFor(.body, size: FontHelper.MinSize.medium, traitCollection: traitCollection)
         self.layer.cornerRadius = 5.0
     }
     

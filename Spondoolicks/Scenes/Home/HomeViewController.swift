@@ -67,17 +67,9 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     func setupView() {
         optionsTable.delegate = self
         optionsTable.dataSource = self
-
-        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
-            if traitCollection.horizontalSizeClass == .compact {
-                spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
-            } else {
-                spondoolicksLabel.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: font)
-            }
-        }
-        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 20) {
-            introLabel.font = UIFontMetrics.default.scaledFont(for: font)
-        }
+        
+        spondoolicksLabel.font = FontHelper.getFontFor(.headline, traitCollection: traitCollection)
+        introLabel.font = FontHelper.getFontFor(.title2, traitCollection: traitCollection)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

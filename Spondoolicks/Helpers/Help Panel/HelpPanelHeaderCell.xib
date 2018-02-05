@@ -20,8 +20,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subheading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-aE-4zZ" userLabel="Subheading">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="37.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subheading" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kCa-aE-4zZ" userLabel="Subheading">
+                        <rect key="frame" x="0.0" y="13" width="320" height="18"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                         <color key="textColor" name="sp Grey"/>
                         <nil key="highlightedColor"/>
@@ -38,11 +38,12 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="kCa-aE-4zZ" secondAttribute="trailing" id="5iV-BD-BEo"/>
                     <constraint firstItem="kCa-aE-4zZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="6mg-a7-93y"/>
-                    <constraint firstItem="c3v-dR-okT" firstAttribute="top" secondItem="kCa-aE-4zZ" secondAttribute="bottom" constant="4" id="7Xo-hn-N73"/>
+                    <constraint firstItem="c3v-dR-okT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kCa-aE-4zZ" secondAttribute="bottom" constant="4" id="7Xo-hn-N73"/>
                     <constraint firstAttribute="trailing" secondItem="c3v-dR-okT" secondAttribute="trailing" id="8f3-Dd-LaT"/>
                     <constraint firstItem="c3v-dR-okT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="O1b-rc-LMy"/>
+                    <constraint firstItem="kCa-aE-4zZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" priority="900" id="Ql4-x7-l2z"/>
                     <constraint firstAttribute="bottom" secondItem="c3v-dR-okT" secondAttribute="bottom" id="UCU-pL-h6V"/>
-                    <constraint firstItem="kCa-aE-4zZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="tns-bq-Izl"/>
+                    <constraint firstItem="kCa-aE-4zZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" id="tns-bq-Izl"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

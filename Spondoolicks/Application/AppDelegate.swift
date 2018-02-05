@@ -42,7 +42,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func configureNavigationButton() {
-        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 20) {
+        let fontName = FontHelper.fullFontName(for: .semibold)
+        let fontSize = FontHelper.MinSize.medium.rawValue
+        if let font = UIFont(name: fontName, size: fontSize) {
             UIBarButtonItem.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).setTitleTextAttributes(
                     [NSAttributedStringKey.font : font,
                      NSAttributedStringKey.foregroundColor : UIColor(named: "sp Grey") ?? UIColor.lightGray

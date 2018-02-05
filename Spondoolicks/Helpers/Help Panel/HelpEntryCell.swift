@@ -15,10 +15,7 @@ class HelpEntryCell: UITableViewCell {
     // MARK: - Initialisers
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        if let font = UIFont(name: Global.FontInfo.BODY_FONT, size: 16) {
-            helpEntry.font = UIFontMetrics.default.scaledFont(for: font,  maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
-        }
+        helpEntry.font = FontHelper.getFontFor(.body, traitCollection: self.traitCollection)
     }
     
     // MARK: - Functions

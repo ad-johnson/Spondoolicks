@@ -237,9 +237,7 @@ extension MaintainUserViewController: UICollectionViewDelegateFlowLayout {
         // is for cells.
         let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: collectionView.frame.width, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 1
-        if let font = UIFont(name: Global.FontInfo.BODY_FONT, size: 20) {
-            label.font = UIFontMetrics.default.scaledFont(for: font)
-        }
+        label.font = FontHelper.getFontFor(.body, size: FontHelper.MinSize.medium, traitCollection: traitCollection)
 
         label.text = Global.Identifier.Names.AVATAR_HEADING_NAMES[section]
         label.sizeToFit()

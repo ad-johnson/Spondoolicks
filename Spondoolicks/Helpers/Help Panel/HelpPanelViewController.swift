@@ -18,7 +18,7 @@ class HelpPanelViewController: UIViewController {
     @IBOutlet weak var helpHeading: UILabel!
     @IBOutlet weak var helpEntries: UITableView!
     @IBOutlet weak var panelView: LozengeView!
-    @IBOutlet var backgroundView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +38,9 @@ class HelpPanelViewController: UIViewController {
         } else {
             helpHeading.text = "Missing Title"
         }
-        
-        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 24) {
-                helpHeading.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: font, maximumPointSize: 36)
-        }
+        helpHeading.font = FontHelper.getFontFor(.title2, traitCollection: self.traitCollection)
+        // Inherit the features of LozengeView but actually we want a dark background
+        panelView.layer.backgroundColor = UIColor(named: "sp Dark Purple")?.cgColor
 
         panelView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closePanel)))
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closePanel)))

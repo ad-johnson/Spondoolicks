@@ -35,10 +35,7 @@ class UserCell: UITableViewCell {
     }
 
     func configureUserViews() {
-        
-        if let font = UIFont(name: Global.FontInfo.BODY_FONT, size: Global.FontInfo.basePointSize(traitCollection: traitCollection)) {
-            userName.font = UIFontMetrics.default.scaledFont(for: font,  maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
-        }
+        userName.font = FontHelper.getFontFor(.body, size: FontHelper.MinSize.medium ,traitCollection: traitCollection)
         
         userAvatar.translatesAutoresizingMaskIntoConstraints = false
         userName.translatesAutoresizingMaskIntoConstraints = false

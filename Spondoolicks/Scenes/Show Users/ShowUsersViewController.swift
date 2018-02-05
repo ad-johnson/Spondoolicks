@@ -79,10 +79,7 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     func setupView() {
         userTable.delegate = self
         userTable.dataSource = self
-        
-        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 20) {
-            introLabel.font = UIFontMetrics.default.scaledFont(for: font)
-        }
+        introLabel.font = FontHelper.getFontFor(.title3, traitCollection: traitCollection)
     }
 
     func confirmDelete() {

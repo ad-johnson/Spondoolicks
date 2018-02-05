@@ -30,24 +30,27 @@
                     <rect key="frame" x="38" y="133.5" width="300" height="400"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0SV-IL-dRm" userLabel="Header">
-                            <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qw4-2J-9tU">
-                                    <rect key="frame" x="126" y="14" width="48.5" height="31.5"/>
-                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qw4-2J-9tU">
+                                    <rect key="frame" x="131.5" y="8" width="37.5" height="24"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                     <color key="textColor" name="sp Grey"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" name="sp Purple"/>
                             <constraints>
-                                <constraint firstItem="Qw4-2J-9tU" firstAttribute="centerX" secondItem="0SV-IL-dRm" secondAttribute="centerX" id="CW0-QT-OKe"/>
-                                <constraint firstItem="Qw4-2J-9tU" firstAttribute="centerY" secondItem="0SV-IL-dRm" secondAttribute="centerY" id="H9B-rY-hdN"/>
-                                <constraint firstAttribute="height" constant="60" id="R3b-pg-8oJ"/>
+                                <constraint firstItem="Qw4-2J-9tU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0SV-IL-dRm" secondAttribute="leading" constant="16" id="GsV-YH-Wnp"/>
+                                <constraint firstItem="Qw4-2J-9tU" firstAttribute="centerY" secondItem="0SV-IL-dRm" secondAttribute="centerY" priority="900" id="JtU-Nv-eyY"/>
+                                <constraint firstItem="Qw4-2J-9tU" firstAttribute="centerX" secondItem="0SV-IL-dRm" secondAttribute="centerX" priority="900" id="VON-mR-8Ld"/>
+                                <constraint firstAttribute="bottom" secondItem="Qw4-2J-9tU" secondAttribute="bottom" constant="8" id="n5h-Y3-gM1"/>
+                                <constraint firstItem="Qw4-2J-9tU" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0SV-IL-dRm" secondAttribute="top" constant="8" id="v8S-aq-4He"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Qw4-2J-9tU" secondAttribute="trailing" constant="16" id="xfh-Of-VTH"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kyF-bS-yCe" userLabel="Border">
-                            <rect key="frame" x="0.0" y="60" width="300" height="2"/>
+                            <rect key="frame" x="0.0" y="40" width="300" height="2"/>
                             <color key="backgroundColor" name="sp Green"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="2" id="Lep-II-lKv"/>
@@ -63,24 +66,9 @@
                         <constraint firstItem="kyF-bS-yCe" firstAttribute="top" secondItem="0SV-IL-dRm" secondAttribute="bottom" id="qbx-QI-qa0"/>
                         <constraint firstItem="0SV-IL-dRm" firstAttribute="leading" secondItem="ZeK-Ao-iGt" secondAttribute="leading" id="s85-N6-ZJW"/>
                     </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="useDesignColours" value="NO"/>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderColour">
-                            <color key="value" name="sp Green"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="backgroundColour">
-                            <color key="value" name="sp Dark Purple"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                            <real key="value" value="2"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="35"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RqV-Et-NdQ">
-                    <rect key="frame" x="50" y="201.5" width="276" height="316"/>
+                    <rect key="frame" x="50" y="181.5" width="276" height="336"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
@@ -112,14 +100,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="sp Dark Purple">
-            <color red="0.09799999744" green="0.0" blue="0.18000000720000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="sp Green">
             <color red="0.54500001668930054" green="1" blue="0.23899999260902405" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="sp Green">
-            <color red="0.54500001669999998" green="1" blue="0.23899999259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sp Grey">
             <color red="0.9100000262260437" green="0.9100000262260437" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

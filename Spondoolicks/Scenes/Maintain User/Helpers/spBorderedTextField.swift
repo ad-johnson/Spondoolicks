@@ -25,8 +25,6 @@ class spBorderedTextField: UITextField, SPView {
         self.leftView = paddingView
         self.leftViewMode = UITextFieldViewMode.always
         
-        if let font = UIFont(name: Global.FontInfo.BODY_FONT, size: 20) {
-            self.font = UIFontMetrics.default.scaledFont(for: font)
-        }
+        self.font = FontHelper.getFontFor(.body, size: FontHelper.MinSize.medium, traitCollection: traitCollection)
     }
 }

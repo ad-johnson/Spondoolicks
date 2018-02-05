@@ -15,14 +15,7 @@ class HelpPanelHeaderCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        if let font = UIFont(name: Global.FontInfo.HEADING_FONT, size: 20) {
-            if traitCollection.horizontalSizeClass == .compact {
-                subheading.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: font, maximumPointSize: Global.FontInfo.maxPointSize(traitCollection: traitCollection))
-            } else {
-                subheading.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: font)
-            }
-        }
+        subheading.font = FontHelper.getFontFor(.subheadline, traitCollection: traitCollection)
     }
 
     func configureCell(subheading: String) {

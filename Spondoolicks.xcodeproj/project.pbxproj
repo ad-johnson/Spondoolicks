@@ -49,6 +49,7 @@
 		493803082022512600A4DC3C /* HelpPanelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493803072022512600A4DC3C /* HelpPanelControllerTests.swift */; };
 		493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */; };
 		493F381D2027437A009B00F8 /* SPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381C2027437A009B00F8 /* SPView.swift */; };
+		49584A9A2027578C004054D7 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49584A992027578C004054D7 /* FontHelper.swift */; };
 		495A9580201A36BA007347A8 /* ShowUsersWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */; };
 		495A9582201A3D61007347A8 /* ShowUsersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */; };
 		49831C6320208FB600C82970 /* MaintainUserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */; };
@@ -137,6 +138,7 @@
 		493803072022512600A4DC3C /* HelpPanelControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelControllerTests.swift; sourceTree = "<group>"; };
 		493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelLauncherHelper.swift; sourceTree = "<group>"; };
 		493F381C2027437A009B00F8 /* SPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPView.swift; sourceTree = "<group>"; };
+		49584A992027578C004054D7 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
 		495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersWorkerTests.swift; sourceTree = "<group>"; };
 		495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersPresenterTest.swift; sourceTree = "<group>"; };
 		49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserControllerTests.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				49255FEA2010EB34000E40E9 /* UIFrameworkExtensions.swift */,
 				49255FF4201107FB000E40E9 /* Globals.swift */,
 				493F381C2027437A009B00F8 /* SPView.swift */,
+				49584A992027578C004054D7 /* FontHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				49206E0A20173A9600B16CD8 /* ShowUsersInteractor.swift in Sources */,
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
 				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
+				49584A9A2027578C004054D7 /* FontHelper.swift in Sources */,
 				49D1F7A1201CD9C80066F626 /* spBorderedView.swift in Sources */,
 				49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */,
 				493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */,
