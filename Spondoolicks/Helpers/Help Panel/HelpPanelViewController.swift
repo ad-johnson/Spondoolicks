@@ -17,7 +17,7 @@ class HelpPanelViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var helpHeading: UILabel!
     @IBOutlet weak var helpEntries: UITableView!
-    @IBOutlet weak var panelView: LozengeView!
+    @IBOutlet weak var panelView: OptionView!
     @IBOutlet weak var backgroundView: UIView!
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class HelpPanelViewController: UIViewController {
         }
         helpHeading.font = FontHelper.getFontFor(.title2, traitCollection: self.traitCollection)
         // Inherit the features of LozengeView but actually we want a dark background
-        panelView.layer.backgroundColor = UIColor(named: "sp Dark Purple")?.cgColor
+//        panelView.layer.backgroundColor = UIColor(named: "sp Dark Purple")?.cgColor
 
         panelView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closePanel)))
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closePanel)))

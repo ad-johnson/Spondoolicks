@@ -48,7 +48,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="331.33333333333326" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56A-35-Uia" userLabel="Option Lozenge" customClass="LozengeView" customModule="Spondoolicks" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56A-35-Uia" userLabel="Option Lozenge" customClass="OptionView" customModule="Spondoolicks" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="50" width="331.33333333333331" height="88"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile icon" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CwE-9X-XsE" userLabel="Option Icon">
@@ -267,7 +267,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Km-CH-CuR" customClass="spBorderedView" customModule="Spondoolicks" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Km-CH-CuR" customClass="SPBorderedView" customModule="Spondoolicks" customModuleProvider="target">
                                 <rect key="frame" x="181.66666666666666" y="24" width="51" height="66"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="girl-0" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k3n-Tb-KLj" userLabel="Chosen Avatar">
@@ -282,22 +282,22 @@
                                     <constraint firstAttribute="trailing" secondItem="k3n-Tb-KLj" secondAttribute="trailing" constant="5" id="n5d-JY-I9J"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My name is" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-Zb-FYI" userLabel="Username" customClass="spBorderedTextField" customModule="Spondoolicks" customModuleProvider="target">
-                                <rect key="frame" x="16" y="114" width="382" height="32"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My name is" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lLl-Zb-FYI" userLabel="Username" customClass="SPBorderedTextField" customModule="Spondoolicks" customModuleProvider="target">
+                                <rect key="frame" x="16" y="114" width="382" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="sp Grey"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHY-Db-zeV" userLabel="Seperator">
-                                <rect key="frame" x="16" y="170" width="382" height="2"/>
+                                <rect key="frame" x="16" y="168" width="382" height="2"/>
                                 <color key="backgroundColor" name="sp Green"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="HXr-Hk-HLR"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XrC-Hc-1zk">
-                                <rect key="frame" x="16" y="196" width="382" height="416"/>
+                                <rect key="frame" x="16" y="194" width="382" height="418"/>
                                 <color key="backgroundColor" name="sp Dark Purple"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="8" id="eiI-Ex-Dxh">
                                     <size key="itemSize" width="50" height="50"/>

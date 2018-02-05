@@ -1,15 +1,15 @@
 //
-//  View that will allow for tailoring defaulting to a designed lozenge shape
+//  A view with solid background with more rounded, thicker, borders.
 //
-//  Created by Andrew Johnson on 20/01/2018.
+//  Created by Andrew Johnson on 05/02/2018.
 //  Copyright © 2018 Andrew Johnson. All rights reserved.
 //
 
 import UIKit
 
-@IBDesignable
-class LozengeView: UIView, SPView {
-    
+class SPLozengeBorderedView: UIView, SPView {
+
+    // MARK: - View Handling
     override func awakeFromNib() {
         setViewProperties()
     }
@@ -19,6 +19,8 @@ class LozengeView: UIView, SPView {
         setViewProperties()
     }
 
+    
+    // MARK: - Default view values
     func getCornerRadius() -> CGFloat {
         return 24.0
     }
@@ -28,10 +30,11 @@ class LozengeView: UIView, SPView {
     }
     
     func getBackgroundColour() -> CGColor {
-        if let colour = UIColor(named: "sp Purple") {
+        if let colour = UIColor(named: "sp Dark Purple") {
             return colour.cgColor
         } else {
-            return UIColor.purple.cgColor
+            return UIColor.darkGray.cgColor
         }
     }
+
 }

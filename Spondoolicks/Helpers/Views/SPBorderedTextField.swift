@@ -8,7 +8,7 @@
 import UIKit
 @IBDesignable
 
-class spBorderedTextField: UITextField, SPView {
+class SPBorderedTextField: UITextField, SPView {
     
     override func awakeFromNib() {
         setViewProperties()

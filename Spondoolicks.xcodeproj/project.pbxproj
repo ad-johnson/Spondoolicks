@@ -38,7 +38,7 @@
 		49255FF22010FCFB000E40E9 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */; };
 		49255FF5201107FB000E40E9 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF4201107FB000E40E9 /* Globals.swift */; };
 		49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF720111A9F000E40E9 /* OptionCell.swift */; };
-		49255FFB2013A083000E40E9 /* LozengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FFA2013A083000E40E9 /* LozengeView.swift */; };
+		49255FFB2013A083000E40E9 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FFA2013A083000E40E9 /* OptionView.swift */; };
 		493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */; };
 		493802FB2021F8E100A4DC3C /* HelpPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */; };
 		493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802FC2022096E00A4DC3C /* HelpEntryCell.swift */; };
@@ -50,6 +50,7 @@
 		493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */; };
 		493F381D2027437A009B00F8 /* SPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381C2027437A009B00F8 /* SPView.swift */; };
 		49584A9A2027578C004054D7 /* FontHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49584A992027578C004054D7 /* FontHelper.swift */; };
+		49584A9D20287A95004054D7 /* SPLozengeBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49584A9C20287A95004054D7 /* SPLozengeBorderedView.swift */; };
 		495A9580201A36BA007347A8 /* ShowUsersWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */; };
 		495A9582201A3D61007347A8 /* ShowUsersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */; };
 		49831C6320208FB600C82970 /* MaintainUserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */; };
@@ -66,8 +67,8 @@
 		49D1F796201CABCD0066F626 /* MaintainUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F790201CABCD0066F626 /* MaintainUserViewController.swift */; };
 		49D1F797201CABCD0066F626 /* MaintainUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F791201CABCD0066F626 /* MaintainUserInteractor.swift */; };
 		49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79A201CAC1E0066F626 /* AvatarCell.swift */; };
-		49D1F79F201CAE3D0066F626 /* spBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */; };
-		49D1F7A1201CD9C80066F626 /* spBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A0201CD9C80066F626 /* spBorderedView.swift */; };
+		49D1F79F201CAE3D0066F626 /* SPBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79E201CAE3D0066F626 /* SPBorderedTextField.swift */; };
+		49D1F7A1201CD9C80066F626 /* SPBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */; };
 		49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,7 +128,7 @@
 		49255FEF2010FCFB000E40E9 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		49255FF4201107FB000E40E9 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		49255FF720111A9F000E40E9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
-		49255FFA2013A083000E40E9 /* LozengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LozengeView.swift; sourceTree = "<group>"; };
+		49255FFA2013A083000E40E9 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelViewController.swift; sourceTree = "<group>"; };
 		493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelViewController.xib; sourceTree = "<group>"; };
 		493802FC2022096E00A4DC3C /* HelpEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpEntryCell.swift; sourceTree = "<group>"; };
@@ -139,6 +140,7 @@
 		493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelLauncherHelper.swift; sourceTree = "<group>"; };
 		493F381C2027437A009B00F8 /* SPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPView.swift; sourceTree = "<group>"; };
 		49584A992027578C004054D7 /* FontHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontHelper.swift; sourceTree = "<group>"; };
+		49584A9C20287A95004054D7 /* SPLozengeBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPLozengeBorderedView.swift; sourceTree = "<group>"; };
 		495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersWorkerTests.swift; sourceTree = "<group>"; };
 		495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersPresenterTest.swift; sourceTree = "<group>"; };
 		49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserControllerTests.swift; sourceTree = "<group>"; };
@@ -155,8 +157,8 @@
 		49D1F790201CABCD0066F626 /* MaintainUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserViewController.swift; sourceTree = "<group>"; };
 		49D1F791201CABCD0066F626 /* MaintainUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserInteractor.swift; sourceTree = "<group>"; };
 		49D1F79A201CAC1E0066F626 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
-		49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spBorderedTextField.swift; sourceTree = "<group>"; };
-		49D1F7A0201CD9C80066F626 /* spBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = spBorderedView.swift; sourceTree = "<group>"; };
+		49D1F79E201CAE3D0066F626 /* SPBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBorderedTextField.swift; sourceTree = "<group>"; };
+		49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBorderedView.swift; sourceTree = "<group>"; };
 		49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -325,10 +327,10 @@
 		49255FD9200F9E73000E40E9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				49584A9B20287876004054D7 /* Views */,
 				493802F72021F88E00A4DC3C /* Help Panel */,
 				49255FEA2010EB34000E40E9 /* UIFrameworkExtensions.swift */,
 				49255FF4201107FB000E40E9 /* Globals.swift */,
-				493F381C2027437A009B00F8 /* SPView.swift */,
 				49584A992027578C004054D7 /* FontHelper.swift */,
 			);
 			path = Helpers;
@@ -376,7 +378,7 @@
 		49255FF620111A6E000E40E9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				49255FFA2013A083000E40E9 /* LozengeView.swift */,
+				49255FFA2013A083000E40E9 /* OptionView.swift */,
 				49255FF720111A9F000E40E9 /* OptionCell.swift */,
 			);
 			path = Helpers;
@@ -411,6 +413,17 @@
 				493803072022512600A4DC3C /* HelpPanelControllerTests.swift */,
 			);
 			path = "HelpPanel Tests";
+			sourceTree = "<group>";
+		};
+		49584A9B20287876004054D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				493F381C2027437A009B00F8 /* SPView.swift */,
+				49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */,
+				49D1F79E201CAE3D0066F626 /* SPBorderedTextField.swift */,
+				49584A9C20287A95004054D7 /* SPLozengeBorderedView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		49831C6120208F7700C82970 /* MaintainUser Tests */ = {
@@ -453,8 +466,6 @@
 			isa = PBXGroup;
 			children = (
 				49D1F79A201CAC1E0066F626 /* AvatarCell.swift */,
-				49D1F79E201CAE3D0066F626 /* spBorderedTextField.swift */,
-				49D1F7A0201CD9C80066F626 /* spBorderedView.swift */,
 				49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */,
 			);
 			path = Helpers;
@@ -613,17 +624,18 @@
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
 				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
 				49584A9A2027578C004054D7 /* FontHelper.swift in Sources */,
-				49D1F7A1201CD9C80066F626 /* spBorderedView.swift in Sources */,
+				49D1F7A1201CD9C80066F626 /* SPBorderedView.swift in Sources */,
 				49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */,
 				493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */,
 				49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */,
-				49255FFB2013A083000E40E9 /* LozengeView.swift in Sources */,
+				49255FFB2013A083000E40E9 /* OptionView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
 				49D1F797201CABCD0066F626 /* MaintainUserInteractor.swift in Sources */,
 				49206E1320173AC100B16CD8 /* SettingsWorker.swift in Sources */,
 				49206E1420173AC100B16CD8 /* SettingsRouter.swift in Sources */,
 				49380305202230A400A4DC3C /* HelpPanelDataSource.swift in Sources */,
 				49D1F793201CABCD0066F626 /* MaintainUserWorker.swift in Sources */,
+				49584A9D20287A95004054D7 /* SPLozengeBorderedView.swift in Sources */,
 				49206E0720173A9600B16CD8 /* ShowUsersRouter.swift in Sources */,
 				49255FF5201107FB000E40E9 /* Globals.swift in Sources */,
 				49206E1620173AC100B16CD8 /* SettingsViewController.swift in Sources */,
@@ -636,7 +648,7 @@
 				49255FE72010E1C9000E40E9 /* HomeViewController.swift in Sources */,
 				49206E0620173A9600B16CD8 /* ShowUsersWorker.swift in Sources */,
 				49206E0520173A9600B16CD8 /* ShowUsersPresenter.swift in Sources */,
-				49D1F79F201CAE3D0066F626 /* spBorderedTextField.swift in Sources */,
+				49D1F79F201CAE3D0066F626 /* SPBorderedTextField.swift in Sources */,
 				493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */,
 				49D1F796201CABCD0066F626 /* MaintainUserViewController.swift in Sources */,
 				49255FE52010E1C9000E40E9 /* HomeRouter.swift in Sources */,

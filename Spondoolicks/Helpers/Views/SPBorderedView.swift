@@ -8,7 +8,7 @@
 import UIKit
 @IBDesignable
 
-class spBorderedView: UIView, SPView {
+class SPBorderedView: UIView, SPView {
 
     override func awakeFromNib() {
         setViewProperties()

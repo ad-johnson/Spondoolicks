@@ -23,7 +23,7 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     // MARK: - IBOutlets
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var helpButton: UIBarButtonItem!
-    @IBOutlet weak var userName: spBorderedTextField!
+    @IBOutlet weak var userName: SPBorderedTextField!
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var avatarCollection: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
