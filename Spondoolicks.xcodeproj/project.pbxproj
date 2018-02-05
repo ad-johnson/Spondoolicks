@@ -39,12 +39,12 @@
 		49255FF5201107FB000E40E9 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF4201107FB000E40E9 /* Globals.swift */; };
 		49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF720111A9F000E40E9 /* OptionCell.swift */; };
 		49255FFB2013A083000E40E9 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FFA2013A083000E40E9 /* OptionView.swift */; };
+		492DCDFC20288374000DCC1E /* HelpPanelSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */; };
+		492DCDFE20288436000DCC1E /* HelpPanelSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */; };
 		493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */; };
 		493802FB2021F8E100A4DC3C /* HelpPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */; };
 		493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802FC2022096E00A4DC3C /* HelpEntryCell.swift */; };
 		493802FF2022096E00A4DC3C /* HelpEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493802FD2022096E00A4DC3C /* HelpEntryCell.xib */; };
-		493803022022282500A4DC3C /* HelpPanelHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493803002022282500A4DC3C /* HelpPanelHeaderCell.swift */; };
-		493803032022282500A4DC3C /* HelpPanelHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493803012022282500A4DC3C /* HelpPanelHeaderCell.xib */; };
 		49380305202230A400A4DC3C /* HelpPanelDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49380304202230A400A4DC3C /* HelpPanelDataSource.swift */; };
 		493803082022512600A4DC3C /* HelpPanelControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493803072022512600A4DC3C /* HelpPanelControllerTests.swift */; };
 		493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */; };
@@ -129,12 +129,12 @@
 		49255FF4201107FB000E40E9 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		49255FF720111A9F000E40E9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		49255FFA2013A083000E40E9 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelSectionHeader.swift; sourceTree = "<group>"; };
+		492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelSectionHeader.xib; sourceTree = "<group>"; };
 		493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelViewController.swift; sourceTree = "<group>"; };
 		493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelViewController.xib; sourceTree = "<group>"; };
 		493802FC2022096E00A4DC3C /* HelpEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpEntryCell.swift; sourceTree = "<group>"; };
 		493802FD2022096E00A4DC3C /* HelpEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpEntryCell.xib; sourceTree = "<group>"; };
-		493803002022282500A4DC3C /* HelpPanelHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelHeaderCell.swift; sourceTree = "<group>"; };
-		493803012022282500A4DC3C /* HelpPanelHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelHeaderCell.xib; sourceTree = "<group>"; };
 		49380304202230A400A4DC3C /* HelpPanelDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelDataSource.swift; sourceTree = "<group>"; };
 		493803072022512600A4DC3C /* HelpPanelControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelControllerTests.swift; sourceTree = "<group>"; };
 		493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelLauncherHelper.swift; sourceTree = "<group>"; };
@@ -399,10 +399,10 @@
 				493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */,
 				493802FC2022096E00A4DC3C /* HelpEntryCell.swift */,
 				493802FD2022096E00A4DC3C /* HelpEntryCell.xib */,
-				493803002022282500A4DC3C /* HelpPanelHeaderCell.swift */,
-				493803012022282500A4DC3C /* HelpPanelHeaderCell.xib */,
 				49380304202230A400A4DC3C /* HelpPanelDataSource.swift */,
 				493F381A20262B4B009B00F8 /* HelpPanelLauncherHelper.swift */,
+				492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */,
+				492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */,
 			);
 			path = "Help Panel";
 			sourceTree = "<group>";
@@ -582,8 +582,8 @@
 				49255FB1200F9D1B000E40E9 /* LaunchScreen.storyboard in Resources */,
 				49255FAE200F9D1B000E40E9 /* Assets.xcassets in Resources */,
 				49255FF02010FCFB000E40E9 /* OpenSans-Regular.ttf in Resources */,
-				493803032022282500A4DC3C /* HelpPanelHeaderCell.xib in Resources */,
 				49255FF12010FCFB000E40E9 /* OpenSans-Bold.ttf in Resources */,
+				492DCDFE20288436000DCC1E /* HelpPanelSectionHeader.xib in Resources */,
 				493802FF2022096E00A4DC3C /* HelpEntryCell.xib in Resources */,
 				49255FF22010FCFB000E40E9 /* OpenSans-SemiBold.ttf in Resources */,
 				49255FAC200F9D1B000E40E9 /* Main.storyboard in Resources */,
@@ -637,6 +637,7 @@
 				49D1F793201CABCD0066F626 /* MaintainUserWorker.swift in Sources */,
 				49584A9D20287A95004054D7 /* SPLozengeBorderedView.swift in Sources */,
 				49206E0720173A9600B16CD8 /* ShowUsersRouter.swift in Sources */,
+				492DCDFC20288374000DCC1E /* HelpPanelSectionHeader.swift in Sources */,
 				49255FF5201107FB000E40E9 /* Globals.swift in Sources */,
 				49206E1620173AC100B16CD8 /* SettingsViewController.swift in Sources */,
 				49255FA7200F9D1B000E40E9 /* AppDelegate.swift in Sources */,
@@ -644,7 +645,6 @@
 				49D1F792201CABCD0066F626 /* MaintainUserPresenter.swift in Sources */,
 				49D1F794201CABCD0066F626 /* MaintainUserRouter.swift in Sources */,
 				49206E0920173A9600B16CD8 /* ShowUsersViewController.swift in Sources */,
-				493803022022282500A4DC3C /* HelpPanelHeaderCell.swift in Sources */,
 				49255FE72010E1C9000E40E9 /* HomeViewController.swift in Sources */,
 				49206E0620173A9600B16CD8 /* ShowUsersWorker.swift in Sources */,
 				49206E0520173A9600B16CD8 /* ShowUsersPresenter.swift in Sources */,

@@ -1,14 +1,13 @@
 //
-//  HelpPanelHeaderViewCell.swift
-//  Spondoolicks
+//  Custom Section Header for Help Panel.
 //
-//  Created by Andrew Johnson on 31/01/2018.
+//  Created by Andrew Johnson on 05/02/2018.
 //  Copyright © 2018 Andrew Johnson. All rights reserved.
 //
 
 import UIKit
 
-class HelpPanelHeaderCell: UITableViewCell {
+class HelpPanelSectionHeader: UITableViewHeaderFooterView {
 
     // MARK: - IBOutlets
     @IBOutlet weak var subheading: UILabel!
@@ -17,8 +16,9 @@ class HelpPanelHeaderCell: UITableViewCell {
         super.awakeFromNib()
         subheading.font = FontHelper.getFontFor(.subheadline, traitCollection: traitCollection)
     }
-
+    
     func configureCell(subheading: String) {
         self.subheading.text = subheading
     }
+    
 }

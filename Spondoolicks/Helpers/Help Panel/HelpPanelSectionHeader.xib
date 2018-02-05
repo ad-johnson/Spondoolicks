@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HelpPanelSectionHeader" customModule="Spondoolicks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2oq-Vj-Swr">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subheading" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-1a-EUS">
+                            <rect key="frame" x="0.0" y="22" width="375" height="18"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                            <color key="textColor" name="sp Grey"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PwI-ID-ZWg" userLabel="Border">
+                            <rect key="frame" x="0.0" y="60" width="375" height="2"/>
+                            <color key="backgroundColor" name="sp Green"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="2" id="Vve-v7-oc2"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" name="sp Dark Purple"/>
+                    <constraints>
+                        <constraint firstItem="sa6-1a-EUS" firstAttribute="leading" secondItem="2oq-Vj-Swr" secondAttribute="leading" id="5JZ-ho-Deo"/>
+                        <constraint firstAttribute="bottom" secondItem="PwI-ID-ZWg" secondAttribute="bottom" id="Jx5-iL-jEf"/>
+                        <constraint firstItem="sa6-1a-EUS" firstAttribute="centerY" secondItem="2oq-Vj-Swr" secondAttribute="centerY" priority="900" id="MPK-4c-PnO"/>
+                        <constraint firstItem="PwI-ID-ZWg" firstAttribute="leading" secondItem="2oq-Vj-Swr" secondAttribute="leading" id="S3H-4u-WGs"/>
+                        <constraint firstItem="sa6-1a-EUS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2oq-Vj-Swr" secondAttribute="top" id="VdI-j0-AP8"/>
+                        <constraint firstAttribute="trailing" secondItem="sa6-1a-EUS" secondAttribute="trailing" id="hpt-Jz-246"/>
+                        <constraint firstItem="PwI-ID-ZWg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sa6-1a-EUS" secondAttribute="bottom" constant="4" id="irr-q0-bw2"/>
+                        <constraint firstAttribute="trailing" secondItem="PwI-ID-ZWg" secondAttribute="trailing" id="r9Q-nO-gI0"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="2oq-Vj-Swr" secondAttribute="bottom" id="2cX-gK-wVz"/>
+                <constraint firstItem="2oq-Vj-Swr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="ggh-Wf-mgC"/>
+                <constraint firstItem="2oq-Vj-Swr" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="nJu-Uk-qWw"/>
+                <constraint firstItem="2oq-Vj-Swr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="qXU-CQ-OhU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="subheading" destination="sa6-1a-EUS" id="lxc-ws-Dog"/>
+            </connections>
+            <point key="canvasLocation" x="71.5" y="-243"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="sp Dark Purple">
+            <color red="0.097999997437000275" green="0.0" blue="0.18000000715255737" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="sp Green">
+            <color red="0.54500001669999998" green="1" blue="0.23899999259999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="sp Grey">
+            <color red="0.9100000262260437" green="0.9100000262260437" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

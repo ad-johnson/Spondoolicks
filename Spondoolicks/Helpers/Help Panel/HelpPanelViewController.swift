@@ -31,16 +31,15 @@ class HelpPanelViewController: UIViewController {
         helpEntries.dataSource = self
         
         helpEntries.register(UINib(nibName: Global.Identifier.Cell.HELP_ENTRY_CELL, bundle: nil), forCellReuseIdentifier: Global.Identifier.Cell.HELP_ENTRY_CELL)
-        helpEntries.register(UINib(nibName: Global.Identifier.Cell.HELP_PANEL_HEADER_CELL, bundle: nil), forCellReuseIdentifier: Global.Identifier.Cell.HELP_PANEL_HEADER_CELL)
-
+        helpEntries.register(UINib(nibName: "HelpPanelSectionHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "HelpPanelSectionHeader")
+        helpEntries.sectionHeaderHeight = UITableViewAutomaticDimension
+        
         if let title = dataSource?.helpPanelTitle() {
             helpHeading.text = title
         } else {
             helpHeading.text = "Missing Title"
         }
         helpHeading.font = FontHelper.getFontFor(.title2, traitCollection: self.traitCollection)
-        // Inherit the features of LozengeView but actually we want a dark background
-//        panelView.layer.backgroundColor = UIColor(named: "sp Dark Purple")?.cgColor
 
         panelView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closePanel)))
         backgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(closePanel)))
@@ -56,7 +55,6 @@ class HelpPanelViewController: UIViewController {
 }
 
 extension HelpPanelViewController: UITableViewDelegate {
-    
 }
 
 extension HelpPanelViewController: UITableViewDataSource {
@@ -70,7 +68,7 @@ extension HelpPanelViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: Global.Identifier.Cell.HELP_PANEL_HEADER_CELL) as? HelpPanelHeaderCell {
+        if let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HelpPanelSectionHeader") as? HelpPanelSectionHeader {
             if let subtitles = dataSource?.subtitles() {
                 cell.configureCell(subheading: subtitles[section])
             }
