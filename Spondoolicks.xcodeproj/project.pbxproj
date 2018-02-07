@@ -41,6 +41,7 @@
 		49255FFB2013A083000E40E9 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FFA2013A083000E40E9 /* OptionView.swift */; };
 		492DCDFC20288374000DCC1E /* HelpPanelSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */; };
 		492DCDFE20288436000DCC1E /* HelpPanelSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */; };
+		4936C942202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */; };
 		493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */; };
 		493802FB2021F8E100A4DC3C /* HelpPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */; };
 		493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802FC2022096E00A4DC3C /* HelpEntryCell.swift */; };
@@ -131,6 +132,7 @@
 		49255FFA2013A083000E40E9 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
 		492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelSectionHeader.swift; sourceTree = "<group>"; };
 		492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelSectionHeader.xib; sourceTree = "<group>"; };
+		4936C941202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpondoolicksDataModel.xcdatamodel; sourceTree = "<group>"; };
 		493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelViewController.swift; sourceTree = "<group>"; };
 		493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelViewController.xib; sourceTree = "<group>"; };
 		493802FC2022096E00A4DC3C /* HelpEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpEntryCell.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				49B5690D2018C9C0004FE0E4 /* TempUser.swift */,
+				4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */,
 				493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */,
 				49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */,
+				4936C942202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld in Sources */,
 				49255FFB2013A083000E40E9 /* OptionView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
 				49D1F797201CABCD0066F626 /* MaintainUserInteractor.swift in Sources */,
@@ -960,6 +964,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4936C941202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodel */,
+			);
+			currentVersion = 4936C941202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodel */;
+			path = SpondoolicksDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 49255F9B200F9D1B000E40E9 /* Project object */;
 }
