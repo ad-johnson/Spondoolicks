@@ -3,13 +3,13 @@
     <entity name="Account" representedClassName=".Account" parentEntity="Ledger" syncable="YES">
         <attribute name="accountNumber" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="sortCode" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="type" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="accounts" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Category" representedClassName=".Category" syncable="YES">
         <attribute name="currentBalance" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
-        <attribute name="type" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="parent" inverseEntity="Category" syncable="YES"/>
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="children" inverseEntity="Category" syncable="YES"/>
         <relationship name="transactionLines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionLine" inverseName="category" inverseEntity="TransactionLine" syncable="YES"/>
@@ -27,7 +27,7 @@
         </fetchIndex>
     </entity>
     <entity name="Parent" representedClassName=".Parent" syncable="YES">
-        <attribute name="pin" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="pin" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Payee" representedClassName=".Payee" parentEntity="Ledger" syncable="YES"/>
     <entity name="Transaction" representedClassName=".Transaction" syncable="YES">
@@ -35,7 +35,7 @@
         <attribute name="reconciled" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="totalAmount" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <attribute name="transactionDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="type" attributeType="String" syncable="YES"/>
+        <attribute name="type" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="fromLedger" maxCount="1" deletionRule="Nullify" destinationEntity="Ledger" inverseName="debitTransactions" inverseEntity="Ledger" syncable="YES"/>
         <relationship name="toLedger" maxCount="1" deletionRule="Nullify" destinationEntity="Ledger" inverseName="creditTransactions" inverseEntity="Ledger" syncable="YES"/>
         <relationship name="transactionLines" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="TransactionLine" inverseName="transaction" inverseEntity="TransactionLine" syncable="YES"/>

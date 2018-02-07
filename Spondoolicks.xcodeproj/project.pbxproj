@@ -42,6 +42,14 @@
 		492DCDFC20288374000DCC1E /* HelpPanelSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */; };
 		492DCDFE20288436000DCC1E /* HelpPanelSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */; };
 		4936C942202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */; };
+		4936C944202B2ED100933DC3 /* Parent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C943202B2ED100933DC3 /* Parent.swift */; };
+		4936C946202B31A100933DC3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C945202B31A100933DC3 /* User.swift */; };
+		4936C948202B31E800933DC3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C947202B31E800933DC3 /* Category.swift */; };
+		4936C94A202B321400933DC3 /* Ledger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C949202B321400933DC3 /* Ledger.swift */; };
+		4936C94C202B323700933DC3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C94B202B323700933DC3 /* Account.swift */; };
+		4936C94E202B324E00933DC3 /* Payee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C94D202B324E00933DC3 /* Payee.swift */; };
+		4936C950202B326C00933DC3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C94F202B326C00933DC3 /* Transaction.swift */; };
+		4936C952202B328700933DC3 /* TransactionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C951202B328700933DC3 /* TransactionLine.swift */; };
 		493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */; };
 		493802FB2021F8E100A4DC3C /* HelpPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */; };
 		493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802FC2022096E00A4DC3C /* HelpEntryCell.swift */; };
@@ -133,6 +141,14 @@
 		492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelSectionHeader.swift; sourceTree = "<group>"; };
 		492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelSectionHeader.xib; sourceTree = "<group>"; };
 		4936C941202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpondoolicksDataModel.xcdatamodel; sourceTree = "<group>"; };
+		4936C943202B2ED100933DC3 /* Parent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parent.swift; sourceTree = "<group>"; };
+		4936C945202B31A100933DC3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4936C947202B31E800933DC3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		4936C949202B321400933DC3 /* Ledger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ledger.swift; sourceTree = "<group>"; };
+		4936C94B202B323700933DC3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		4936C94D202B324E00933DC3 /* Payee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payee.swift; sourceTree = "<group>"; };
+		4936C94F202B326C00933DC3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		4936C951202B328700933DC3 /* TransactionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLine.swift; sourceTree = "<group>"; };
 		493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelViewController.swift; sourceTree = "<group>"; };
 		493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelViewController.xib; sourceTree = "<group>"; };
 		493802FC2022096E00A4DC3C /* HelpEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpEntryCell.swift; sourceTree = "<group>"; };
@@ -350,6 +366,14 @@
 			children = (
 				49B5690D2018C9C0004FE0E4 /* TempUser.swift */,
 				4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */,
+				4936C943202B2ED100933DC3 /* Parent.swift */,
+				4936C945202B31A100933DC3 /* User.swift */,
+				4936C947202B31E800933DC3 /* Category.swift */,
+				4936C949202B321400933DC3 /* Ledger.swift */,
+				4936C94B202B323700933DC3 /* Account.swift */,
+				4936C94D202B324E00933DC3 /* Payee.swift */,
+				4936C94F202B326C00933DC3 /* Transaction.swift */,
+				4936C951202B328700933DC3 /* TransactionLine.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -628,16 +652,22 @@
 				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
 				49584A9A2027578C004054D7 /* FontHelper.swift in Sources */,
 				49D1F7A1201CD9C80066F626 /* SPBorderedView.swift in Sources */,
+				4936C94E202B324E00933DC3 /* Payee.swift in Sources */,
 				49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */,
 				493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */,
 				49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */,
+				4936C948202B31E800933DC3 /* Category.swift in Sources */,
 				4936C942202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld in Sources */,
 				49255FFB2013A083000E40E9 /* OptionView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
 				49D1F797201CABCD0066F626 /* MaintainUserInteractor.swift in Sources */,
+				4936C950202B326C00933DC3 /* Transaction.swift in Sources */,
 				49206E1320173AC100B16CD8 /* SettingsWorker.swift in Sources */,
+				4936C946202B31A100933DC3 /* User.swift in Sources */,
 				49206E1420173AC100B16CD8 /* SettingsRouter.swift in Sources */,
 				49380305202230A400A4DC3C /* HelpPanelDataSource.swift in Sources */,
+				4936C94A202B321400933DC3 /* Ledger.swift in Sources */,
+				4936C94C202B323700933DC3 /* Account.swift in Sources */,
 				49D1F793201CABCD0066F626 /* MaintainUserWorker.swift in Sources */,
 				49584A9D20287A95004054D7 /* SPLozengeBorderedView.swift in Sources */,
 				49206E0720173A9600B16CD8 /* ShowUsersRouter.swift in Sources */,
@@ -658,6 +688,8 @@
 				49255FE52010E1C9000E40E9 /* HomeRouter.swift in Sources */,
 				49206E1720173AC100B16CD8 /* SettingsInteractor.swift in Sources */,
 				49206E0820173A9600B16CD8 /* ShowUsersModels.swift in Sources */,
+				4936C952202B328700933DC3 /* TransactionLine.swift in Sources */,
+				4936C944202B2ED100933DC3 /* Parent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

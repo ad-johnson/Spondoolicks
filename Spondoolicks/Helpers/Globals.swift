@@ -78,4 +78,22 @@ enum Global {
             case userNotFound
         }
     }
+    
+    enum TransactionType: Int16 {
+        case income = 1
+        case expense = 2
+        case transfer = 3
+    }
+    
+    // Cases 1 through 4 could be represented as 'cash' types as they are
+    // all essentially the same thing.  However, differentiating them in
+    // this way gives some flexibility in handling them: e.g. displaying
+    // a different icon alongside the account name.
+    enum AccountType: Int16 {
+        case pocket = 1
+        case purse = 2
+        case wallet = 3
+        case piggyBank = 4
+        case savings = 5
+    }
 }
