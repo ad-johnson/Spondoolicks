@@ -50,6 +50,7 @@
 		4936C94E202B324E00933DC3 /* Payee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C94D202B324E00933DC3 /* Payee.swift */; };
 		4936C950202B326C00933DC3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C94F202B326C00933DC3 /* Transaction.swift */; };
 		4936C952202B328700933DC3 /* TransactionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C951202B328700933DC3 /* TransactionLine.swift */; };
+		4936C954202C85D300933DC3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C953202C85D300933DC3 /* CoreDataManager.swift */; };
 		493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */; };
 		493802FB2021F8E100A4DC3C /* HelpPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */; };
 		493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802FC2022096E00A4DC3C /* HelpEntryCell.swift */; };
@@ -149,6 +150,7 @@
 		4936C94D202B324E00933DC3 /* Payee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payee.swift; sourceTree = "<group>"; };
 		4936C94F202B326C00933DC3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4936C951202B328700933DC3 /* TransactionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLine.swift; sourceTree = "<group>"; };
+		4936C953202C85D300933DC3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelViewController.swift; sourceTree = "<group>"; };
 		493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelViewController.xib; sourceTree = "<group>"; };
 		493802FC2022096E00A4DC3C /* HelpEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpEntryCell.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 		49255FDA200F9E7A000E40E9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				4936C953202C85D300933DC3 /* CoreDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4936C954202C85D300933DC3 /* CoreDataManager.swift in Sources */,
 				4904172D2018AF6D005FDBAB /* UserCell.swift in Sources */,
 				493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */,
 				49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */,

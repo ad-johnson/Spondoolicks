@@ -17,9 +17,8 @@ class Parent: NSManagedObject {
     internal(set) var pin: Int? {
         get {
             willAccessValue(forKey: Parent.pinKey)
-            let value: Int? = primitivePin.map { $0.intValue }
-            didAccessValue(forKey: Parent.pinKey)
-            return value
+            defer { didAccessValue(forKey: Parent.pinKey) }
+            return primitivePin?.intValue
         }
         set {
             willChangeValue(forKey: Parent.pinKey)

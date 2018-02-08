@@ -20,9 +20,8 @@ class User: NSManagedObject {
     internal(set) var pin: Int? {
         get {
             willAccessValue(forKey: User.pinKey)
-            let value: Int? = primitivePin.map { $0.intValue }
-            didAccessValue(forKey: User.pinKey)
-            return value
+            defer { didAccessValue(forKey: User.pinKey) }
+            return primitivePin?.intValue
         }
         set {
             willChangeValue(forKey: User.pinKey)

@@ -404,7 +404,7 @@
         <!--Navigation Controller-->
         <scene sceneID="ZwP-jl-Lm0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dZk-Ju-QIM" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="dZk-Ju-QIM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" shadowImage="NavigationBorder" id="lxW-9k-oo3">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>

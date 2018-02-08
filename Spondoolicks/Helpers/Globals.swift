@@ -28,6 +28,7 @@ enum Global {
             static let HELP_PANEL_HEADER_CELL = "HelpPanelHeaderCell"
         }
         struct ViewController {
+            static let ROOT = "RootNavigationController"
             static let HOME_VC = "HomeVC"
             static let SHOW_USERS_VC = "ShowUsersVC"
             static let SETTINGS_VC = "SettingsVC"
@@ -35,6 +36,7 @@ enum Global {
         }
         struct Names {
             static let AVATAR_HEADING_NAMES = ["Girls", "Boys"]
+            static let MODEL_NAME = "SpondoolicksDataModel"
         }
     }
     

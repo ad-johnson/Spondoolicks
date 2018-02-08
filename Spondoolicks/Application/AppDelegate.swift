@@ -15,7 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        configureNavigationButton()
+        CoreDataManager.instance.initialiseStack {
+            self.configureNavigationButton()
+            let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN, bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.ROOT) as? UINavigationController
+                else { fatalError("Wrong view controller type at application launch") }
+            self.window?.rootViewController = vc
+        }
         return true
     }
 
