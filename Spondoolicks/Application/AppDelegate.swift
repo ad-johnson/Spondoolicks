@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    // TODO: - Will need something a little more complex here in future.  To cover
+    // migration
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         CoreDataManager.instance.initialiseStack {
             self.configureNavigationButton()
