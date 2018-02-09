@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // TODO: - Will need something a little more complex here in future.  To cover
     // migration
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        self.configureNavigationButton()
+        UserDefaultsHelper().defaults.removeObject(forKey: "firstUse") // temporarily ensure AddParent runs
+
+        let homeVC = (window?.rootViewController as? UINavigationController)?.childViewControllers.first as? HomeViewController
         CoreDataManager.instance.initialiseStack {
-            self.configureNavigationButton()
-            let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN, bundle: nil)
-            guard let vc = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.ROOT) as? UINavigationController
-                else { fatalError("Wrong view controller type at application launch") }
-            self.window?.rootViewController = vc
+            homeVC?.appInitialised()
         }
         return true
     }

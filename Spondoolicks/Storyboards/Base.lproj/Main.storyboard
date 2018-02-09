@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -121,6 +122,7 @@
                         <outlet property="spondoolicksLabel" destination="kPZ-kJ-bfe" id="rWl-Ad-hFN"/>
                         <segue destination="7Do-LE-jH6" kind="show" identifier="ShowUsers" id="lW2-oj-5Yw"/>
                         <segue destination="N8L-XB-Cxe" kind="show" identifier="ShowSettings" id="9AJ-fA-Gfc"/>
+                        <segue destination="39R-an-5o1" kind="show" identifier="ShowAddParent" id="SxG-fh-Vuj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -150,6 +152,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqS-WP-Vvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1230" y="481"/>
+        </scene>
+        <!--Add Parent-->
+        <scene sceneID="U0a-hb-jFM">
+            <objects>
+                <viewController title="Add Parent" id="39R-an-5o1" customClass="AddParentViewController" customModule="Spondoolicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Lv-n9-OQh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent help text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ct-bd-OkK">
+                                <rect key="frame" x="41.666666666666657" y="32" width="331.33333333333337" height="282"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" name="sp Grey"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6B-Sz-2I7" userLabel="PinWheel Container">
+                                <rect key="frame" x="16" y="330" width="382" height="314"/>
+                                <connections>
+                                    <segue destination="xi6-is-cR0" kind="embed" id="xvr-rC-pl1"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" name="sp Dark Purple"/>
+                        <constraints>
+                            <constraint firstItem="4Ct-bd-OkK" firstAttribute="width" secondItem="3Lv-n9-OQh" secondAttribute="width" multiplier="0.8" id="ClM-yo-y3o"/>
+                            <constraint firstItem="4Ct-bd-OkK" firstAttribute="centerX" secondItem="3Lv-n9-OQh" secondAttribute="centerX" id="KzR-1a-yX0"/>
+                            <constraint firstItem="V6B-Sz-2I7" firstAttribute="leading" secondItem="suR-aw-S43" secondAttribute="leading" constant="16" id="PYT-Y2-Qaa"/>
+                            <constraint firstItem="V6B-Sz-2I7" firstAttribute="bottom" secondItem="suR-aw-S43" secondAttribute="bottom" constant="16" id="UfI-a3-ASr"/>
+                            <constraint firstItem="4Ct-bd-OkK" firstAttribute="width" secondItem="3Lv-n9-OQh" secondAttribute="width" multiplier="0.6" id="XkC-y9-dYB"/>
+                            <constraint firstItem="suR-aw-S43" firstAttribute="centerY" secondItem="4Ct-bd-OkK" secondAttribute="bottom" id="rQd-F8-Z7L"/>
+                            <constraint firstItem="V6B-Sz-2I7" firstAttribute="top" secondItem="4Ct-bd-OkK" secondAttribute="bottom" constant="16" id="rde-Hw-aWh"/>
+                            <constraint firstItem="4Ct-bd-OkK" firstAttribute="top" secondItem="suR-aw-S43" secondAttribute="top" constant="32" id="tHf-eV-Vfx"/>
+                            <constraint firstItem="suR-aw-S43" firstAttribute="trailing" secondItem="V6B-Sz-2I7" secondAttribute="trailing" constant="16" id="zXv-5C-Bde"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="suR-aw-S43"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="XkC-y9-dYB"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="ClM-yo-y3o"/>
+                                <include reference="XkC-y9-dYB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Parent" id="cwp-Jq-5Fr">
+                        <rightBarButtonItems>
+                            <barButtonItem enabled="NO" systemItem="save" id="QSm-Cz-Wah"/>
+                            <barButtonItem image="Help Icon" largeContentSizeImage="Help-large" id="UQe-MS-xtF" userLabel="Help Button">
+                                <connections>
+                                    <action selector="helpTapped:" destination="39R-an-5o1" id="nyJ-mh-Ak7"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="helpButton" destination="UQe-MS-xtF" id="4q9-AO-XIQ"/>
+                        <outlet property="parentText" destination="4Ct-bd-OkK" id="zTu-wD-Dek"/>
+                        <outlet property="saveButton" destination="QSm-Cz-Wah" id="B8t-lg-V1F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bqc-Yj-Hvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="-585"/>
         </scene>
         <!--Users-->
         <scene sceneID="O4s-wn-KLb">
@@ -239,7 +309,7 @@
                                     <action selector="addUserTapped:" destination="7Do-LE-jH6" id="LUS-Qn-E0h"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="Help Icon" id="4U1-Pk-3re">
+                            <barButtonItem image="Help Icon" largeContentSizeImage="Help-large" id="4U1-Pk-3re">
                                 <connections>
                                     <action selector="helpTapped:" destination="7Do-LE-jH6" id="5ZX-HZ-fk6"/>
                                 </connections>
@@ -381,7 +451,7 @@
                                     <action selector="saveTapped:" destination="UX2-FQ-48n" id="j3u-1L-bIn"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="Help Icon" id="w2G-S4-TKk">
+                            <barButtonItem image="Help Icon" largeContentSizeImage="Help-large" id="w2G-S4-TKk">
                                 <connections>
                                     <action selector="helpTapped:" destination="UX2-FQ-48n" id="B2z-9J-xpW"/>
                                 </connections>
@@ -429,9 +499,43 @@
             </objects>
             <point key="canvasLocation" x="-319" y="117"/>
         </scene>
+        <!--Pin Code Generator View Controller-->
+        <scene sceneID="qx5-Md-tia">
+            <objects>
+                <viewController id="xi6-is-cR0" customClass="PinCodeGeneratorViewController" customModule="Spondoolicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lbN-TL-J03">
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="314"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvK-bn-Zqp" userLabel="Pin Picker" customClass="SPBorderedPicker" customModule="Spondoolicks" customModuleProvider="target">
+                                <rect key="frame" x="47" y="16" width="288" height="162"/>
+                                <color key="backgroundColor" name="sp Dark Purple"/>
+                                <color key="tintColor" name="sp Grey"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="0Zn-O0-LTp"/>
+                                    <constraint firstAttribute="height" constant="162" id="wFu-c6-Qkt"/>
+                                </constraints>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" name="sp Dark Purple"/>
+                        <constraints>
+                            <constraint firstItem="YvK-bn-Zqp" firstAttribute="centerX" secondItem="lbN-TL-J03" secondAttribute="centerX" id="HFG-Xr-idY"/>
+                            <constraint firstItem="YvK-bn-Zqp" firstAttribute="top" secondItem="e5t-KA-qmw" secondAttribute="top" constant="16" id="o7p-1d-jpK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e5t-KA-qmw"/>
+                    </view>
+                    <connections>
+                        <outlet property="pinPicker" destination="YvK-bn-Zqp" id="zTn-fV-MCT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7al-e6-mwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1250.7246376811595" y="-749.18478260869574"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Help Icon" width="16" height="16"/>
+        <image name="Help-large" width="24" height="24"/>
         <image name="NavigationBorder" width="375" height="1"/>
         <image name="Profile icon" width="56" height="56"/>
         <image name="boy-0" width="38" height="56"/>

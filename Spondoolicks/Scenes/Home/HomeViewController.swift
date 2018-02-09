@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     // MARK: - Properties
     var interactor: HomeBusinessLogic?
     var router: (NSObjectProtocol & HomeRoutingLogic & HomeDataPassing)?
+    var testAddParent = true
     
     // MARK: - IBOutlets
     @IBOutlet weak var spondoolicksLabel: UILabel!
@@ -60,13 +61,13 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        doSomething()
     }
     
     // MARK: - View handling
     func setupView() {
         optionsTable.delegate = self
         optionsTable.dataSource = self
+        optionsTable.isHidden = true
         
         spondoolicksLabel.font = FontHelper.getFontFor(.headline, traitCollection: traitCollection)
         introLabel.font = FontHelper.getFontFor(.title2, traitCollection: traitCollection)
@@ -77,9 +78,22 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         optionsTable.scrollToRow(at: indexPath, at: .top, animated: false)
     }
 
+    func appInitialised() {
+        optionsTable.isHidden = false
+        addParentIfFirstUse()
+    }
+    
     // MARK: - IBActions
     
     // MARK: - Use cases
+    func addParentIfFirstUse() {
+        var userDefaults = UserDefaultsHelper()
+        if userDefaults.isFirstUse {
+            userDefaults.isFirstUse = false
+            performSegue(withIdentifier: Global.Segue.ADD_PARENT, sender: self)
+        }
+    }
+    
     func usersSelected() {
         performSegue(withIdentifier: Global.Segue.SHOW_USERS, sender: self)
     }

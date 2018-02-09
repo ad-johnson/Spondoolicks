@@ -238,7 +238,7 @@ extension MaintainUserViewController: UICollectionViewDelegateFlowLayout {
         label.numberOfLines = 1
         label.font = FontHelper.getFontFor(.body, size: FontHelper.MinSize.medium, traitCollection: traitCollection)
 
-        label.text = Global.Identifier.Names.AVATAR_HEADING_NAMES[section]
+        label.text = Global.Identifier.Name.AVATAR_HEADING_NAMES[section]
         label.sizeToFit()
         
         // Set some extra pixels to account for an 8 pixel spacing at the top and bottom

@@ -51,6 +51,15 @@
 		4936C950202B326C00933DC3 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C94F202B326C00933DC3 /* Transaction.swift */; };
 		4936C952202B328700933DC3 /* TransactionLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C951202B328700933DC3 /* TransactionLine.swift */; };
 		4936C954202C85D300933DC3 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C953202C85D300933DC3 /* CoreDataManager.swift */; };
+		4936C95C202CC32000933DC3 /* AddParentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C956202CC32000933DC3 /* AddParentPresenter.swift */; };
+		4936C95D202CC32000933DC3 /* AddParentWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C957202CC32000933DC3 /* AddParentWorker.swift */; };
+		4936C95E202CC32000933DC3 /* AddParentRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C958202CC32000933DC3 /* AddParentRouter.swift */; };
+		4936C95F202CC32000933DC3 /* AddParentModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C959202CC32000933DC3 /* AddParentModels.swift */; };
+		4936C960202CC32000933DC3 /* AddParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C95A202CC32000933DC3 /* AddParentViewController.swift */; };
+		4936C961202CC32000933DC3 /* AddParentInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C95B202CC32000933DC3 /* AddParentInteractor.swift */; };
+		4936C964202CC3CB00933DC3 /* PinCodeGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C963202CC3CB00933DC3 /* PinCodeGeneratorViewController.swift */; };
+		4936C966202CC42E00933DC3 /* PinCodeDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C965202CC42E00933DC3 /* PinCodeDelegate.swift */; };
+		4936C968202DC6A200933DC3 /* SPBorderedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4936C967202DC6A200933DC3 /* SPBorderedPicker.swift */; };
 		493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */; };
 		493802FB2021F8E100A4DC3C /* HelpPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */; };
 		493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493802FC2022096E00A4DC3C /* HelpEntryCell.swift */; };
@@ -80,6 +89,7 @@
 		49D1F79F201CAE3D0066F626 /* SPBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F79E201CAE3D0066F626 /* SPBorderedTextField.swift */; };
 		49D1F7A1201CD9C80066F626 /* SPBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */; };
 		49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */; };
+		49DBCED0202E012000F44F39 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCECF202E012000F44F39 /* UserDefaultsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +161,15 @@
 		4936C94F202B326C00933DC3 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		4936C951202B328700933DC3 /* TransactionLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLine.swift; sourceTree = "<group>"; };
 		4936C953202C85D300933DC3 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		4936C956202CC32000933DC3 /* AddParentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentPresenter.swift; sourceTree = "<group>"; };
+		4936C957202CC32000933DC3 /* AddParentWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentWorker.swift; sourceTree = "<group>"; };
+		4936C958202CC32000933DC3 /* AddParentRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentRouter.swift; sourceTree = "<group>"; };
+		4936C959202CC32000933DC3 /* AddParentModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentModels.swift; sourceTree = "<group>"; };
+		4936C95A202CC32000933DC3 /* AddParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentViewController.swift; sourceTree = "<group>"; };
+		4936C95B202CC32000933DC3 /* AddParentInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentInteractor.swift; sourceTree = "<group>"; };
+		4936C963202CC3CB00933DC3 /* PinCodeGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeGeneratorViewController.swift; sourceTree = "<group>"; };
+		4936C965202CC42E00933DC3 /* PinCodeDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeDelegate.swift; sourceTree = "<group>"; };
+		4936C967202DC6A200933DC3 /* SPBorderedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBorderedPicker.swift; sourceTree = "<group>"; };
 		493802F82021F8E100A4DC3C /* HelpPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelViewController.swift; sourceTree = "<group>"; };
 		493802F92021F8E100A4DC3C /* HelpPanelViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelViewController.xib; sourceTree = "<group>"; };
 		493802FC2022096E00A4DC3C /* HelpEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpEntryCell.swift; sourceTree = "<group>"; };
@@ -180,6 +199,7 @@
 		49D1F79E201CAE3D0066F626 /* SPBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBorderedTextField.swift; sourceTree = "<group>"; };
 		49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBorderedView.swift; sourceTree = "<group>"; };
 		49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHeaderView.swift; sourceTree = "<group>"; };
+		49DBCECF202E012000F44F39 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +356,7 @@
 		49255FD8200F9E4E000E40E9 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				4936C955202CC2FE00933DC3 /* Add Parent */,
 				49D1F798201CABD20066F626 /* Maintain User */,
 				49206E1820173AC600B16CD8 /* Settings */,
 				49206E0B20173A9C00B16CD8 /* Show Users */,
@@ -347,11 +368,13 @@
 		49255FD9200F9E73000E40E9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4936C962202CC38500933DC3 /* PinCode Generator */,
 				49584A9B20287876004054D7 /* Views */,
 				493802F72021F88E00A4DC3C /* Help Panel */,
 				49255FEA2010EB34000E40E9 /* UIFrameworkExtensions.swift */,
 				49255FF4201107FB000E40E9 /* Globals.swift */,
 				49584A992027578C004054D7 /* FontHelper.swift */,
+				49DBCECF202E012000F44F39 /* UserDefaultsHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -422,6 +445,28 @@
 			path = HomeTests;
 			sourceTree = "<group>";
 		};
+		4936C955202CC2FE00933DC3 /* Add Parent */ = {
+			isa = PBXGroup;
+			children = (
+				4936C956202CC32000933DC3 /* AddParentPresenter.swift */,
+				4936C957202CC32000933DC3 /* AddParentWorker.swift */,
+				4936C958202CC32000933DC3 /* AddParentRouter.swift */,
+				4936C959202CC32000933DC3 /* AddParentModels.swift */,
+				4936C95A202CC32000933DC3 /* AddParentViewController.swift */,
+				4936C95B202CC32000933DC3 /* AddParentInteractor.swift */,
+			);
+			path = "Add Parent";
+			sourceTree = "<group>";
+		};
+		4936C962202CC38500933DC3 /* PinCode Generator */ = {
+			isa = PBXGroup;
+			children = (
+				4936C963202CC3CB00933DC3 /* PinCodeGeneratorViewController.swift */,
+				4936C965202CC42E00933DC3 /* PinCodeDelegate.swift */,
+			);
+			path = "PinCode Generator";
+			sourceTree = "<group>";
+		};
 		493802F72021F88E00A4DC3C /* Help Panel */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +497,7 @@
 				49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */,
 				49D1F79E201CAE3D0066F626 /* SPBorderedTextField.swift */,
 				49584A9C20287A95004054D7 /* SPLozengeBorderedView.swift */,
+				4936C967202DC6A200933DC3 /* SPBorderedPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -641,18 +687,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DBCED0202E012000F44F39 /* UserDefaultsHelper.swift in Sources */,
 				4936C954202C85D300933DC3 /* CoreDataManager.swift in Sources */,
 				4904172D2018AF6D005FDBAB /* UserCell.swift in Sources */,
 				493802FE2022096E00A4DC3C /* HelpEntryCell.swift in Sources */,
 				49255FE32010E1C9000E40E9 /* HomePresenter.swift in Sources */,
 				49206E1520173AC100B16CD8 /* SettingsModels.swift in Sources */,
 				49255FEB2010EB34000E40E9 /* UIFrameworkExtensions.swift in Sources */,
+				4936C961202CC32000933DC3 /* AddParentInteractor.swift in Sources */,
 				49D1F795201CABCD0066F626 /* MaintainUserModels.swift in Sources */,
 				49B5690E2018C9C0004FE0E4 /* TempUser.swift in Sources */,
 				49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */,
 				493F381D2027437A009B00F8 /* SPView.swift in Sources */,
 				49206E0A20173A9600B16CD8 /* ShowUsersInteractor.swift in Sources */,
 				49255FE42010E1C9000E40E9 /* HomeWorker.swift in Sources */,
+				4936C966202CC42E00933DC3 /* PinCodeDelegate.swift in Sources */,
 				49206E1220173AC100B16CD8 /* SettingsPresenter.swift in Sources */,
 				49584A9A2027578C004054D7 /* FontHelper.swift in Sources */,
 				49D1F7A1201CD9C80066F626 /* SPBorderedView.swift in Sources */,
@@ -661,19 +710,25 @@
 				493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */,
 				49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */,
 				4936C948202B31E800933DC3 /* Category.swift in Sources */,
+				4936C95E202CC32000933DC3 /* AddParentRouter.swift in Sources */,
 				4936C942202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld in Sources */,
 				49255FFB2013A083000E40E9 /* OptionView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,
 				49D1F797201CABCD0066F626 /* MaintainUserInteractor.swift in Sources */,
 				4936C950202B326C00933DC3 /* Transaction.swift in Sources */,
 				49206E1320173AC100B16CD8 /* SettingsWorker.swift in Sources */,
+				4936C968202DC6A200933DC3 /* SPBorderedPicker.swift in Sources */,
+				4936C95D202CC32000933DC3 /* AddParentWorker.swift in Sources */,
 				4936C946202B31A100933DC3 /* User.swift in Sources */,
 				49206E1420173AC100B16CD8 /* SettingsRouter.swift in Sources */,
 				49380305202230A400A4DC3C /* HelpPanelDataSource.swift in Sources */,
 				4936C94A202B321400933DC3 /* Ledger.swift in Sources */,
 				4936C94C202B323700933DC3 /* Account.swift in Sources */,
 				49D1F793201CABCD0066F626 /* MaintainUserWorker.swift in Sources */,
+				4936C95F202CC32000933DC3 /* AddParentModels.swift in Sources */,
+				4936C95C202CC32000933DC3 /* AddParentPresenter.swift in Sources */,
 				49584A9D20287A95004054D7 /* SPLozengeBorderedView.swift in Sources */,
+				4936C964202CC3CB00933DC3 /* PinCodeGeneratorViewController.swift in Sources */,
 				49206E0720173A9600B16CD8 /* ShowUsersRouter.swift in Sources */,
 				492DCDFC20288374000DCC1E /* HelpPanelSectionHeader.swift in Sources */,
 				49255FF5201107FB000E40E9 /* Globals.swift in Sources */,
@@ -685,6 +740,7 @@
 				49206E0920173A9600B16CD8 /* ShowUsersViewController.swift in Sources */,
 				49255FE72010E1C9000E40E9 /* HomeViewController.swift in Sources */,
 				49206E0620173A9600B16CD8 /* ShowUsersWorker.swift in Sources */,
+				4936C960202CC32000933DC3 /* AddParentViewController.swift in Sources */,
 				49206E0520173A9600B16CD8 /* ShowUsersPresenter.swift in Sources */,
 				49D1F79F201CAE3D0066F626 /* SPBorderedTextField.swift in Sources */,
 				493F381B20262B4B009B00F8 /* HelpPanelLauncherHelper.swift in Sources */,

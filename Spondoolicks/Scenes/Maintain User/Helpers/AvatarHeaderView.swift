@@ -18,6 +18,6 @@ class AvatarHeaderView: UICollectionReusableView {
     }
     
     func configureHeader(section: Int) {
-        sectionName.text = Global.Identifier.Names.AVATAR_HEADING_NAMES[section]
+        sectionName.text = Global.Identifier.Name.AVATAR_HEADING_NAMES[section]
     }
 }

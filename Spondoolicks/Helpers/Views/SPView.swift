@@ -59,7 +59,7 @@ extension SPView where Self: UIView {
         // Xcode9 storyboard bug: it doesn't respect named colours from the
         // Asset catalogue (ok at runtime though).  For Storyboard purposes
         // using RED colour so the view is visible.
-        if let colour = UIColor(named: "sp Green") {
+        if let colour = UIColor(named: Global.Identifier.Colour.GREEN) {
             return colour.cgColor
         } else {
             return UIColor.red.cgColor

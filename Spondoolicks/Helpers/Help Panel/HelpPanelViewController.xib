@@ -75,7 +75,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ZeK-Ao-iGt" firstAttribute="trailing" secondItem="RqV-Et-NdQ" secondAttribute="trailing" constant="12" id="IOO-mh-AbN"/>
-                <constraint firstItem="ZeK-Ao-iGt" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.4" id="KjV-s1-hiV"/>
+                <constraint firstItem="ZeK-Ao-iGt" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="KjV-s1-hiV"/>
                 <constraint firstItem="RqV-Et-NdQ" firstAttribute="leading" secondItem="ZeK-Ao-iGt" secondAttribute="leading" constant="12" id="RV0-ie-dyy"/>
                 <constraint firstItem="RqV-Et-NdQ" firstAttribute="top" secondItem="kyF-bS-yCe" secondAttribute="top" constant="8" id="WMb-o6-b28"/>
                 <constraint firstItem="ZeK-Ao-iGt" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.6" id="YVV-g0-mjO"/>

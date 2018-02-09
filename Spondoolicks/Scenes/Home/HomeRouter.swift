@@ -7,6 +7,7 @@
 import UIKit
 
 @objc protocol HomeRoutingLogic {
+    func routeToShowAddParent(segue: UIStoryboardSegue?)
     func routeToShowUsers(segue: UIStoryboardSegue?)
     func routeToShowSettings(segue: UIStoryboardSegue?)
 }
@@ -21,6 +22,20 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     var dataStore: HomeDataStore?
   
     // MARK: - Routing
+    func routeToShowAddParent(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            let destinationVC = segue.destination as! AddParentViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToAddParent(source: dataStore!, destination: &destinationDS)
+        } else {
+            let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN, bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.ADD_PARENT_VC) as! AddParentViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToAddParent(source: dataStore!, destination: &destinationDS)
+            navigateToAddParent(source: viewController!, destination: destinationVC)
+        }
+    }
+    
     func routeToShowUsers(segue: UIStoryboardSegue?) {
         if let segue = segue {
             let destinationVC = segue.destination as! ShowUsersViewController
@@ -50,6 +65,10 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     }
     
     // MARK: - Navigation
+    func navigateToAddParent(source: HomeViewController, destination: AddParentViewController) {
+        source.show(destination, sender: nil)
+    }
+    
     func navigateToShowUsers(source: HomeViewController, destination: ShowUsersViewController) {
         source.show(destination, sender: nil)
     }
@@ -59,6 +78,9 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     }
     
     // MARK: - Passing data
+    func passDataToAddParent(source: HomeDataStore, destination: inout AddParentDataStore) {
+        // Nothing to pass
+    }
     func passDataToShowUsers(source: HomeDataStore, destination: inout ShowUsersDataStore) {
         // Nothing to pass
     }

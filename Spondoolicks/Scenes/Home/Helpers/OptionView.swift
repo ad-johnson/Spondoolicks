@@ -11,7 +11,7 @@ import UIKit
 class OptionView: SPLozengeBorderedView {
     
    override func getBackgroundColour() -> CGColor {
-        if let colour = UIColor(named: "sp Purple") {
+        if let colour = UIColor(named: Global.Identifier.Colour.PURPLE) {
             return colour.cgColor
         } else {
             return UIColor.purple.cgColor

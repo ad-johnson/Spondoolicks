@@ -18,7 +18,7 @@ class CoreDataManager {
     // Mark: Initialisers
    
     convenience init() {
-        self.init(Global.Identifier.Names.MODEL_NAME)
+        self.init(Global.Identifier.Name.MODEL_NAME)
     }
     
     init(_ modelName: String) {

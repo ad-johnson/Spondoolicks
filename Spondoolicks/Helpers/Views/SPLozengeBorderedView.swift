@@ -30,7 +30,7 @@ class SPLozengeBorderedView: UIView, SPView {
     }
     
     func getBackgroundColour() -> CGColor {
-        if let colour = UIColor(named: "sp Dark Purple") {
+        if let colour = UIColor(named: Global.Identifier.Colour.DARK_PURPLE) {
             return colour.cgColor
         } else {
             return UIColor.darkGray.cgColor
