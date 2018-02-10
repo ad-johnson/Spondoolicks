@@ -152,3 +152,16 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+extension HomeViewController {
+    // TODO: - finalise implementation of rollback handler
+    func handleCoreDataRollback(_ notification: Notification) {
+        if let userInfo = notification.userInfo {
+            print("Error occured in saving Core Data context:")
+            print("In action: \(userInfo[Global.Notifications.UserInfo.identifier]!)")
+            print("Error: \(userInfo[Global.Notifications.UserInfo.error]!)")
+        } else {
+            print("Unidentified error occurred in saving Core Data entity.  Updates rolled back.")
+        }
+    }
+}
+

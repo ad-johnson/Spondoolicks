@@ -7,7 +7,7 @@
 import UIKit
 
 protocol AddParentDisplayLogic: class {
-    func displaySomething(viewModel: AddParent.Something.ViewModel)
+    func displayAddParentResult(viewModel: AddParent.AddParent.ViewModel)
 }
 
 class AddParentViewController: UIViewController, AddParentDisplayLogic, PinCodeDelegate {
@@ -97,7 +97,10 @@ class AddParentViewController: UIViewController, AddParentDisplayLogic, PinCodeD
         showHelpPanel()
     }
     
-
+    @IBAction func saveTapped(_ sender: UIBarButtonItem) {
+        addParent()
+    }
+    
     // MARK: - Use cases
     func newPinSelected(_ newPin: String) {
         print("New PIN selected: \(newPin)")
@@ -106,12 +109,15 @@ class AddParentViewController: UIViewController, AddParentDisplayLogic, PinCodeD
     }
     
     func addParent() {
-        let request = AddParent.GetParent.Request()
-        interactor?.getParent(request: request)
+        guard let newPin = currentPin else { return }
+        
+        let request = AddParent.AddParent.Request(newPin: newPin)
+        interactor?.addParent(request: request)
     }
     
-    func displaySomething(viewModel: AddParent.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    // MARK: - Use cases: responses
+    func displayAddParentResult(viewModel: AddParent.AddParent.ViewModel) {
+        
     }
 }
 

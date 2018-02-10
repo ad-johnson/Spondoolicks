@@ -35,4 +35,12 @@ class CoreDataManager {
             }
         }
     }
+    
+    func privateManagedContext() -> NSManagedObjectContext {
+        return persistentContainer.viewContext
+    }
+    
+    func perform(block: @escaping () -> ()) {
+        privateManagedContext().performChanges(block: block)
+    }
 }

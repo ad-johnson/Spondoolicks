@@ -90,6 +90,8 @@
 		49D1F7A1201CD9C80066F626 /* SPBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */; };
 		49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */; };
 		49DBCED0202E012000F44F39 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCECF202E012000F44F39 /* UserDefaultsHelper.swift */; };
+		49DBCED4202E27DF00F44F39 /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED3202E27DF00F44F39 /* Managed.swift */; };
+		49DBCED6202E306900F44F39 /* ManagedObjectContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED5202E306900F44F39 /* ManagedObjectContextExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +202,8 @@
 		49D1F7A0201CD9C80066F626 /* SPBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPBorderedView.swift; sourceTree = "<group>"; };
 		49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHeaderView.swift; sourceTree = "<group>"; };
 		49DBCECF202E012000F44F39 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		49DBCED3202E27DF00F44F39 /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
+		49DBCED5202E306900F44F39 /* ManagedObjectContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +394,7 @@
 		49255FDB200F9E82000E40E9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				49DBCED2202E27C900F44F39 /* Core Data Helpers */,
 				49B5690D2018C9C0004FE0E4 /* TempUser.swift */,
 				4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */,
 				4936C943202B2ED100933DC3 /* Parent.swift */,
@@ -545,6 +550,15 @@
 				49D1F7A2201E0A9A0066F626 /* AvatarHeaderView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		49DBCED2202E27C900F44F39 /* Core Data Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				49DBCED3202E27DF00F44F39 /* Managed.swift */,
+				49DBCED5202E306900F44F39 /* ManagedObjectContextExtensions.swift */,
+			);
+			path = "Core Data Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -708,9 +722,11 @@
 				4936C94E202B324E00933DC3 /* Payee.swift in Sources */,
 				49D1F7A3201E0A9A0066F626 /* AvatarHeaderView.swift in Sources */,
 				493802FA2021F8E100A4DC3C /* HelpPanelViewController.swift in Sources */,
+				49DBCED4202E27DF00F44F39 /* Managed.swift in Sources */,
 				49D1F79B201CAC1E0066F626 /* AvatarCell.swift in Sources */,
 				4936C948202B31E800933DC3 /* Category.swift in Sources */,
 				4936C95E202CC32000933DC3 /* AddParentRouter.swift in Sources */,
+				49DBCED6202E306900F44F39 /* ManagedObjectContextExtensions.swift in Sources */,
 				4936C942202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld in Sources */,
 				49255FFB2013A083000E40E9 /* OptionView.swift in Sources */,
 				49255FE82010E1C9000E40E9 /* HomeInteractor.swift in Sources */,

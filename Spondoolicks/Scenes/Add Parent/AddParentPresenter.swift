@@ -1,5 +1,5 @@
 //
-//  AddParentPresenter.swift
+//  Pass business logic outcomes to the View Controller
 //
 //  Created by Andrew Johnson on 08/02/2018.
 //  Copyright (c) 2018 Andrew Johnson. All rights reserved.
@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AddParentPresentationLogic {
-    func presentSomething(response: AddParent.Something.Response)
+    func presentAddParentResult(response: AddParent.AddParent.Response)
 }
 
 class AddParentPresenter: AddParentPresentationLogic {
@@ -16,8 +16,8 @@ class AddParentPresenter: AddParentPresentationLogic {
     weak var viewController: AddParentDisplayLogic?
   
     // MARK: - Use cases
-    func presentSomething(response: AddParent.Something.Response) {
-        let viewModel = AddParent.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentAddParentResult(response: AddParent.AddParent.Response) {
+        let viewModel = AddParent.AddParent.ViewModel()
+        viewController?.displayAddParentResult(viewModel: viewModel)
     }
 }

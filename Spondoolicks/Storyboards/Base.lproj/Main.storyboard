@@ -202,7 +202,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Add Parent" id="cwp-Jq-5Fr">
                         <rightBarButtonItems>
-                            <barButtonItem enabled="NO" systemItem="save" id="QSm-Cz-Wah"/>
+                            <barButtonItem enabled="NO" systemItem="save" id="QSm-Cz-Wah">
+                                <connections>
+                                    <action selector="saveTapped:" destination="39R-an-5o1" id="oS3-ff-Ccs"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="Help Icon" largeContentSizeImage="Help-large" id="UQe-MS-xtF" userLabel="Help Button">
                                 <connections>
                                     <action selector="helpTapped:" destination="39R-an-5o1" id="nyJ-mh-Ak7"/>

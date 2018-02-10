@@ -10,20 +10,30 @@ import CoreData
 
 class Parent: NSManagedObject {
     // MARK: - Properties
-    static let pinKey = "pin"
-    
-    @NSManaged fileprivate var primitivePin: NSNumber?
+    @NSManaged internal(set) var pin: String?
+    static let predicate = NSPredicate(format: "TRUEPREDICATE")
+}
 
-    internal(set) var pin: Int? {
-        get {
-            willAccessValue(forKey: Parent.pinKey)
-            defer { didAccessValue(forKey: Parent.pinKey) }
-            return primitivePin?.intValue
+extension Parent: Managed {
+
+    static func insertOrUpdate(newPin: String?) -> Parent {
+        
+        if let parent = findOrFetch(matching: predicate) {
+            parent.pin = newPin
+           return parent
+        } else {
+            return insert(newPin: newPin)
         }
-        set {
-            willChangeValue(forKey: Parent.pinKey)
-            primitivePin = newValue.map { NSNumber(value: Int16($0)) }
-            didChangeValue(forKey: Parent.pinKey)
-        }
+    }
+
+    static func insert(newPin: String?) -> Parent {
+        let parent: Parent = context.insertObject()
+        parent.pin = newPin
+        return parent
+    }
+    
+    static func findOrCreate(for pin: String?) -> Parent {
+        let parent = findOrCreate(matching: predicate) { $0.pin = pin }
+        return parent
     }
 }

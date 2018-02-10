@@ -16,7 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // TODO: - Will need something a little more complex here in future.  To cover
     // migration
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.configureNavigationButton()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(coreDataRollback), name: Global.Notifications.CORE_DATA_ROLLBACK, object: nil)
+        configureNavigationButton()
+        
         UserDefaultsHelper().defaults.removeObject(forKey: "firstUse") // temporarily ensure AddParent runs
 
         let homeVC = (window?.rootViewController as? UINavigationController)?.childViewControllers.first as? HomeViewController
@@ -57,6 +60,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      NSAttributedStringKey.foregroundColor : UIColor(named: "sp Grey") ?? UIColor.lightGray
                     ], for: .normal)
         }
+    }
+    
+    // Errors in Core Data to be flagged back to Home VC
+    @objc func coreDataRollback(notification: Notification) {
+        let navigationController = window?.rootViewController as? UINavigationController
+        let homeVC = navigationController?.childViewControllers.first as? HomeViewController
+        navigationController?.popToRootViewController(animated: true)
+        homeVC?.handleCoreDataRollback(notification)
     }
 }
 

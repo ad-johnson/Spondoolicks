@@ -48,7 +48,16 @@ enum Global {
             static let DARK_PURPLE = "sp Dark Purple"
         }
     }
-    
+
+    struct Notifications {
+        enum UserInfo {
+            case identifier
+            case error
+        }
+        
+        static let CORE_DATA_ROLLBACK = Notification.Name("CoreDataRollback")
+    }
+
     struct AssetInfo {
         static let PROFILE_ICON = "Profile icon"
         static let SETTINGS_ICON = "Settings icon"
