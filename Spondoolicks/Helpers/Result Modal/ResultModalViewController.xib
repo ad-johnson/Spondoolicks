@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultModalViewController" customModule="Spondoolicks" customModuleProvider="target">
+            <connections>
+                <outlet property="indicator" destination="Rdk-9y-DyC" id="Bbp-ew-MlT"/>
+                <outlet property="panelView" destination="Byj-or-ioU" id="2uX-67-oeT"/>
+                <outlet property="result" destination="6xQ-QI-f4v" id="bVt-x9-sWw"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" userLabel="Background View">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Byj-or-ioU" userLabel="Panel View" customClass="SPLozengeBorderedView" customModule="Spondoolicks" customModuleProvider="target">
+                    <rect key="frame" x="76" y="222" width="223.5" height="223.5"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Success" translatesAutoresizingMaskIntoConstraints="NO" id="Rdk-9y-DyC" userLabel="Indicator">
+                            <rect key="frame" x="39.5" y="16" width="144" height="144"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Rdk-9y-DyC" secondAttribute="height" multiplier="1:1" id="KdJ-uB-RNz"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xQ-QI-f4v">
+                            <rect key="frame" x="16" y="176" width="191.5" height="31.5"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                            <color key="textColor" name="sp Grey"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="6xQ-QI-f4v" secondAttribute="trailing" constant="16" id="6gM-kZ-nIJ"/>
+                        <constraint firstItem="6xQ-QI-f4v" firstAttribute="top" secondItem="Rdk-9y-DyC" secondAttribute="bottom" constant="16" id="Bzq-Yg-eY8"/>
+                        <constraint firstItem="6xQ-QI-f4v" firstAttribute="centerX" secondItem="Byj-or-ioU" secondAttribute="centerX" priority="900" id="HbM-T3-qGX"/>
+                        <constraint firstItem="Rdk-9y-DyC" firstAttribute="top" secondItem="Byj-or-ioU" secondAttribute="top" constant="16" id="QM9-Gc-p5Q"/>
+                        <constraint firstItem="6xQ-QI-f4v" firstAttribute="leading" secondItem="Byj-or-ioU" secondAttribute="leading" constant="16" id="SWO-3S-eGE"/>
+                        <constraint firstAttribute="width" secondItem="Byj-or-ioU" secondAttribute="height" multiplier="1:1" id="XDp-Cq-Eqx"/>
+                        <constraint firstItem="Rdk-9y-DyC" firstAttribute="centerX" secondItem="Byj-or-ioU" secondAttribute="centerX" id="Ydk-Yz-6nZ"/>
+                        <constraint firstAttribute="bottom" secondItem="6xQ-QI-f4v" secondAttribute="bottom" constant="16" id="cRp-cx-ICE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Byj-or-ioU" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1wg-WT-Wn4"/>
+                <constraint firstItem="Byj-or-ioU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" priority="900" id="KoZ-Pn-nWa"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Success" width="144" height="144"/>
+        <namedColor name="sp Grey">
+            <color red="0.9100000262260437" green="0.9100000262260437" blue="0.9100000262260437" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

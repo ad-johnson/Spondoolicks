@@ -92,6 +92,8 @@
 		49DBCED0202E012000F44F39 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCECF202E012000F44F39 /* UserDefaultsHelper.swift */; };
 		49DBCED4202E27DF00F44F39 /* Managed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED3202E27DF00F44F39 /* Managed.swift */; };
 		49DBCED6202E306900F44F39 /* ManagedObjectContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED5202E306900F44F39 /* ManagedObjectContextExtensions.swift */; };
+		49DBCEDA202F4AA000F44F39 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED8202F4AA000F44F39 /* ResultModalViewController.swift */; };
+		49DBCEDB202F4AA000F44F39 /* ResultModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DBCED9202F4AA000F44F39 /* ResultModalViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +206,8 @@
 		49DBCECF202E012000F44F39 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		49DBCED3202E27DF00F44F39 /* Managed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Managed.swift; sourceTree = "<group>"; };
 		49DBCED5202E306900F44F39 /* ManagedObjectContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextExtensions.swift; sourceTree = "<group>"; };
+		49DBCED8202F4AA000F44F39 /* ResultModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
+		49DBCED9202F4AA000F44F39 /* ResultModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultModalViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,6 +376,7 @@
 		49255FD9200F9E73000E40E9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				49DBCED7202F4A4800F44F39 /* Result Modal */,
 				4936C962202CC38500933DC3 /* PinCode Generator */,
 				49584A9B20287876004054D7 /* Views */,
 				493802F72021F88E00A4DC3C /* Help Panel */,
@@ -561,6 +566,15 @@
 			path = "Core Data Helpers";
 			sourceTree = "<group>";
 		};
+		49DBCED7202F4A4800F44F39 /* Result Modal */ = {
+			isa = PBXGroup;
+			children = (
+				49DBCED8202F4AA000F44F39 /* ResultModalViewController.swift */,
+				49DBCED9202F4AA000F44F39 /* ResultModalViewController.xib */,
+			);
+			path = "Result Modal";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -669,6 +683,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				493802FB2021F8E100A4DC3C /* HelpPanelViewController.xib in Resources */,
+				49DBCEDB202F4AA000F44F39 /* ResultModalViewController.xib in Resources */,
 				49255FB1200F9D1B000E40E9 /* LaunchScreen.storyboard in Resources */,
 				49255FAE200F9D1B000E40E9 /* Assets.xcassets in Resources */,
 				49255FF02010FCFB000E40E9 /* OpenSans-Regular.ttf in Resources */,
@@ -738,6 +753,7 @@
 				4936C946202B31A100933DC3 /* User.swift in Sources */,
 				49206E1420173AC100B16CD8 /* SettingsRouter.swift in Sources */,
 				49380305202230A400A4DC3C /* HelpPanelDataSource.swift in Sources */,
+				49DBCEDA202F4AA000F44F39 /* ResultModalViewController.swift in Sources */,
 				4936C94A202B321400933DC3 /* Ledger.swift in Sources */,
 				4936C94C202B323700933DC3 /* Account.swift in Sources */,
 				49D1F793201CABCD0066F626 /* MaintainUserWorker.swift in Sources */,

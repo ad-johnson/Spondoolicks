@@ -10,7 +10,7 @@ import Foundation
 class AddParentWorker {
     func addParent(newPin: String, completion: @escaping (Parent) -> ()) {
         DispatchQueue.main.async {
-            CoreDataManager.instance.perform() {
+            CoreDataManager.instance.perform(identifier: "AddParent") {
                 let parent = Parent.insertOrUpdate(newPin: newPin)
                 completion(parent)
             }

@@ -117,7 +117,11 @@ class AddParentViewController: UIViewController, AddParentDisplayLogic, PinCodeD
     
     // MARK: - Use cases: responses
     func displayAddParentResult(viewModel: AddParent.AddParent.ViewModel) {
-        
+        let resultModal = ResultModalViewController()
+        resultModal.success = false
+        resultModal.completion = { self.router?.routeToHomeVC(segue: nil) }
+        resultModal.modalPresentationStyle = .custom
+        present(resultModal, animated: true, completion: nil )
     }
 }
 

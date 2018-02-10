@@ -1,5 +1,5 @@
+//  Provides routing and data passing functionality
 //
-//  AddParentRouter.swift
 //  Created by Andrew Johnson on 08/02/2018.
 //  Copyright (c) 2018 Andrew Johnson. All rights reserved.
 //
@@ -7,7 +7,7 @@
 import UIKit
 
 @objc protocol AddParentRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToHomeVC(segue: UIStoryboardSegue?)
 }
 
 protocol AddParentDataPassing {
@@ -21,28 +21,27 @@ class AddParentRouter: NSObject, AddParentRoutingLogic, AddParentDataPassing {
   
     // MARK: - Routing
   
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //    if let segue = segue {
-    //        let destinationVC = segue.destination as! SomewhereViewController
-    //        var destinationDS = destinationVC.router!.dataStore!
-    //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    } else {
-    //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //        let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //        var destinationDS = destinationVC.router!.dataStore!
-    //        passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //        navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //    }
-    //}
+    func routeToHomeVC(segue: UIStoryboardSegue?) {
+        if let segue = segue {
+            let destinationVC = segue.destination as! HomeViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToHomeVC(source: dataStore!, destination: &destinationDS)
+        } else {
+            let index = viewController!.navigationController!.viewControllers.count - 2
+            let destinationVC = viewController?.navigationController?.viewControllers[index] as! HomeViewController
+            var destinationDS = destinationVC.router!.dataStore!
+            passDataToHomeVC(source: dataStore!, destination: &destinationDS)
+            navigateToHomeVC(source: viewController!, destination: destinationVC)
+        }
+    }
 
     // MARK: - Navigation
-  
-    //func navigateToSomewhere(source: AddParentViewController, destination: SomewhereViewController) {
-    //    source.show(destination, sender: nil)
-    //}
+    func navigateToHomeVC(source: AddParentViewController, destination: HomeViewController) {
+        source.navigationController?.popViewController(animated: true)
+    }
   
     // MARK: - Passing data
-    //func passDataToSomewhere(source: AddParentDataStore, destination: inout SomewhereDataStore) {
-    //    destination.name = source.name
-    //}
+    func passDataToHomeVC(source: AddParentDataStore, destination: inout HomeDataStore) {
+        // Nothing to pass
+    }
 }

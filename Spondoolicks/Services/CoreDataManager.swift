@@ -40,7 +40,7 @@ class CoreDataManager {
         return persistentContainer.viewContext
     }
     
-    func perform(block: @escaping () -> ()) {
-        privateManagedContext().performChanges(block: block)
+    func perform(identifier: String, block: @escaping () -> ()) {
+        privateManagedContext().performChanges(identifier: identifier, block: block)
     }
 }
