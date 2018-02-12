@@ -12,14 +12,14 @@ protocol SettingsBusinessLogic {
 }
 
 protocol SettingsDataStore {
-    //var name: String { get set }
+    var parent: Parent? { get set }
 }
 
 class SettingsInteractor: SettingsBusinessLogic, SettingsDataStore {
     // MARK: - Properties
     var presenter: SettingsPresentationLogic?
     var worker: SettingsWorker?
-    //var name: String = ""
+    var parent: Parent?
   
     // MARK: - Use Cases
     func doSomething(request: Settings.Something.Request) {

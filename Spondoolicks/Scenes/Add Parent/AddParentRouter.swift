@@ -42,6 +42,6 @@ class AddParentRouter: NSObject, AddParentRoutingLogic, AddParentDataPassing {
   
     // MARK: - Passing data
     func passDataToHomeVC(source: AddParentDataStore, destination: inout HomeDataStore) {
-        // Nothing to pass
+        destination.parent = source.parent
     }
 }

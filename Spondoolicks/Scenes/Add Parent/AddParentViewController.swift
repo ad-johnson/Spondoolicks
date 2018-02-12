@@ -103,7 +103,6 @@ class AddParentViewController: UIViewController, AddParentDisplayLogic, PinCodeD
     
     // MARK: - Use cases
     func newPinSelected(_ newPin: String) {
-        print("New PIN selected: \(newPin)")
         currentPin = newPin
         saveButton.isEnabled = true
     }
@@ -118,7 +117,6 @@ class AddParentViewController: UIViewController, AddParentDisplayLogic, PinCodeD
     // MARK: - Use cases: responses
     func displayAddParentResult(viewModel: AddParent.AddParent.ViewModel) {
         let resultModal = ResultModalViewController()
-        resultModal.success = false
         resultModal.completion = { self.router?.routeToHomeVC(segue: nil) }
         resultModal.modalPresentationStyle = .custom
         present(resultModal, animated: true, completion: nil )

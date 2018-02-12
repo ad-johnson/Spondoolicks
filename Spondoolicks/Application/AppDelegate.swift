@@ -19,8 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         NotificationCenter.default.addObserver(self, selector: #selector(coreDataRollback), name: Global.Notifications.CORE_DATA_ROLLBACK, object: nil)
         configureNavigationButton()
-        
-        UserDefaultsHelper().defaults.removeObject(forKey: "firstUse") // temporarily ensure AddParent runs
 
         let homeVC = (window?.rootViewController as? UINavigationController)?.childViewControllers.first as? HomeViewController
         CoreDataManager.instance.initialiseStack {

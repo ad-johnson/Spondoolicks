@@ -14,6 +14,7 @@ protocol ShowUsersBusinessLogic {
 
 protocol ShowUsersDataStore {
     var users: [TempUser]? { get set }
+    var parent: Parent? { get set }
 }
 
 class ShowUsersInteractor: ShowUsersBusinessLogic, ShowUsersDataStore {
@@ -21,6 +22,7 @@ class ShowUsersInteractor: ShowUsersBusinessLogic, ShowUsersDataStore {
     var presenter: ShowUsersPresentationLogic?
     var worker: ShowUsersWorker = ShowUsersWorker()
     var users: [TempUser]?
+    var parent: Parent?
     
     // MARK: - Use Cases
     func findUsers(request: ShowUsers.FindUsers.Request) {

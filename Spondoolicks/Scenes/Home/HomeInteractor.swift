@@ -12,14 +12,15 @@ protocol HomeBusinessLogic {
 }
 
 protocol HomeDataStore {
-    //var name: String { get set }
+    var parent: Parent? { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
+    
     // MARK: - Properties
     var presenter: HomePresentationLogic?
     var worker: HomeWorker?
-    //var name: String = ""
+    var parent: Parent?
   
     // MARK: - Use Cases
     func doSomething(request: Home.Something.Request) {

@@ -82,10 +82,10 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
         // Nothing to pass
     }
     func passDataToShowUsers(source: HomeDataStore, destination: inout ShowUsersDataStore) {
-        // Nothing to pass
+        destination.parent = source.parent
     }
     
     func passDataToSettings(source: HomeDataStore, destination: inout SettingsDataStore) {
-        // Nothing to pass
+        destination.parent = source.parent
     }
 }

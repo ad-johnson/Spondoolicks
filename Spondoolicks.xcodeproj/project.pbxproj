@@ -94,6 +94,7 @@
 		49DBCED6202E306900F44F39 /* ManagedObjectContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED5202E306900F44F39 /* ManagedObjectContextExtensions.swift */; };
 		49DBCEDA202F4AA000F44F39 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED8202F4AA000F44F39 /* ResultModalViewController.swift */; };
 		49DBCEDB202F4AA000F44F39 /* ResultModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DBCED9202F4AA000F44F39 /* ResultModalViewController.xib */; };
+		49DBCEDE2031BB2000F44F39 /* ResultModalControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCEDD2031BB2000F44F39 /* ResultModalControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +209,7 @@
 		49DBCED5202E306900F44F39 /* ManagedObjectContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectContextExtensions.swift; sourceTree = "<group>"; };
 		49DBCED8202F4AA000F44F39 /* ResultModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
 		49DBCED9202F4AA000F44F39 /* ResultModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultModalViewController.xib; sourceTree = "<group>"; };
+		49DBCEDD2031BB2000F44F39 /* ResultModalControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModalControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 		49255FBA200F9D1B000E40E9 /* SpondoolicksTests */ = {
 			isa = PBXGroup;
 			children = (
+				49DBCEDC2031BAFF00F44F39 /* ResultModal Tests */,
 				49380306202250F700A4DC3C /* HelpPanel Tests */,
 				49831C6120208F7700C82970 /* MaintainUser Tests */,
 				49B5690F2018EFB2004FE0E4 /* ShowUsers Tests */,
@@ -575,6 +578,14 @@
 			path = "Result Modal";
 			sourceTree = "<group>";
 		};
+		49DBCEDC2031BAFF00F44F39 /* ResultModal Tests */ = {
+			isa = PBXGroup;
+			children = (
+				49DBCEDD2031BB2000F44F39 /* ResultModalControllerTests.swift */,
+			);
+			path = "ResultModal Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -799,6 +810,7 @@
 				49B569132019027C004FE0E4 /* ShowUsersInteractorTests.swift in Sources */,
 				495A9582201A3D61007347A8 /* ShowUsersPresenterTest.swift in Sources */,
 				493803082022512600A4DC3C /* HelpPanelControllerTests.swift in Sources */,
+				49DBCEDE2031BB2000F44F39 /* ResultModalControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

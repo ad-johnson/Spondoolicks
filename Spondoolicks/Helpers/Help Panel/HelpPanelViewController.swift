@@ -17,7 +17,7 @@ class HelpPanelViewController: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var helpHeading: UILabel!
     @IBOutlet weak var helpEntries: UITableView!
-    @IBOutlet weak var panelView: OptionView!
+    @IBOutlet weak var panelView: SPLozengeBorderedView!
     @IBOutlet weak var backgroundView: UIView!
     
     override func viewDidLoad() {
