@@ -62,13 +62,15 @@ class MaintainUserControllerTests: XCTestCase {
     
     func testSaveButtonHasTheCorrectAction() {
         // Given
-        let button = sut.saveButton
-        let action = button?.action
-        
-        // When
+        let saveButton = sut.saveButton!
         
         // Then
-        XCTAssertTrue(action?.description == "saveTapped:", "MaintainUser VC has not connected the Save button to the right action.")
+        if let action = saveButton.action {
+            XCTAssertTrue(action.description == "saveTapped:",
+                          "The MaintainUser VC Save button is not connected to the right action")
+        } else {
+            XCTFail("The MaintainUser VC Save button has no actions connected")
+        }
     }
 
     func testVCHasHelpButtonConnected() {
@@ -82,13 +84,17 @@ class MaintainUserControllerTests: XCTestCase {
     
     func testHelpButtonHasTheCorrectAction() {
         // Given
-        let button = sut.helpButton
-        let action = button?.action
+        let button = sut.helpButton!
         
         // When
         
         // Then
-        XCTAssertTrue(action?.description == "helpTapped:", "MaintainUser VC has not connected the Help button to the right action.")
+        if let action = button.action {
+            XCTAssertTrue(action.description == "helpTapped:",
+                          "The MaintainUser VC Help button is not connected to the right action")
+        } else {
+            XCTFail("The MaintainUser VC Help button has no actions connected")
+        }
     }
 
     func testVCHasUserNameConnected() {

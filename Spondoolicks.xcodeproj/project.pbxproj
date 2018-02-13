@@ -39,6 +39,10 @@
 		49255FF5201107FB000E40E9 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF4201107FB000E40E9 /* Globals.swift */; };
 		49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FF720111A9F000E40E9 /* OptionCell.swift */; };
 		49255FFB2013A083000E40E9 /* OptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49255FFA2013A083000E40E9 /* OptionView.swift */; };
+		492AFAB02031DB9D00E91F6E /* AddParentViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492AFAAF2031DB9D00E91F6E /* AddParentViewControllerTests.swift */; };
+		492AFAB32031F21400E91F6E /* AddParentInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492AFAB22031F21400E91F6E /* AddParentInteractorTests.swift */; };
+		492AFAB52031F4CB00E91F6E /* AddParentPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492AFAB42031F4CB00E91F6E /* AddParentPresenterTests.swift */; };
+		492AFAB72032069C00E91F6E /* AddParentWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492AFAB62032069C00E91F6E /* AddParentWorkerTests.swift */; };
 		492DCDFC20288374000DCC1E /* HelpPanelSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */; };
 		492DCDFE20288436000DCC1E /* HelpPanelSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */; };
 		4936C942202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */; };
@@ -72,6 +76,7 @@
 		49584A9D20287A95004054D7 /* SPLozengeBorderedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49584A9C20287A95004054D7 /* SPLozengeBorderedView.swift */; };
 		495A9580201A36BA007347A8 /* ShowUsersWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */; };
 		495A9582201A3D61007347A8 /* ShowUsersPresenterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */; };
+		4982A02F203210CF006764D9 /* CoreDataTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4982A02E203210CF006764D9 /* CoreDataTestHelper.swift */; };
 		49831C6320208FB600C82970 /* MaintainUserControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */; };
 		49831C652020CBD600C82970 /* MaintainUserInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C642020CBD600C82970 /* MaintainUserInteractorTests.swift */; };
 		49831C672020DD9600C82970 /* MaintainUserWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C662020DD9600C82970 /* MaintainUserWorkerTests.swift */; };
@@ -154,6 +159,10 @@
 		49255FF4201107FB000E40E9 /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		49255FF720111A9F000E40E9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		49255FFA2013A083000E40E9 /* OptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionView.swift; sourceTree = "<group>"; };
+		492AFAAF2031DB9D00E91F6E /* AddParentViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentViewControllerTests.swift; sourceTree = "<group>"; };
+		492AFAB22031F21400E91F6E /* AddParentInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentInteractorTests.swift; sourceTree = "<group>"; };
+		492AFAB42031F4CB00E91F6E /* AddParentPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentPresenterTests.swift; sourceTree = "<group>"; };
+		492AFAB62032069C00E91F6E /* AddParentWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddParentWorkerTests.swift; sourceTree = "<group>"; };
 		492DCDFB20288374000DCC1E /* HelpPanelSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPanelSectionHeader.swift; sourceTree = "<group>"; };
 		492DCDFD20288436000DCC1E /* HelpPanelSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPanelSectionHeader.xib; sourceTree = "<group>"; };
 		4936C941202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SpondoolicksDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -187,6 +196,7 @@
 		49584A9C20287A95004054D7 /* SPLozengeBorderedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPLozengeBorderedView.swift; sourceTree = "<group>"; };
 		495A957F201A36BA007347A8 /* ShowUsersWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersWorkerTests.swift; sourceTree = "<group>"; };
 		495A9581201A3D61007347A8 /* ShowUsersPresenterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersPresenterTest.swift; sourceTree = "<group>"; };
+		4982A02E203210CF006764D9 /* CoreDataTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTestHelper.swift; sourceTree = "<group>"; };
 		49831C6220208FB600C82970 /* MaintainUserControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserControllerTests.swift; sourceTree = "<group>"; };
 		49831C642020CBD600C82970 /* MaintainUserInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserInteractorTests.swift; sourceTree = "<group>"; };
 		49831C662020DD9600C82970 /* MaintainUserWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserWorkerTests.swift; sourceTree = "<group>"; };
@@ -311,6 +321,8 @@
 		49255FBA200F9D1B000E40E9 /* SpondoolicksTests */ = {
 			isa = PBXGroup;
 			children = (
+				4982A02D203210BB006764D9 /* Helpers */,
+				492AFAAE2031DB7A00E91F6E /* AddParent Tests */,
 				49DBCEDC2031BAFF00F44F39 /* ResultModal Tests */,
 				49380306202250F700A4DC3C /* HelpPanel Tests */,
 				49831C6120208F7700C82970 /* MaintainUser Tests */,
@@ -458,6 +470,17 @@
 			path = HomeTests;
 			sourceTree = "<group>";
 		};
+		492AFAAE2031DB7A00E91F6E /* AddParent Tests */ = {
+			isa = PBXGroup;
+			children = (
+				492AFAAF2031DB9D00E91F6E /* AddParentViewControllerTests.swift */,
+				492AFAB22031F21400E91F6E /* AddParentInteractorTests.swift */,
+				492AFAB42031F4CB00E91F6E /* AddParentPresenterTests.swift */,
+				492AFAB62032069C00E91F6E /* AddParentWorkerTests.swift */,
+			);
+			path = "AddParent Tests";
+			sourceTree = "<group>";
+		};
 		4936C955202CC2FE00933DC3 /* Add Parent */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +536,14 @@
 				4936C967202DC6A200933DC3 /* SPBorderedPicker.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4982A02D203210BB006764D9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4982A02E203210CF006764D9 /* CoreDataTestHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		49831C6120208F7700C82970 /* MaintainUser Tests */ = {
@@ -800,13 +831,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492AFAB52031F4CB00E91F6E /* AddParentPresenterTests.swift in Sources */,
 				49831C652020CBD600C82970 /* MaintainUserInteractorTests.swift in Sources */,
 				49255FBC200F9D1B000E40E9 /* HomeControllerTests.swift in Sources */,
+				492AFAB02031DB9D00E91F6E /* AddParentViewControllerTests.swift in Sources */,
 				49831C6320208FB600C82970 /* MaintainUserControllerTests.swift in Sources */,
 				495A9580201A36BA007347A8 /* ShowUsersWorkerTests.swift in Sources */,
+				4982A02F203210CF006764D9 /* CoreDataTestHelper.swift in Sources */,
 				49831C692020E39A00C82970 /* MaintainUserPresenterTests.swift in Sources */,
 				49B569112018EFF1004FE0E4 /* ShowUsersControllerTests.swift in Sources */,
+				492AFAB72032069C00E91F6E /* AddParentWorkerTests.swift in Sources */,
 				49831C672020DD9600C82970 /* MaintainUserWorkerTests.swift in Sources */,
+				492AFAB32031F21400E91F6E /* AddParentInteractorTests.swift in Sources */,
 				49B569132019027C004FE0E4 /* ShowUsersInteractorTests.swift in Sources */,
 				495A9582201A3D61007347A8 /* ShowUsersPresenterTest.swift in Sources */,
 				493803082022512600A4DC3C /* HelpPanelControllerTests.swift in Sources */,

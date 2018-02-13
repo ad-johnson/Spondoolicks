@@ -156,7 +156,7 @@
         <!--Add Parent-->
         <scene sceneID="U0a-hb-jFM">
             <objects>
-                <viewController title="Add Parent" id="39R-an-5o1" customClass="AddParentViewController" customModule="Spondoolicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddParentViewController" title="Add Parent" id="39R-an-5o1" customClass="AddParentViewController" customModule="Spondoolicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Lv-n9-OQh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

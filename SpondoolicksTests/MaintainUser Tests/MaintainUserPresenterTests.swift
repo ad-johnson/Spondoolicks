@@ -1,7 +1,4 @@
 //
-//  MaintainUserPresenterTests.swift
-//  SpondoolicksTests
-//
 //  Created by Andrew Johnson on 30/01/2018.
 //  Copyright © 2018 Andrew Johnson. All rights reserved.
 //

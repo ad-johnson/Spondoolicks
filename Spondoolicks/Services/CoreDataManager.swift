@@ -12,8 +12,8 @@ class CoreDataManager {
     // Mark: Properties
     static let instance = CoreDataManager()
     
-    private let modelName: String
-    private var persistentContainer: NSPersistentContainer!
+    let modelName: String
+    var persistentContainer: NSPersistentContainer!
     
     // Mark: Initialisers
    
@@ -25,9 +25,16 @@ class CoreDataManager {
         self.modelName = modelName
     }
     
+    // Default Core Data use is SQLite based.
     func initialiseStack(completion: @escaping () -> () ) {
+        let storeDescription = NSPersistentStoreDescription()
+        storeDescription.type = NSSQLiteStoreType
+        initialiseStack(storeDescription: storeDescription, completion: completion)
+    }
+    
+    func initialiseStack(storeDescription: NSPersistentStoreDescription, completion: @escaping () -> ()) {
         persistentContainer = NSPersistentContainer(name: modelName)
-        persistentContainer.loadPersistentStores { _, error in
+        persistentContainer.loadPersistentStores { storeDescription, error in
             guard error == nil else {
                 fatalError("Could not initialise the Core Data Stack: \(error!)") }
             DispatchQueue.main.async {

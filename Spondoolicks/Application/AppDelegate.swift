@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(coreDataRollback), name: Global.Notifications.CORE_DATA_ROLLBACK, object: nil)
         configureNavigationButton()
 
+        // These two lines force app into first use mode.  Uncomment for testing
+        // purposes
+//        var userDefaults = UserDefaultsHelper()
+//        userDefaults.isFirstUse = true
+        
         let homeVC = (window?.rootViewController as? UINavigationController)?.childViewControllers.first as? HomeViewController
         CoreDataManager.instance.initialiseStack {
             homeVC?.appInitialised()
@@ -28,13 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        persistCoreData()
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        persistCoreData()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -46,7 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        persistCoreData()
+    }
+
+    // MARK: - Helper methods
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        persistCoreData()
     }
 
     func configureNavigationButton() {
@@ -66,6 +74,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeVC = navigationController?.childViewControllers.first as? HomeViewController
         navigationController?.popToRootViewController(animated: true)
         homeVC?.handleCoreDataRollback(notification)
+    }
+    
+    // TODO - This may change to just refreshAllObjects() as app dev progresses.  Saving should
+    // be occurring at point of need and not deferred.
+    func persistCoreData() {
+        try! CoreDataManager.instance.privateManagedContext().save()
+        try! CoreDataManager.instance.privateManagedContext().refreshAllObjects()
     }
 }
 

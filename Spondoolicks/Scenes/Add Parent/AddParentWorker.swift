@@ -8,9 +8,11 @@
 import Foundation
 
 class AddParentWorker {
+    lazy var coreDataManager = CoreDataManager.instance
+    
     func addParent(newPin: String, completion: @escaping (Parent) -> ()) {
         DispatchQueue.main.async {
-            CoreDataManager.instance.perform(identifier: "AddParent") {
+            self.coreDataManager.perform(identifier: "AddParent") {
                 let parent = Parent.insertOrUpdate(newPin: newPin)
                 completion(parent)
             }

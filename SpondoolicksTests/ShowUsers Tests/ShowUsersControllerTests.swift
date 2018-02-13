@@ -57,15 +57,19 @@ class ShowUsersControllerTests: XCTestCase {
         XCTAssertNotNil(sut.addButton, "Show Users VC does not have a connected Add button.")
     }
     
-    func testSaveButtonHasTheCorrectAction() {
+    func testVCAddButtonHasTheCorrectAction() {
         // Given
-        let button = sut.addButton
-        let action = button?.action
+        let button = sut.addButton!
         
         // When
         
         // Then
-        XCTAssertTrue(action?.description == "addUserTapped:", "Show Users VC has not connected the Add button to the right action.")
+        if let action = button.action {
+            XCTAssertTrue(action.description == "helpTapped:",
+                          "The ShowUsers VC Add button is not connected to the right action")
+        } else {
+            XCTFail("The ShowUsers VC Add button has no actions connected")
+        }
     }
     
     func testVCHasHelpButtonConnected() {
@@ -79,13 +83,17 @@ class ShowUsersControllerTests: XCTestCase {
     
     func testHelpButtonHasTheCorrectAction() {
         // Given
-        let button = sut.helpButton
-        let action = button?.action
+        let button = sut.helpButton!
         
         // When
         
         // Then
-        XCTAssertTrue(action?.description == "helpTapped:", "Show Users VC has not connected the Help button to the right action.")
+        if let action = button.action {
+            XCTAssertTrue(action.description == "helpTapped:",
+                          "The ShowUsers VC Help button is not connected to the right action")
+        } else {
+            XCTFail("The ShowUsers VC Help button has no actions connected")
+        }
     }
 
     func testVCHasAnIntroLabelConnected() {
