@@ -13,19 +13,17 @@ enum MaintainUser {
         struct Request { }
         
         struct Response {
-            var user: TempUser?
+            var user: User?
         }
         
         struct ViewModel {
             struct DisplayedUser: Equatable {
-                var userId: Int
                 var userName: String
                 var avatarImage: String
                 
                 static func == (lhs: DisplayedUser, rhs: DisplayedUser) -> Bool {
-                    return  lhs.userId == rhs.userId &&
-                        lhs.userName == rhs.userName &&
-                        lhs.avatarImage == rhs.avatarImage
+                    return  lhs.userName == rhs.userName &&
+                            lhs.avatarImage == rhs.avatarImage
                 }
             }
             var displayedUser: DisplayedUser
@@ -41,6 +39,7 @@ enum MaintainUser {
         struct Response {
             var error: Error?
         }
+        
         struct ViewModel {
             var error: Error?
         }

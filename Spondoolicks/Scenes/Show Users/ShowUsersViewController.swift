@@ -136,8 +136,8 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
     
     func deleteUser(alertAction: UIAlertAction?) {
         if let userBeingActioned = userBeingActioned {
-            let userId = displayedUsers[userBeingActioned.row].userId
-            interactor?.deleteUser(request: ShowUsers.DeleteUser.Request(userId: userId))
+            let userName = displayedUsers[userBeingActioned.row].userName
+            interactor?.deleteUser(request: ShowUsers.DeleteUser.Request(userName: userName))
         }
     }
     

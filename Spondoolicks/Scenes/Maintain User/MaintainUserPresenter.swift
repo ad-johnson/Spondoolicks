@@ -19,7 +19,7 @@ class MaintainUserPresenter: MaintainUserPresentationLogic {
     // MARK: - Use cases
     func presentUser(response: MaintainUser.GetUser.Response) {
         if let user = response.user { // Editing a user
-            let displayedUser = MaintainUser.GetUser.ViewModel.DisplayedUser(userId: user.userId, userName: user.userName, avatarImage: user.avatarImage)
+            let displayedUser = MaintainUser.GetUser.ViewModel.DisplayedUser(userName: user.name, avatarImage: user.avatarImage)
             let viewModel = MaintainUser.GetUser.ViewModel(displayedUser: displayedUser)
             viewController?.displayUser(viewModel: viewModel)
         } else { // Adding a user

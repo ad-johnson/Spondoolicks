@@ -13,18 +13,16 @@ enum ShowUsers {
         struct Request { }
         
         struct Response {
-            var users: [TempUser]
+            var users: [User]
         }
         
         struct ViewModel {
             struct DisplayedUser: Equatable {
-                var userId: Int
                 var userName: String
                 var avatarImage: String
                 
                 static func == (lhs: DisplayedUser, rhs: DisplayedUser) -> Bool {
-                    return  lhs.userId == rhs.userId &&
-                            lhs.userName == rhs.userName &&
+                    return  lhs.userName == rhs.userName &&
                             lhs.avatarImage == rhs.avatarImage
                 }
             }
@@ -34,7 +32,7 @@ enum ShowUsers {
     
     enum DeleteUser {
         struct Request {
-            var userId: Int
+            var userName: String
         }
         
         struct Response {
@@ -45,13 +43,13 @@ enum ShowUsers {
             var error: Error?
         }
     }
-    
-    enum EditUser {
-        struct Request {
-            var userId: Int
-        }
-        
-        struct Response { }
-        struct ViewModel { }
-    }
+    // TODO: Do we need this??
+//    enum EditUser {
+//        struct Request {
+//            var userId: Int
+//        } s
+//
+//        struct Response { }
+//        struct ViewModel { }
+//    }
 }

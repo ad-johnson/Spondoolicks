@@ -19,7 +19,7 @@ class ShowUsersPresenter: ShowUsersPresentationLogic {
     // MARK: - Use cases
     func presentFoundUsers(response: ShowUsers.FindUsers.Response) {
         if !response.users.isEmpty {
-            let displayedUsers = response.users.map { ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: $0.userId, userName: $0.userName, avatarImage: $0.avatarImage)}
+            let displayedUsers = response.users.map { ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: $0.name, avatarImage: $0.avatarImage)}
             
             let viewModel = ShowUsers.FindUsers.ViewModel(displayedUsers: displayedUsers)
             viewController?.displayUsers(viewModel: viewModel)

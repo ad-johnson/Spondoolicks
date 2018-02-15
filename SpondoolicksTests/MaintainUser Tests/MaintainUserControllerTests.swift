@@ -15,20 +15,30 @@ class MaintainUserControllerTests: XCTestCase {
     
     // MARK: - Properties
     var sut: MaintainUserViewController! = nil
-    
+    var cdm: CoreDataManagerMock!
+    var users: [User]!
+
     // MARK: - Setup / Teardown
     override func setUp() {
         super.setUp()
         
+        if cdm == nil {
+            cdm = CoreDataManagerMock.initialiseForTest()
+        }
+        users = cdm.addUsersForTest()
+
         // Instantiate the View Controller for all tests
         let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN, bundle: nil)
         sut = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.MAINTAIN_USER_VC)
             as! MaintainUserViewController
         let _ = sut.view
+        
+        (sut.interactor as! MaintainUserInteractor).worker.coreDataManager = cdm
     }
     
     override func tearDown() {
         super.tearDown()
+        cdm.deleteUsersForTest()
     }
     
     // MARK: - Unit tests
@@ -238,7 +248,7 @@ class MaintainUserControllerTests: XCTestCase {
         let userName = sut.userName.text!
         
         // Then
-        XCTAssertTrue(userName == "Test", "Maintain User VC did not set user name value when a user is being changed.")
+        XCTAssertTrue(userName == users[0].name, "Maintain User VC did not set user name value when a user is being changed.")
     }
     
     func testAvatarNameIsNotNilWhenUserFound() {
@@ -336,62 +346,11 @@ class MaintainUserControllerTests: XCTestCase {
         XCTAssertTrue(sutFake.displayErrorCalled, "Maintain User VC did not display the Update User error.")
     }
     
-    // MARK: - Integration tests
-    func testUserIsAddedWithNoError() {
-        // Given
-        let users = TempUser.users
-        let interceptor = MaintainUserViewControllerInterceptor()
-        let (_, expectation) = setupIntegrationTest(adding: true, interceptor: interceptor)
-
-        // When
-        sut.saveTapped(UIBarButtonItem())
-        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
-        let lastUser = TempUser.users.last!
-        
-        // Then
-        XCTAssertTrue(users.count == TempUser.users.count - 1, "Maintain User did not Add a new user.")
-        XCTAssertTrue(lastUser.userName == "NewUser", "Maintain User did not Add a new user with the correct User Name.")
-        XCTAssertTrue(lastUser.avatarImage == "boy-10", "Maintain User did not Add a new user with the correct Avatar Image.")
-    }
-    
-    func testUserIsChangedWithNoError() {
-        // Given
-        let users = TempUser.users
-        let interceptor = MaintainUserViewControllerInterceptor()
-        let (interactor, expectation) = setupIntegrationTest(adding: false, interceptor: interceptor)
-        interactor.userBeingMaintained = users[0]
-        
-        // When
-        sut.saveTapped(UIBarButtonItem())
-        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
-        let updatedUser = TempUser.users[0]
-        
-        // Then
-        XCTAssertTrue(users.count == TempUser.users.count, "Maintain User Added a new user instead of changing one.")
-        XCTAssertTrue(updatedUser.userName == "NewUser", "Maintain User did not change the name of the user.")
-        XCTAssertTrue(updatedUser.avatarImage == "boy-10", "Maintain User did not change the Avatar Image of the user.")
-    }
-    
-    func testUserIsNotChangedIfError() {
-        // Given
-        let users = TempUser.users
-        let interceptor = MaintainUserViewControllerInterceptor()
-        let (interactor, expectation) = setupIntegrationTest(adding: false, interceptor: interceptor)
-        interactor.userBeingMaintained = TempUser(userId: 10, userName: "Test", avatarImage: "Test")
-        
-        // When
-        sut.saveTapped(UIBarButtonItem())
-        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
-        
-        // Then
-        XCTAssertTrue(interceptor.errorReceived, "Maintain User did not return an error when invalid user was changed.")
-        XCTAssertTrue(users == TempUser.users, "Maintain User changed a user when it had no valid user to change.")
-    }
     
     // Mark: - Helper methods
     func setUserOnInteractor() {
         let interactor = sut.interactor
-        (interactor as! MaintainUserInteractor).userBeingMaintained = TempUser(userId: 0, userName: "Test", avatarImage: "Test")
+        (interactor as! MaintainUserInteractor).userBeingMaintained = users[0]
     }
     
     func setupUserUpdateSpyTest(adding: Bool) -> MaintainUserInteractorSpy {
@@ -411,20 +370,6 @@ class MaintainUserControllerTests: XCTestCase {
         sut.isAddingUser = adding
         sut.userName.text = "Test"
         sut.selectedAvatar = "Test"
-    }
-    
-    func setupIntegrationTest(adding: Bool, interceptor: MaintainUserViewControllerInterceptor) -> (MaintainUserInteractor, XCTestExpectation) {
-        sut.userName.text = "NewUser"
-        sut.selectedAvatar = "boy-10"
-        sut.isAddingUser = adding
-        let expectation = XCTestExpectation(description: "Wait for callbacks")
-        interceptor.expectation = expectation
-        interceptor.realVC = sut
-        let interactor = sut.interactor as! MaintainUserInteractor
-        (interactor.presenter as! MaintainUserPresenter).viewController = interceptor
-        let router = MaintainUserRouterFake()
-        sut.router = router
-        return (interactor, expectation)
     }
     
     // MARK: - Test doubles
@@ -469,24 +414,6 @@ class MaintainUserControllerTests: XCTestCase {
         
         override func displayError(_ message: String) {
             displayErrorCalled = true
-        }
-    }
-
-    class MaintainUserViewControllerInterceptor: MaintainUserViewController {
-        var realVC: MaintainUserViewController!
-        var expectation: XCTestExpectation!
-        var errorReceived = false
-        
-        override func userUpdated(viewModel: MaintainUser.UpdateUser.ViewModel) {
-            realVC.userUpdated(viewModel: viewModel)
-            errorReceived = viewModel.error != nil
-            expectation.fulfill()
-        }
-    }
-    
-    class MaintainUserRouterFake: MaintainUserRouter {
-        override func routeToShowUsers(segue: UIStoryboardSegue?) {
-            // Do nothing.
         }
     }
 }

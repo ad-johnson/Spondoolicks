@@ -13,7 +13,7 @@ protocol ShowUsersBusinessLogic {
 }
 
 protocol ShowUsersDataStore {
-    var users: [TempUser]? { get set }
+    var users: [User]? { get set }
     var parent: Parent? { get set }
 }
 
@@ -21,32 +21,41 @@ class ShowUsersInteractor: ShowUsersBusinessLogic, ShowUsersDataStore {
     // MARK: - Properties
     var presenter: ShowUsersPresentationLogic?
     var worker: ShowUsersWorker = ShowUsersWorker()
-    var users: [TempUser]?
+    var users: [User]?
     var parent: Parent?
     
     // MARK: - Use Cases
     func findUsers(request: ShowUsers.FindUsers.Request) {
-        worker.findUsers(callback: usersFound)
+        worker.findUsers(completion: usersFound)
     }
     
     func deleteUser(request: ShowUsers.DeleteUser.Request) {
-        worker.deleteUser(userId: request.userId, callback: userDeleted)
+        let name = request.userName
+        guard let users = users else { return }
+        
+        guard let index = users.index(where: { $0.name == name}) else {
+            let response = ShowUsers.DeleteUser.Response(error: Global.Errors.UserMaintenanceError.userNotFound)
+            presenter?.presentDeleteUserResult(response: response)
+            return
+        }
+        let user = users[index]
+        worker.deleteUser(user, id: index, completion: userDeleted)
     }
     
     // MARK: - Use case callbacks
-    func usersFound(users: [TempUser]) {
+    func usersFound(users: [User]) {
         self.users = users
         let response = ShowUsers.FindUsers.Response(users: users)
         presenter?.presentFoundUsers(response: response)
     }
     
-    func userDeleted(newUsers: [TempUser], error: Error?) {
-        if let error = error {
-            let response = ShowUsers.DeleteUser.Response(error: error)
+    func userDeleted(success: Bool, id: Int) {
+        if success {
+            users?.remove(at: id)
+            let response = ShowUsers.DeleteUser.Response(error: nil)
             presenter?.presentDeleteUserResult(response: response)
         } else {
-            users = newUsers
-            let response = ShowUsers.DeleteUser.Response(error: nil)
+            let response = ShowUsers.DeleteUser.Response(error: Global.Errors.UserMaintenanceError.userNotFound)
             presenter?.presentDeleteUserResult(response: response)
         }
     }

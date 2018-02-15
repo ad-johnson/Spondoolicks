@@ -41,6 +41,6 @@ class MaintainUserRouter: NSObject, MaintainUserRoutingLogic, MaintainUserDataPa
   
     // MARK: - Passing data
     func passDataToShowUsers(source: MaintainUserDataStore, destination: inout ShowUsersDataStore) {
-        // No data to pass
+        destination.users = source.users
     }
 }

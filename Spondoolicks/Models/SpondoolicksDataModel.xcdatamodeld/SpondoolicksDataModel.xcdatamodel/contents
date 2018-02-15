@@ -52,7 +52,7 @@
         <attribute name="avatarImage" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="pin" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="accounts" toMany="YES" minCount="1" deletionRule="Cascade" destinationEntity="Account" inverseName="user" inverseEntity="Account" syncable="YES"/>
+        <relationship name="accounts" toMany="YES" deletionRule="Cascade" destinationEntity="Account" inverseName="user" inverseEntity="Account" syncable="YES"/>
         <fetchIndex name="byName">
             <fetchIndexElement property="name" type="Binary" order="ascending"/>
         </fetchIndex>

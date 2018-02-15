@@ -96,6 +96,7 @@ enum Global {
     enum Errors {
         enum UserMaintenanceError: Error {
             case userNotFound
+            case userAlreadyExists
         }
     }
     

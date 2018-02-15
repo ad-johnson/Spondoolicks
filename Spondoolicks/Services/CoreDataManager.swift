@@ -27,13 +27,16 @@ class CoreDataManager {
     
     // Default Core Data use is SQLite based.
     func initialiseStack(completion: @escaping () -> () ) {
-        let storeDescription = NSPersistentStoreDescription()
+        var defaultURL = NSPersistentContainer.defaultDirectoryURL()
+        defaultURL.appendPathComponent("\(modelName).sqlite")
+        let storeDescription = NSPersistentStoreDescription(url: defaultURL)
         storeDescription.type = NSSQLiteStoreType
         initialiseStack(storeDescription: storeDescription, completion: completion)
     }
     
     func initialiseStack(storeDescription: NSPersistentStoreDescription, completion: @escaping () -> ()) {
         persistentContainer = NSPersistentContainer(name: modelName)
+        persistentContainer.persistentStoreDescriptions = [storeDescription]
         persistentContainer.loadPersistentStores { storeDescription, error in
             guard error == nil else {
                 fatalError("Could not initialise the Core Data Stack: \(error!)") }

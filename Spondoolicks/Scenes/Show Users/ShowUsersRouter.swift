@@ -45,6 +45,7 @@ class ShowUsersRouter: NSObject, ShowUsersRoutingLogic, ShowUsersDataPassing {
     func passDataToMaintainUser(source: ShowUsersDataStore, destination: inout MaintainUserDataStore) {
         if let indexPath = viewController?.userBeingActioned, let users = source.users {
             destination.userBeingMaintained = users[indexPath.row]
+            destination.users = users
         } else {
             destination.userBeingMaintained = nil
         }

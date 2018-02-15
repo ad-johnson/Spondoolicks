@@ -17,6 +17,11 @@ extension NSManagedObjectContext {
         return object
     }
     
+    func deleteObject<A: NSManagedObject>(_ object: A) -> Bool where A: Managed {
+        delete(object)
+        return true
+    }
+    
     func saveOrRollback(_ identifier: String) -> Bool {
         do {
             try save()

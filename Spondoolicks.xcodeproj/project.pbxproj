@@ -81,7 +81,6 @@
 		49831C652020CBD600C82970 /* MaintainUserInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C642020CBD600C82970 /* MaintainUserInteractorTests.swift */; };
 		49831C672020DD9600C82970 /* MaintainUserWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C662020DD9600C82970 /* MaintainUserWorkerTests.swift */; };
 		49831C692020E39A00C82970 /* MaintainUserPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49831C682020E39A00C82970 /* MaintainUserPresenterTests.swift */; };
-		49B5690E2018C9C0004FE0E4 /* TempUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B5690D2018C9C0004FE0E4 /* TempUser.swift */; };
 		49B569112018EFF1004FE0E4 /* ShowUsersControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B569102018EFF1004FE0E4 /* ShowUsersControllerTests.swift */; };
 		49B569132019027C004FE0E4 /* ShowUsersInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B569122019027C004FE0E4 /* ShowUsersInteractorTests.swift */; };
 		49D1F792201CABCD0066F626 /* MaintainUserPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D1F78C201CABCD0066F626 /* MaintainUserPresenter.swift */; };
@@ -100,6 +99,7 @@
 		49DBCEDA202F4AA000F44F39 /* ResultModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCED8202F4AA000F44F39 /* ResultModalViewController.swift */; };
 		49DBCEDB202F4AA000F44F39 /* ResultModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DBCED9202F4AA000F44F39 /* ResultModalViewController.xib */; };
 		49DBCEDE2031BB2000F44F39 /* ResultModalControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49DBCEDD2031BB2000F44F39 /* ResultModalControllerTests.swift */; };
+		49EDAF4520349E4300CE47F6 /* UserTestDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49EDAF4420349E4300CE47F6 /* UserTestDataHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,7 +201,6 @@
 		49831C642020CBD600C82970 /* MaintainUserInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserInteractorTests.swift; sourceTree = "<group>"; };
 		49831C662020DD9600C82970 /* MaintainUserWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserWorkerTests.swift; sourceTree = "<group>"; };
 		49831C682020E39A00C82970 /* MaintainUserPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserPresenterTests.swift; sourceTree = "<group>"; };
-		49B5690D2018C9C0004FE0E4 /* TempUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUser.swift; sourceTree = "<group>"; };
 		49B569102018EFF1004FE0E4 /* ShowUsersControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersControllerTests.swift; sourceTree = "<group>"; };
 		49B569122019027C004FE0E4 /* ShowUsersInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowUsersInteractorTests.swift; sourceTree = "<group>"; };
 		49D1F78C201CABCD0066F626 /* MaintainUserPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintainUserPresenter.swift; sourceTree = "<group>"; };
@@ -220,6 +219,7 @@
 		49DBCED8202F4AA000F44F39 /* ResultModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModalViewController.swift; sourceTree = "<group>"; };
 		49DBCED9202F4AA000F44F39 /* ResultModalViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultModalViewController.xib; sourceTree = "<group>"; };
 		49DBCEDD2031BB2000F44F39 /* ResultModalControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModalControllerTests.swift; sourceTree = "<group>"; };
+		49EDAF4420349E4300CE47F6 /* UserTestDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTestDataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -415,7 +415,6 @@
 			isa = PBXGroup;
 			children = (
 				49DBCED2202E27C900F44F39 /* Core Data Helpers */,
-				49B5690D2018C9C0004FE0E4 /* TempUser.swift */,
 				4936C940202B1CEF00933DC3 /* SpondoolicksDataModel.xcdatamodeld */,
 				4936C943202B2ED100933DC3 /* Parent.swift */,
 				4936C945202B31A100933DC3 /* User.swift */,
@@ -542,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				4982A02E203210CF006764D9 /* CoreDataTestHelper.swift */,
+				49EDAF4420349E4300CE47F6 /* UserTestDataHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -767,7 +767,6 @@
 				49255FEB2010EB34000E40E9 /* UIFrameworkExtensions.swift in Sources */,
 				4936C961202CC32000933DC3 /* AddParentInteractor.swift in Sources */,
 				49D1F795201CABCD0066F626 /* MaintainUserModels.swift in Sources */,
-				49B5690E2018C9C0004FE0E4 /* TempUser.swift in Sources */,
 				49255FF820111A9F000E40E9 /* OptionCell.swift in Sources */,
 				493F381D2027437A009B00F8 /* SPView.swift in Sources */,
 				49206E0A20173A9600B16CD8 /* ShowUsersInteractor.swift in Sources */,
@@ -836,6 +835,7 @@
 				49255FBC200F9D1B000E40E9 /* HomeControllerTests.swift in Sources */,
 				492AFAB02031DB9D00E91F6E /* AddParentViewControllerTests.swift in Sources */,
 				49831C6320208FB600C82970 /* MaintainUserControllerTests.swift in Sources */,
+				49EDAF4520349E4300CE47F6 /* UserTestDataHelper.swift in Sources */,
 				495A9580201A36BA007347A8 /* ShowUsersWorkerTests.swift in Sources */,
 				4982A02F203210CF006764D9 /* CoreDataTestHelper.swift in Sources */,
 				49831C692020E39A00C82970 /* MaintainUserPresenterTests.swift in Sources */,

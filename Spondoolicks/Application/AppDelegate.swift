@@ -24,7 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // purposes
 //        var userDefaults = UserDefaultsHelper()
 //        userDefaults.isFirstUse = true
-        
+
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        print(urls[urls.count-1] as URL)
+
         let homeVC = (window?.rootViewController as? UINavigationController)?.childViewControllers.first as? HomeViewController
         CoreDataManager.instance.initialiseStack {
             homeVC?.appInitialised()
@@ -80,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // be occurring at point of need and not deferred.
     func persistCoreData() {
         try! CoreDataManager.instance.privateManagedContext().save()
-        try! CoreDataManager.instance.privateManagedContext().refreshAllObjects()
+        CoreDataManager.instance.privateManagedContext().refreshAllObjects()
     }
 }
 

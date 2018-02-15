@@ -12,16 +12,24 @@ class ShowUsersInteractorTests: XCTestCase {
     
     // MARK: - Properties
     var sut: ShowUsersInteractor!
+    var cdm: CoreDataManagerMock!
+    var users: [User]!
     
     //MARK: - Setup / Teardown
     override func setUp() {
         super.setUp()
         
         sut = ShowUsersInteractor()
+        if cdm == nil {
+            cdm = CoreDataManagerMock.initialiseForTest()
+        }
+        sut.worker.coreDataManager = cdm
+        users = cdm.addUsersForTest()
     }
     
     override func tearDown() {
         super.tearDown()
+        cdm.deleteUsersForTest()
     }
     
     func testInteractorCallsWorkerToFindUsers() {
@@ -38,10 +46,9 @@ class ShowUsersInteractorTests: XCTestCase {
     
     func testStoresFoundUsers() {
         // Given
-        let testData = TempUser(userId: 1, userName: "Andrew", avatarImage: "0")
         
         // When
-        sut.usersFound(users: [testData])
+        sut.usersFound(users: users)
         
         // Then
         XCTAssertNotNil(sut.users, "Show Users Interactor did not store retrieved Users after Find Users.")
@@ -65,7 +72,7 @@ class ShowUsersInteractorTests: XCTestCase {
         sut.worker = worker
         
         // When
-        sut.deleteUser(request: ShowUsers.DeleteUser.Request(userId: 0))
+        sut.deleteUser(request: ShowUsers.DeleteUser.Request(userName: "Andrew"))
         
         // Then
         XCTAssertTrue(worker.deleteUserCalled, "Show Users Interactor did not call the Worker to Delete User.")
@@ -77,7 +84,7 @@ class ShowUsersInteractorTests: XCTestCase {
         sut.presenter = presenter
         
         // When
-        sut.userDeleted(newUsers: [], error: nil)
+        sut.userDeleted(success: true, id: 0)
         
         // Then
         XCTAssertTrue(presenter.presentDeleteUserCalled, "Show Users Interactor did not call Presenter with Delete User result.")
@@ -85,16 +92,14 @@ class ShowUsersInteractorTests: XCTestCase {
     
     func testDeleteUserRemovesUserFromLocalStore() {
         // Given
-        let testData = TempUser.users
-        var updatedTestData = TempUser.users
-        updatedTestData.remove(at: 0)
-        sut.users = testData
+        let startUserCount = users?.count
+        sut.users = users
         
         // When
-        sut.userDeleted(newUsers: updatedTestData, error: nil)
+        sut.userDeleted(success: true, id: 0)
         
         // Then
-        XCTAssertTrue(sut.users! == updatedTestData, "Show Users Interactor did not remove the deleted user from its local store.")
+        XCTAssertTrue(sut.users?.count == startUserCount! - 1, "Show Users Interactor did not remove the deleted user from its local store.")
     }
     
     func testInteractorPassesErrorToPresenterForDeleteUser() {
@@ -103,9 +108,10 @@ class ShowUsersInteractorTests: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for Delete User callback.")
         presenter.expectation = expectation
         sut.presenter = presenter
+        sut.users = users
         
         // When
-        sut.deleteUser(request: ShowUsers.DeleteUser.Request(userId: 10))
+        sut.deleteUser(request: ShowUsers.DeleteUser.Request(userName: "Bob"))
         let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
         
         // Then
@@ -117,13 +123,13 @@ class ShowUsersInteractorTests: XCTestCase {
         var findUsersCalled = false
         var deleteUserCalled = true
         
-        override func findUsers(callback: @escaping ShowUsersWorker.UserCallback) {
+        override func findUsers(completion: @escaping ([User]) -> ()) {
             findUsersCalled = true
         }
         
-        override func deleteUser(userId: Int, callback: @escaping ShowUsersWorker.ErrorCallback) {
+        override func deleteUser(_ user: User, id: Int, completion: @escaping (Bool, Int) -> ()) {
             deleteUserCalled = true
-        }
+        }        
     }
     
     class ShowUsersPresenterSpy: ShowUsersPresenter {

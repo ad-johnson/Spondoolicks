@@ -30,4 +30,18 @@ class CoreDataManagerMock: CoreDataManager {
             self.expectation.fulfill()
         }
     }
+    
+    static func initialiseForTest() -> CoreDataManagerMock {
+        let cdm = CoreDataManagerMock()
+        cdm.persistentContainer = nil // Drop the SQLite store
+        
+        let expectation = XCTestExpectation(description: "Wait for Core Data initialisation")
+        cdm.initialiseStack { expectation.fulfill() }
+        _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        if cdm.persistentContainer == nil {
+            XCTFail("Couldn't set up Core Data Manager for tests.")
+        }
+        return cdm
+    }
 }
+

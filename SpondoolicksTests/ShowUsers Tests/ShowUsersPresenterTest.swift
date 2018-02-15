@@ -13,16 +13,23 @@ class ShowUsersPresenterTest: XCTestCase {
     
     // MARK: - Properties
     var sut: ShowUsersPresenter!
-    
+    var cdm: CoreDataManagerMock!
+    var users: [User]!
+
     //MARK: - Setup / Teardown
     override func setUp() {
         super.setUp()
         
         sut = ShowUsersPresenter()
+        if cdm == nil {
+            cdm = CoreDataManagerMock.initialiseForTest()
+        }
+        users = cdm.addUsersForTest()
     }
     
     override func tearDown() {
         super.tearDown()
+        cdm.deleteUsersForTest()
     }
 
     // MARK: - Unit tests
@@ -30,8 +37,6 @@ class ShowUsersPresenterTest: XCTestCase {
         // Given
         let vc = ShowUsersViewControllerSpy()
         sut.viewController = vc
-        var users: [TempUser] = []
-        users.append(TempUser(userId: 1, userName: "Test", avatarImage: "0"))
         
         // When
         sut.presentFoundUsers(response: ShowUsers.FindUsers.Response(users: users))

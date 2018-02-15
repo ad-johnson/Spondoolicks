@@ -12,20 +12,29 @@ class ShowUsersControllerTests: XCTestCase {
     
     // MARK: - Properties
     var sut: ShowUsersViewController! = nil
-    
+    var cdm: CoreDataManagerMock!
+
     // MARK: - Setup / Teardown
     override func setUp() {
         super.setUp()
         
+        if cdm == nil {
+            cdm = CoreDataManagerMock.initialiseForTest()
+        }
+        let _ = cdm.addUsersForTest()
+
         // Instantiate the View Controller for all tests
         let storyboard = UIStoryboard(name: Global.Identifier.Storyboard.MAIN, bundle: nil)
         sut = storyboard.instantiateViewController(withIdentifier: Global.Identifier.ViewController.SHOW_USERS_VC)
             as! ShowUsersViewController
         let _ = sut.view
+        
+        (sut.interactor as! ShowUsersInteractor).worker.coreDataManager = cdm
     }
 
     override func tearDown() {
         super.tearDown()
+        cdm.deleteUsersForTest()
     }
     
     // MARK: - Unit tests
@@ -65,7 +74,7 @@ class ShowUsersControllerTests: XCTestCase {
         
         // Then
         if let action = button.action {
-            XCTAssertTrue(action.description == "helpTapped:",
+            XCTAssertTrue(action.description == "addUserTapped:",
                           "The ShowUsers VC Add button is not connected to the right action")
         } else {
             XCTFail("The ShowUsers VC Add button has no actions connected")
@@ -151,23 +160,10 @@ class ShowUsersControllerTests: XCTestCase {
         XCTAssertTrue(sut.userTable.numberOfRows(inSection: 0) == response.displayedUsers.count, "Show Users Table View is not displaying the right number of retrieved users.")
     }
     
-    func testFindUsersReturnsExpectedResults() {
-        // Given
-        let testUsers = generateTestUsers()
-        let vc = ShowUsersViewControllerInterceptor()
-        let expectation = setupFindUsersTest(interceptor: vc)
-        // When
-        sut.findUsers()
-        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
-        
-        // Then
-        XCTAssertTrue(testUsers == sut.displayedUsers, "Find Users functionality did not return the correct data.")
-    }
-    
     func testVCCallsInteractorToDeleteUser() {
         // Given
         let interactor = ShowUsersInteractorSpy()
-        let user = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 0, userName: "Andrew", avatarImage: "0")
+        let user = ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Andrew", avatarImage: "0")
         sut.displayedUsers.append(user)
         sut.interactor = interactor
         sut.userBeingActioned = IndexPath(row: 0, section: 0)
@@ -224,7 +220,7 @@ class ShowUsersControllerTests: XCTestCase {
     
     func testErrorHandledWhenIncorrectUserDeleted() {
         // Given
-        let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0")
+        let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Andrew", avatarImage: "0")
         let sutFake = ShowUsersViewControllerFake()
         sutFake.displayedUsers = [testData]
         sutFake.userBeingActioned = IndexPath(row: 0, section: 0)
@@ -239,7 +235,7 @@ class ShowUsersControllerTests: XCTestCase {
     
     func testNoLocalUsersRemovedWhenDeleteUserErrorReceived() {
         // Given
-        let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: 1, userName: "Andrew", avatarImage: "0")
+        let testData = ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Andrew", avatarImage: "0")
         sut.displayedUsers = [testData]
         sut.userBeingActioned = IndexPath(row: 0, section: 0)
         
@@ -253,7 +249,11 @@ class ShowUsersControllerTests: XCTestCase {
     
     // MARK: - Helper methods
     func generateTestUsers() -> [ShowUsers.FindUsers.ViewModel.DisplayedUser] {
-        return TempUser.users.map { ShowUsers.FindUsers.ViewModel.DisplayedUser(userId: $0.userId, userName: $0.userName, avatarImage: $0.avatarImage) }
+        var users: [ShowUsers.FindUsers.ViewModel.DisplayedUser] = []
+        users.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Andrew", avatarImage: "0"))
+        users.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Katherine", avatarImage: "1"))
+        users.append(ShowUsers.FindUsers.ViewModel.DisplayedUser(userName: "Louise", avatarImage: "2"))
+        return users
     }
     
     func setupFindUsersTest(interceptor: ShowUsersViewControllerInterceptor) -> XCTestExpectation {

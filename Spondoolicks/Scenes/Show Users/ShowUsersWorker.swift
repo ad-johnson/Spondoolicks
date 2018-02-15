@@ -10,29 +10,23 @@ import Foundation
 
 class ShowUsersWorker {
     // MARK: - Properties
-    typealias UserCallback = ([TempUser]) -> ()
-    typealias ErrorCallback = ([TempUser], Error?) -> ()
-    
-    var usersCallback: UserCallback?
+    lazy var coreDataManager = CoreDataManager.instance
     
     // MARK: - Functions
-    // All functions are placeholders for outline functionality prior to
-    // implementing Core Data services.  These will be re-factored to use that
-    // service when ready.
-    func findUsers(callback: @escaping UserCallback) {
-        usersCallback = callback
+    func findUsers(completion: @escaping ([User]) -> () ) {        
         DispatchQueue.main.async {
-            self.usersCallback?(TempUser.users)
+            self.coreDataManager.perform(identifier: "FindUsers") {
+                let users = User.findUsers()
+                completion(users)
+            }
         }
     }
     
-    func deleteUser(userId: Int, callback: @escaping ErrorCallback) {
+    func deleteUser(_ user: User, id: Int, completion: @escaping (Bool, Int) ->() ) {
         DispatchQueue.main.async {
-            if let index = TempUser.users.index(where: { $0.userId == userId }) {
-                TempUser.users.remove(at: index)
-                callback(TempUser.users, nil)
-            } else {
-                callback(TempUser.users, Global.Errors.UserMaintenanceError.userNotFound)
+            self.coreDataManager.perform(identifier: "DeleteUser") {
+                let result = User.delete(user)
+                completion(result, id)
             }
         }
     }

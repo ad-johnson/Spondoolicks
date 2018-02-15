@@ -14,15 +14,17 @@ protocol MaintainUserBusinessLogic {
 }
 
 protocol MaintainUserDataStore {
-    var userBeingMaintained: TempUser? { get set }
+    var userBeingMaintained: User? { get set }
+    var users: [User]? { get set }
 }
 
 class MaintainUserInteractor: MaintainUserBusinessLogic, MaintainUserDataStore {
     // MARK: - Properties
     var presenter: MaintainUserPresentationLogic?
     lazy var worker: MaintainUserWorker = { MaintainUserWorker() }()
-    var userBeingMaintained: TempUser?
-  
+    var userBeingMaintained: User?
+    var users: [User]?
+    
     // MARK: - Use cases
     func getUser(request: MaintainUser.GetUser.Request) {
         let response = MaintainUser.GetUser.Response(user: userBeingMaintained)
@@ -30,22 +32,43 @@ class MaintainUserInteractor: MaintainUserBusinessLogic, MaintainUserDataStore {
     }
     
     func addUser(request: MaintainUser.UpdateUser.Request) {
-        let user = TempUser(userId: TempUser.users.count, userName: request.userName, avatarImage: request.avatarImage)
-        worker.addUser(user: user, callback: userUpdated)
+        guard let _ = users?.index(where: { $0.name == request.userName }) else {
+            worker.addUser(name: request.userName, avatarImage: request.avatarImage, completion: userAdded)
+            return
+        }
+        let response = MaintainUser.UpdateUser.Response(error: Global.Errors.UserMaintenanceError.userAlreadyExists)
+        presenter?.presentUpdateUserResult(response: response)
     }
     
     func changeUser(request: MaintainUser.UpdateUser.Request) {
-        if let userId = userBeingMaintained?.userId {
-            let user = TempUser(userId: userId, userName: request.userName, avatarImage: request.avatarImage)
-            worker.changeUser(user: user, callback: userUpdated)
+        if let user = userBeingMaintained {
+            // Must have a unique name
+            guard let _ = users?.index(where: { $0.name == request.userName }) else {
+                user.name = request.userName
+                user.avatarImage = request.avatarImage
+                worker.changeUser(user, completion: userUpdated)
+                return
+            }
+            let response = MaintainUser.UpdateUser.Response(error: Global.Errors.UserMaintenanceError.userAlreadyExists)
+            presenter?.presentUpdateUserResult(response: response)
         } else {
-            fatalError("Change User called with a User that has no ID.")
+            fatalError("Change User called with a User that doesn't exist.")
         }
     }
     
     // MARK: - Use case callbacks
-    func userUpdated(error: Error?) {
-        let response = MaintainUser.UpdateUser.Response(error: error)
+    func userAdded(_ user: User) {
+        if let index = users?.index(where: { $0.name >= user.name } ) {
+            users?.insert(user, at: index)
+        } else {
+            users?.append(user)
+        }
+        let response = MaintainUser.UpdateUser.Response(error: nil)
+        presenter?.presentUpdateUserResult(response: response)
+    }
+    
+    func userUpdated(_ success: Bool) {
+        let response = MaintainUser.UpdateUser.Response(error: nil)
         presenter?.presentUpdateUserResult(response: response)
     }
 }

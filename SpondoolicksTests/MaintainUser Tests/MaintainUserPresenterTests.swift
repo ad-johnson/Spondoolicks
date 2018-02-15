@@ -10,23 +10,30 @@ class MaintainUserPresenterTests: XCTestCase {
     
     // MARK: - Properties
     var sut: MaintainUserPresenter!
-    
+    var cdm: CoreDataManagerMock!
+    var users: [User]!
+
     //MARK: - Setup / Teardown
     override func setUp() {
         super.setUp()
         
         sut = MaintainUserPresenter()
+        if cdm == nil {
+            cdm = CoreDataManagerMock.initialiseForTest()
+        }
+        users = cdm.addUsersForTest()
     }
     
     override func tearDown() {
         super.tearDown()
-    }
+        cdm.deleteUsersForTest()
+   }
     
     // MARK: - Unit tests
     func testPresenterCallsVCWithUserBeingMaintained() {
         // Given
         let vc = MaintainUserViewControllerSpy()
-        let user = TempUser(userId: 0, userName: "Test", avatarImage: "Test")
+        let user = users[0]
         sut.viewController = vc
         
         // When

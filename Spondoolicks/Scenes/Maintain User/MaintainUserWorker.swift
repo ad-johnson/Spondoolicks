@@ -10,23 +10,24 @@ import UIKit
 
 class MaintainUserWorker {
     // Properties
+    lazy var coreDataManager = CoreDataManager.instance
     typealias MaintainUserCallback = (Error?) -> ()
 
     // MARK: - Functions
-    func addUser(user: TempUser, callback: @escaping MaintainUserCallback) {
+    func addUser(name: String, avatarImage: String, completion: @escaping (User) -> () ) {
         DispatchQueue.main.async {
-            TempUser.users.append(user)
-            callback(nil)
+            self.coreDataManager.perform(identifier: "AddUser") {
+                let user = User.insert(name: name, avatarImage: avatarImage)
+                completion(user)
+            }
         }
     }
     
-    func changeUser(user: TempUser, callback: @escaping MaintainUserCallback) {
+    // Just need to force a context save.
+    func changeUser(_ user: User, completion: @escaping (Bool) -> () ) {
         DispatchQueue.main.async {
-            if user.userId < TempUser.users.count {
-                TempUser.users[user.userId] = user
-                callback(nil)
-            } else {
-                callback(Global.Errors.UserMaintenanceError.userNotFound)
+            self.coreDataManager.perform(identifier: "ChangeUser") {
+                completion(true)
             }
         }
     }

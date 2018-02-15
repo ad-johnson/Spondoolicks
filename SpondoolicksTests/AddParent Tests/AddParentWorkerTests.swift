@@ -1,6 +1,4 @@
 //
-//  AddParentWorkerTests.swift
-//  SpondoolicksTests
 //
 //  Created by Andrew Johnson on 12/02/2018.
 //  Copyright © 2018 Andrew Johnson. All rights reserved.
@@ -20,11 +18,9 @@ class AddParentWorkerTests: XCTestCase {
         super.setUp()
         
         sut = AddParentWorker()
-        
-        cdm = CoreDataManagerMock()
-        let expectation = XCTestExpectation(description: "Wait for Core Data initialisation")
-        cdm.initialiseStack { expectation.fulfill() }
-        _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+        if cdm == nil {
+            cdm = CoreDataManagerMock.initialiseForTest()
+        }
     }
     
     override func tearDown() {

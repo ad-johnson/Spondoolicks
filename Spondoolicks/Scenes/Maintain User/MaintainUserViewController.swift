@@ -178,9 +178,13 @@ class MaintainUserViewController: UIViewController, UITextFieldDelegate, Maintai
     }
     
     func userUpdated(viewModel: MaintainUser.UpdateUser.ViewModel) {
-        if let _ = viewModel.error {
+        if let error = viewModel.error {
             let action = isAddingUser ? "add" : "change"
-            displayError("Could not \(action) the user details.  Something went wrong.")
+            if let _ = error as? Global.Errors.UserMaintenanceError {
+                displayError("Could not \(action) the user details.  Name must be different to other users.")
+            } else {
+                displayError("Could not \(action) the user details.  Something went wrong.")
+            }
         } else {
             router?.routeToShowUsers(segue: nil)
         }
