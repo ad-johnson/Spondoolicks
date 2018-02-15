@@ -54,6 +54,21 @@ class ShowUsersInteractorTests: XCTestCase {
         XCTAssertNotNil(sut.users, "Show Users Interactor did not store retrieved Users after Find Users.")
     }
     
+    func testFoundUsersAreSortedByName() {
+        // Given
+        let presenter = ShowUsersPresenterFake()
+        sut.presenter = presenter
+        let expectation = XCTestExpectation(description: "Wait for Delete User callback.")
+        presenter.expectation = expectation
+
+        // when
+        sut.findUsers(request: ShowUsers.FindUsers.Request())
+        let _ = XCTWaiter.wait(for: [expectation], timeout: 5)
+
+        // Then
+        XCTAssertTrue(presenter.areUsersSorted(), "ShowUser Interactor did not receive the Users sorted by name.")
+    }
+    
     func testInteractorCallsPresenterWithFindUserResults() {
         // Given
         let presenter = ShowUsersPresenterSpy()
@@ -147,11 +162,29 @@ class ShowUsersInteractorTests: XCTestCase {
     
     class ShowUsersPresenterFake: ShowUsersPresenter {
         var result = ShowUsers.DeleteUser.Response(error: nil)
+        var users:[User]!
         var expectation: XCTestExpectation?
         
         override func presentDeleteUserResult(response: ShowUsers.DeleteUser.Response) {
             result = response
             expectation?.fulfill()
+        }
+        
+        override func presentFoundUsers(response: ShowUsers.FindUsers.Response) {
+            self.users = response.users
+            expectation?.fulfill()
+        }
+        
+        func areUsersSorted() -> Bool {
+            var areSorted = true
+            let endIndex = users.count - 2
+            for index in (0...endIndex) {
+                if (users[index].name > users[index + 1].name) {
+                    areSorted = false
+                    break
+                }
+            }
+            return areSorted
         }
     }
 }

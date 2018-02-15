@@ -126,6 +126,24 @@ class MaintainUserInteractorTests: XCTestCase {
         // Then
         XCTAssertTrue(presenter.wasErrorPassed(), "Maintain User Interactor did not call Presenter with an Error when changing an existing user.")
     }
+    
+    func testInteractorDoesNotErrorWhenOnlyAvatarBeingChanged() {
+        // Given
+        let presenter = MaintainUserPresenterSpy()
+        sut.presenter = presenter
+        let worker = MaintainUserWorkerMock()
+        sut.worker = worker
+        let user = users[1]
+        sut.userBeingMaintained = user
+        sut.users = users
+        
+        // When
+        sut.changeUser(request: MaintainUser.UpdateUser.Request(userName: user.name, avatarImage: "NewImage"))
+        
+        // Then
+        XCTAssertFalse(presenter.wasErrorPassed(), "Maintain User Interactor called Presenter with an Error when changing an existing user's avatar only.")
+
+    }
 
     // MARK: - Test doubles
     class MaintainUserWorkerSpy: MaintainUserWorker {

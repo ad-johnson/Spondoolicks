@@ -42,8 +42,8 @@ class MaintainUserInteractor: MaintainUserBusinessLogic, MaintainUserDataStore {
     
     func changeUser(request: MaintainUser.UpdateUser.Request) {
         if let user = userBeingMaintained {
-            // Must have a unique name
-            guard let _ = users?.index(where: { $0.name == request.userName }) else {
+            // Must have a unique name if it has been changed
+            guard let _ = users?.index(where: { $0.name == request.userName }), user.name != request.userName else {
                 user.name = request.userName
                 user.avatarImage = request.avatarImage
                 worker.changeUser(user, completion: userUpdated)

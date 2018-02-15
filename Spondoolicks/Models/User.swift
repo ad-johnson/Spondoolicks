@@ -25,7 +25,7 @@ extension User: Managed {
     }
     
     static func findUsers() -> [User] {
-        guard let users = findOrFetchAll(matching: predicate) else {
+        guard let users = fetchAll(matching: predicate) else {
             return []
         }
         return users

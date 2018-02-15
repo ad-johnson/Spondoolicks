@@ -56,16 +56,6 @@ extension Managed where Self: NSManagedObject {
         }
         return object
     }
-    
-    static func findOrFetchAll(matching predicate: NSPredicate) -> [Self]? {
-        guard let objects = materialisedObjects(matching: predicate) else {
-            return fetch() { request in
-                request.predicate = predicate
-                request.returnsObjectsAsFaults = false
-                }
-        }
-        return objects
-    }
 
     static func materialisedObject(matching predicate: NSPredicate) -> Self? {
         for object in context.registeredObjects where !object.isFault {
@@ -75,18 +65,14 @@ extension Managed where Self: NSManagedObject {
         return nil
     }
 
-    static func materialisedObjects(matching predicate: NSPredicate) -> [Self]? {
-        var results: [Self] = []
-        for object in context.registeredObjects where !object.isFault {
-            guard let result = object as? Self, predicate.evaluate(with: result) else { continue }
-            results.append(result)
-        }
-        
-        return results.count > 0 ? results : nil
+    static func fetchAll(matching predicate: NSPredicate) -> [Self]? {
+            return fetch() { request in
+                request.predicate = predicate
+                request.returnsObjectsAsFaults = false
+            }
     }
 
     static func fetch(configurationBlock: (NSFetchRequest<Self>) -> () = {_ in}) -> [Self] {
-//        let request = NSFetchRequest<Self>(entityName: Self.entityName)
         let request = Self.sortedFetchRequest
         configurationBlock(request)
         return try! context.fetch(request)
