@@ -14,6 +14,7 @@ enum Global {
         static let SHOW_USERS = "ShowUsers"
         static let SHOW_SETTINGS = "ShowSettings"
         static let MAINTAIN_USER = "ShowMaintainUser"
+        static let SHOW_DASHBOARD = "ShowDashboard"
     }
     
     struct Identifier {
@@ -30,11 +31,12 @@ enum Global {
         }
         struct ViewController {
             static let ROOT = "RootNavigationController"
-            static let ADD_PARENT_VC = "AddParentViewController"
+            static let ADD_PARENT_VC = "AddParentVC"
             static let HOME_VC = "HomeVC"
             static let SHOW_USERS_VC = "ShowUsersVC"
             static let SETTINGS_VC = "SettingsVC"
             static let MAINTAIN_USER_VC = "MaintainUserVC"
+            static let DASHBOARD_VC = "DashboardVC"
         }
         struct Name {
             static let AVATAR_HEADING_NAMES = ["Girls", "Boys"]

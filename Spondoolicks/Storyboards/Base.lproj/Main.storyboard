@@ -156,7 +156,7 @@
         <!--Add Parent-->
         <scene sceneID="U0a-hb-jFM">
             <objects>
-                <viewController storyboardIdentifier="AddParentViewController" title="Add Parent" id="39R-an-5o1" customClass="AddParentViewController" customModule="Spondoolicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddParentVC" title="Add Parent" id="39R-an-5o1" customClass="AddParentViewController" customModule="Spondoolicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Lv-n9-OQh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -327,11 +327,20 @@
                         <outlet property="introLabel" destination="KSn-rT-fk1" id="SMi-c0-0mW"/>
                         <outlet property="userTable" destination="DcR-qD-iId" id="MAt-xV-u1B"/>
                         <segue destination="UX2-FQ-48n" kind="show" identifier="ShowMaintainUser" id="8VL-uw-feN"/>
+                        <segue destination="gcm-pJ-NV4" kind="show" identifier="ShowDashboard" id="vln-zg-kV9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d23-ll-zEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1233.3333333333335" y="-226.63043478260872"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="U30-kZ-BlD">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Dashboard" storyboardName="Dashboard" id="gcm-pJ-NV4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A1U-50-blV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2008" y="-349"/>
         </scene>
         <!--Maintain User-->
         <scene sceneID="7Ke-uf-qx5">
@@ -473,7 +482,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Icu-oS-OkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1934.7826086956522" y="-227.44565217391306"/>
+            <point key="canvasLocation" x="2020" y="-921"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZwP-jl-Lm0">

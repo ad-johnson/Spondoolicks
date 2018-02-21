@@ -149,6 +149,10 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
         performSegue(withIdentifier: Global.Segue.MAINTAIN_USER, sender: self)
     }
     
+    func showDashboard() {
+        performSegue(withIdentifier: Global.Segue.SHOW_DASHBOARD, sender: self)
+    }
+    
     // MARK: - Use cases: responses
     func displayUsers(viewModel: ShowUsers.FindUsers.ViewModel) {
         displayedUsers = viewModel.displayedUsers
@@ -179,7 +183,8 @@ class ShowUsersViewController: UIViewController, ShowUsersDisplayLogic {
 
 extension ShowUsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // do something here
+        userBeingActioned = indexPath
+        showDashboard()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
